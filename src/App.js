@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GlobalState from "./Context/GlobalState";
+import Login from "./Login/Login";
+import MainIndex from "./MainIndex";
+import { Network } from "./Pages/Network";
+import Setting from "./Pages/Setting/Setting";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalState>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<MainIndex />} />
+            <Route path="/network" element={<Network />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/setting" element={<Setting />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalState>
+    </>
   );
 }
 
