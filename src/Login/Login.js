@@ -13,12 +13,24 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./Login.css";
+import { validEmail } from "../Constant/RegexValidation/Regex";
 
 export default function Login() {
   const [view, setView] = useState();
+  const [loginFormData, setLoginFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  console.log(loginFormData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // setLoginFormData({});
+  };
+
   return (
     <div>
-      <form style={{ marginTop: "8%" }}>
+      <form style={{ marginTop: "8%" }} onSubmit={(e) => handleSubmit(e)}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -43,7 +55,12 @@ export default function Login() {
               label="Email Address*"
               name="email"
               autoFocus
+              value={loginFormData.email}
+              onChange={(e) =>
+                setLoginFormData({ ...loginFormData, email: e.target.value })
+              }
             />
+            <FormHelperText id="my-helper-text"></FormHelperText>
 
             <div className="eye_placement" style={{ width: "100%" }}>
               <TextField
@@ -54,7 +71,15 @@ export default function Login() {
                 label="Confirm Password*"
                 name="cnpassword"
                 autoFocus
+                value={loginFormData.password}
+                onChange={(e) =>
+                  setLoginFormData({
+                    ...loginFormData,
+                    password: e.target.value,
+                  })
+                }
               />
+              <FormHelperText id="my-helper-text"></FormHelperText>
               <div className="eye_icon" onClick={() => setView(!view)}>
                 {view ? <Visibility /> : <VisibilityOff />}
               </div>
