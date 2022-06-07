@@ -89,7 +89,7 @@ export default function Header(props) {
             >
               <MenuItem onClick={handleClose}>
                 {" "}
-                <Link className="mx-3 linkstyle" to="">
+                <Link className="mx-3 linkstyle" to="/profile">
                   {" "}
                   Profile
                 </Link>{" "}

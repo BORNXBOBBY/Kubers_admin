@@ -99,7 +99,6 @@ export default function MainIndex() {
                 </div>
               </Card>
             </div>
-            <canvas className="canvas" width="700" height="657"></canvas>
           </div>
         </div>
       </div>

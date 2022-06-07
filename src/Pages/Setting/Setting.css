@@ -1,8 +1,7 @@
-.avatar{
-    position: relative;
+.submitbtn{
+    float: right;
 }
-.edit{
-    position: absolute;
-    top: 0%;
-    right: 0%;
+.linkedit{
+    text-decoration: none;
+    color: #3f51b5;
 }

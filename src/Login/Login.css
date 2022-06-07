@@ -1,0 +1,11 @@
+.eye_placement{
+    position: relative;
+}
+.eye_placement .eye_icon{
+    position: absolute;
+    top: 40%;
+    right: 8%;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all .3s ease;
+}

@@ -9,10 +9,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import "./Login.css";
 
 export default function Login() {
+  const [view, setView] = useState();
   return (
     <div>
       <form style={{ marginTop: "8%" }}>
@@ -26,7 +29,7 @@ export default function Login() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#1a2027" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#6f42c1" }}>
               <Lock />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -41,26 +44,30 @@ export default function Login() {
               name="email"
               autoFocus
             />
-            {/* <FormHelperText className="text-danger">rsdgdf</FormHelperText> */}
 
-            <TextField
-              margin="normal"
-              fullWidth
-              id="password"
-              label="Password*"
-              name="password"
-              autoFocus
-            />
-            {/* <FormHelperText className="text-danger">rsdgdf</FormHelperText> */}
+            <div className="eye_placement" style={{ width: "100%" }}>
+              <TextField
+                fullWidth
+                type={view ? "text" : "password"}
+                margin="normal"
+                id="Confirm Password"
+                label="Confirm Password*"
+                name="cnpassword"
+                autoFocus
+              />
+              <div className="eye_icon" onClick={() => setView(!view)}>
+                {view ? <Visibility /> : <VisibilityOff />}
+              </div>
+            </div>
 
             <Button
               type="submit"
               color="primary"
               variant="contained"
-              style={{ width: "100%", backgroundColor: "#1a2027" }}
+              style={{ width: "100%", backgroundColor: "#6f42c1" }}
               className="mt-3 mb-2"
             >
-              Send
+              Submit
             </Button>
 
             <Typography

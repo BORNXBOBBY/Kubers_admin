@@ -9,16 +9,13 @@ import {
   Input,
   InputLabel,
   Modal,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import React from "react";
-import Header from "../../Header/Header";
-import "./Setting.css";
+
 import { Button } from "@material-ui/core";
-import { ChevronRight } from "@material-ui/icons";
-import "../Setting/Setting.css";
+import Header from "../Header/Header";
 
 const style = {
   position: "absolute",
@@ -40,13 +37,7 @@ export default function Setting() {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <Typography variant="caption">
-                <Link className="linkedit" to="/profile">
-                  {" "}
-                  Profile{" "}
-                </Link>
-                <ChevronRight /> setting <ChevronRight />
-              </Typography>
+              <Typography variant="caption"> Profile</Typography>
             </div>
           </div>
           <div className="row">
@@ -77,21 +68,16 @@ export default function Setting() {
                                 />
                               </div>
                               <div className="col-6 mt-4">
-                                {/* <Button
-                                  variant="contained"
-                                  startIcon={<Edit />}
-                                  color="secondary"
-                                >
-                                  Edit 
-                                </Button> */}
-                                <Tooltip
-                                  placement="top"
-                                  title="change Profile here"
-                                >
-                                  <IconButton>
-                                    <Edit color="secondary" />
-                                  </IconButton>
-                                </Tooltip>
+                                <Link to="/setting">
+                                  {" "}
+                                  <Button
+                                    variant="contained"
+                                    startIcon={<Edit />}
+                                    color="secondary"
+                                  >
+                                    Edit
+                                  </Button>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -163,19 +149,6 @@ export default function Setting() {
                         </div>
                       </CardContent>
                     </Card>
-                    <div className="flex submitbtn mt-3 ">
-                      <Button
-                        className="mx-3"
-                        variant="contained"
-                        color="default"
-                        size="small"
-                      >
-                        Cancel
-                      </Button>
-                      <Button variant="contained" color="primary" size="small">
-                        Submit
-                      </Button>
-                    </div>
                   </form>
                 </div>
               </div>
