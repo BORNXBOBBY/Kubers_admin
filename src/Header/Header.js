@@ -11,6 +11,7 @@ import GlobalContext from "../Context/GlobalContext";
 import SideHeader from "./SideHeader";
 import { Close } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,6 +72,7 @@ export default function Header(props) {
               />
             </IconButton>
             <Menu
+              className="mt-5"
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
@@ -85,9 +87,24 @@ export default function Header(props) {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>Setting</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={handleClose}>
+                {" "}
+                <Link className="mx-3 linkstyle" to="">
+                  {" "}
+                  Profile
+                </Link>{" "}
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                {" "}
+                <Link className="mx-3 linkstyle" to="/setting">
+                  Setting
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                <Link className="mx-3 linkstyle " to="">
+                  Logout
+                </Link>
+              </MenuItem>
             </Menu>
           </div>
         </Toolbar>

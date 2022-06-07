@@ -1,8 +1,31 @@
-import { Button, CardContent, TextField, Typography } from "@material-ui/core";
-import { ChevronRight } from "@mui/icons-material";
-import { Card } from "@mui/material";
+import { Edit, Update } from "@mui/icons-material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  IconButton,
+  Input,
+  InputLabel,
+  Modal,
+  Typography,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 import React from "react";
 import Header from "../../Header/Header";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function Setting() {
   return (
@@ -11,83 +34,141 @@ export default function Setting() {
       <div className="main">
         <div className="container">
           <div className="row">
-            <Typography variant="caption" sx={{ mt: 3 }}>
-              {" "}
-              Setting <ChevronRight size="small" />
-            </Typography>
-            <div className="col-sm-12 mt-3">
-              <Typography variant="h4" sx={{ mt: 5 }}>
-                Personal Info
-              </Typography>
-              <Typography variant="caption" color="primary" sx={{ mt: 3 }}>
-                Update your photo and personal here
-              </Typography>
-              <div className="col-sm-8 mt-3">
-                <Card>
-                  <CardContent>
-                    <form>
-                      <div className="row">
-                        <div className="col-sm-6  mt-3">
-                          <Typography variant="h6" sx={{ mt: 4 }}>
-                            First name
-                          </Typography>
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            required
-                            variant="outlined"
-                            size="small"
-                          />
-                        </div>
-                        <div className="col-sm-6  mt-3">
-                          <Typography variant="h6" sx={{ mt: 4 }}>
-                            Last Name
-                          </Typography>
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            required
-                            variant="outlined"
-                            size="small"
-                          />
-                        </div>
-                        <div className="col-sm-12 mt-3">
-                          <Typography variant="h6" sx={{ mt: 4 }}>
-                            Email
-                          </Typography>
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            required
-                            variant="outlined"
-                            size="small"
-                          />
-                        </div>
-                        <div className="col-sm-2 mt-3">
-                          <img
-                            style={{ width: "94px" }}
-                            className="img-fluid rounded-circle"
-                            src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="col-sm-10 mt-5">
-                          <div>
-                            <input type="file" id="myFile" name="filename" />
+            <div className="col-sm-12">
+              <Typography variant="caption"> Profile</Typography>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-1"></div>
+            <div className="col-sm-11 mt-3">
+              <div className="row">
+                <div className="col-sm-12 ">
+                  <div>
+                    <Typography sx={{ mb: 0 }} variant="h3">
+                      Personal Info
+                    </Typography>
+                    <small className="text-info">
+                      Here you can see your deatils and update info.
+                    </small>
+                  </div>
+                </div>
+                <div className="col-sm-12 mt-4">
+                  <Card>
+                    <CardContent>
+                      <form>
+                        <div className="row mx-sm-5">
+                          <div className="col-sm-6">
+                            <div className="media ">
+                              <div className="m-3">
+                                <div className="avatar">
+                                  <Avatar
+                                    sx={{ width: "100px", height: "100px" }}
+                                    src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                                  />
+                                  <div className="edit">
+                                    <Link to="/profile/profilechange">
+                                      {" "}
+                                      <IconButton color="primary">
+                                        <Edit color="secondary" />
+                                      </IconButton>
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="media-body ">
+                                <div className="m-5">
+                                  <Link to="/dashboard/setting/updatesetting">
+                                    <IconButton>
+                                      <Edit color="secondary" />
+                                    </IconButton>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-sm-6">
+                            <InputLabel sx={{ mt: 3 }}>User Name</InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="user name"
+                              autoFocus
+                              variant="contained"
+                              readOnly
+                            />
+                          </div>
+                          <div className="col-sm-6">
+                            <InputLabel sx={{ mt: 3 }}>First Name</InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="first name"
+                              autoFocus
+                              variant="contained"
+                            />
+                          </div>
+                          <div className="col-sm-6">
+                            <InputLabel sx={{ mt: 3 }}>Last Name</InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="last name"
+                              autoFocus
+                              variant="contained"
+                            />
+                          </div>
+
+                          <div className="col-sm-6">
+                            <InputLabel sx={{ mt: 3 }}>Email</InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="email"
+                              autoFocus
+                              variant="contained"
+                              readOnly
+                            />
+                          </div>
+                          <div className="col-sm-6">
+                            <InputLabel sx={{ mt: 3 }}>Gender</InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="gender"
+                              autoFocus
+                              variant="contained"
+                            />
+                          </div>
+                          <div className="col-sm-6">
+                            <div>
+                              <InputLabel sx={{ mt: 3 }}>Password</InputLabel>
+                              <div className="d-flex justify-content-between">
+                                <div>
+                                  <Input
+                                    fullWidth
+                                    type="text"
+                                    placeholder="password"
+                                    autoFocus
+                                    variant="contained"
+                                  />
+                                </div>
+                                <div>
+                                  <Button
+                                    size="small"
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<Update />}
+                                  >
+                                    update
+                                  </Button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </form>
-                  </CardContent>
-                </Card>
-                <div className="mt-3" style={{ float: "right" }}>
-                  <Button className="mx-3" variant="contained">
-                    {" "}
-                    cancel
-                  </Button>
-                  <Button variant="contained" color="primary">
-                    submit
-                  </Button>
+                      </form>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             </div>
