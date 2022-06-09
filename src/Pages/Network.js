@@ -107,6 +107,7 @@ export const Network = () => {
                 />
               </div>
             </div> */}
+            <Typography variant="h4">Network</Typography>
 
             <div style={{ overflow: "auto" }}>
               <table>

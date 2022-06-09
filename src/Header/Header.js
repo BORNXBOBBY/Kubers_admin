@@ -12,6 +12,7 @@ import SideHeader from "./SideHeader";
 import { Close } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import { logout } from "../Constant/auth";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +39,10 @@ export default function Header(props) {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleClose2 = () => {
+    logout();
   };
 
   return (
@@ -100,8 +105,8 @@ export default function Header(props) {
                   Setting
                 </Link>
               </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <Link className="mx-3 linkstyle " to="">
+              <MenuItem onClick={handleClose2}>
+                <Link className="mx-3 linkstyle" to="">
                   Logout
                 </Link>
               </MenuItem>
