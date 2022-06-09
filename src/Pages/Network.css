@@ -1,21 +1,14 @@
-table tr:nth-child(odd) {
-    background-color: #ebebeb;
+table td ,table th{
+    white-space: nowrap;
+    padding: 1.05rem 0.75rem;
 }
-
-table{
-    width: 100%;
+.filter{
+    float: right;
 }
-
-table tr th {
-    font-weight: 500;
-    font-size: 18px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.tablebody{
+    background-color: #6f42c1;
+    color: #fff;
 }
-
-@media (max-width:900px) {
-    table tr th {
-        width: 20%;
-    }
-    
+.tablebody:hover{
+    color: #fff !important;
 }

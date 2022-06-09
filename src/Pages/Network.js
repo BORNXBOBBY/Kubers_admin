@@ -1,165 +1,125 @@
-import { Typography } from "@material-ui/core";
-import { ChevronRight, Close, Delete } from "@mui/icons-material";
-import React from "react";
+import { Button, Typography } from "@material-ui/core";
+import { FormControl, IconButton, InputLabel, MenuItem } from "@mui/material";
+import React, { useState } from "react";
 import Header from "../Header/Header";
-import { DataGrid } from "@mui/x-data-grid";
-import { IconButton } from "@mui/material";
 import "./Network.css";
+import Select from "@mui/material/Select";
+import { Delete } from "@mui/icons-material";
 
 export const Network = () => {
-  // const columns = [
-  //   { field: "id", headerName: "ID", width: 70 },
-  //   { field: "email", headerName: "Email", width: 250 },
-
-  //   { field: "firstName", headerName: "First name", width: 130 },
-  //   { field: "lastName", headerName: "Last name", width: 130 },
-  //   {
-  //     field: "fullName",
-  //     headerName: "Full Name",
-  //     description: "This column has a value getter and is not sortable.",
-  //     sortable: false,
-  //     width: 160,
-  //     valueGetter: (params) =>
-  //       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  //   },
-  //   { field: "mobileNumber", headerName: "Mobile Number", width: 150 },
-  //   { field: "mobileVerified", headerName: "Mobile Verified", width: 150 },
-  //   { field: "emailVerifiied", headerName: "Email Verified", width: 120 },
-  //   { field: "remove", headerName: "Remove", width: 150 },
-  // ];
-  // const rows = [
-  //   {
-  //     id: 1,
-  //     email: "elitekanishkraj@gmail.com",
-  //     lastName: "Snow",
-  //     firstName: "Jon",
-  //     mobileNumber: "9876543210",
-  //     mobileVerified: "Yes",
-  //     emailVerified: "Yes",
-  //     remove: `${(<Close />)}`,
-  //   },
-  //   {
-  //     id: 2,
-  //     email: "testerqjhwghbiekjafh9wekjfhn @gmail.com",
-  //     lastName: "Lannister",
-  //     firstName: "Cersei",
-  //     mobileNumber: "9876543210",
-  //   },
-  //   {
-  //     id: 3,
-  //     email: "testing@gmail.com",
-  //     lastName: "Lannister",
-  //     firstName: "Jaime",
-  //   },
-  //   {
-  //     id: 4,
-  //     email: "starkarya@gmail.com",
-  //     lastName: "Stark",
-  //     firstName: "Arya",
-  //   },
-  //   {
-  //     id: 5,
-  //     email: "Lord@gmail.com",
-  //     lastName: "Targaryen",
-  //     firstName: "Daenerys",
-  //   },
-  //   {
-  //     id: 6,
-  //     email: "Rahil@gmail.com",
-  //     lastName: "Melisandre",
-  //     firstName: "Rahil",
-  //   },
-  //   {
-  //     id: 7,
-  //     email: "ferrara@gmail.com",
-  //     lastName: "Clifford",
-  //     firstName: "Ferrara",
-  //   },
-  //   {
-  //     id: 8,
-  //     email: "Rossini@gmail.com",
-  //     lastName: "Frances",
-  //     firstName: "Rossini",
-  //   },
-  //   {
-  //     id: 9,
-  //     email: "Harvey@gmail.com",
-  //     lastName: "Roxie",
-  //     firstName: "Harvey",
-  //   },
-  // ];
+  const [select, setSelect] = useState();
+  const [approved, setApproved] = useState([
+    {
+      id: 1,
+      isApproved: true,
+    },
+    {
+      id: 2,
+      isApproved: true,
+    },
+    {
+      id: 3,
+      isApproved: false,
+    },
+    {
+      id: 4,
+      isApproved: true,
+    },
+    {
+      id: 5,
+      isApproved: false,
+    },
+    {
+      id: 6,
+      isApproved: true,
+    },
+  ]);
   return (
     <>
       <Header />
       <div className="main">
         <div className="container">
           <div className="row">
-            {/* <Typography variant="h6" sx={{ mt: 3 }}>
-              Network <ChevronRight />
+            <Typography variant="h4" className="mt-2">
+              Network
             </Typography>
-            <div className="col-sm-12">
-              <div style={{ height: 500, width: "100%" }}>
-                <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  pageSize={5}
-                  rowsPerPageOptions={[5]}
-                />
+            <div className="container">
+              <div className="row">
+                <div className="offset-sm-9 col-sm-3">
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">
+                      Select
+                    </InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={select}
+                      label="Select"
+                    >
+                      <MenuItem value="approve">Approve</MenuItem>
+                      <MenuItem value="reject">Reject</MenuItem>
+                    </Select>
+                  </FormControl>
+                </div>
               </div>
-            </div> */}
-            <Typography variant="h4">Network</Typography>
+            </div>
+            <div className="card-block px-0 py-3">
+              <div className="table-responsive">
+                <table className="table table-hover">
+                  <tbody className="text-center">
+                    <tr className="tablebody">
+                      <th>Profile</th>
+                      <th>Email</th>
+                      <th>Founder Name</th>
+                      <th>Actions</th>
+                      <th>Remove</th>
+                    </tr>
+                    {approved.map((index) => (
+                      <tr index>
+                        <td>
+                          <img
+                            className="rounded-circle"
+                            style={{ width: "40px" }}
+                            src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                            alt="user"
+                          />
+                        </td>
+                        <td>
+                          <h6 className="mt-2">elite@gmail.com</h6>
+                        </td>
+                        <td>
+                          <h6 className="mt-2 ">Anurag</h6>
+                        </td>
+                        <td>
+                          <div className="mt-2">
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              className="mx-2"
+                              color="default"
+                            >
+                              Reject
+                            </Button>
 
-            <div style={{ overflow: "auto" }}>
-              <table>
-                <tr style={{ backgroundColor: "#5322E5", color: "white" }}>
-                  <th className="px-2">ID</th>
-                  <th className="px-2">Email</th>
-                  <th className="px-2">Full Name</th>
-                  <th className="px-2">Mobile Number</th>
-                  <th className="px-2">Email Verified</th>
-                  <th className="px-2">Remove</th>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Kanishk</td>
-                  <td>kanish</td>
-                  <td>89875d</td>
-                  <td>hfhsadgg987</td>
-                  <td>yes</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Kanishk</td>
-                  <td>kanish</td>
-                  <td>89875d</td>
-                  <td>hfhsadgg987</td>
-                  <td>yes</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Kanishk</td>
-                  <td>kanish</td>
-                  <td>89875d</td>
-                  <td>hfhsadgg987</td>
-                  <td>yes</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Kanishk</td>
-                  <td>kanish</td>
-                  <td>89875d</td>
-                  <td>hfhsadgg987</td>
-                  <td>yes</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Kanishk</td>
-                  <td>kanish</td>
-                  <td>89875d</td>
-                  <td>hfhsadgg987</td>
-                  <td>yes</td>
-                </tr>
-              </table>
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              color="primary"
+                            >
+                              Approve
+                            </Button>
+                          </div>
+                        </td>
+                        <td>
+                          <IconButton>
+                            <Delete color="secondary" />
+                          </IconButton>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
