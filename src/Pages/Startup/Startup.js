@@ -1,6 +1,6 @@
 import { Button, Typography } from "@material-ui/core";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../Header/Header";
 import Select from "@mui/material/Select";
 import { Link } from "react-router-dom";
@@ -12,15 +12,19 @@ export default function Startup() {
   const getAllStartupData = async () => {
     try {
       var res = await getRequest("/dashboard/startups/not-aproved", true);
-      // console.log("res", res);
+      //   console.log("res", res);
       var responseData = await res.json();
-      // console.log("responseData", responseData);
-      console.log("network", responseData);
+      //   console.log("responseData", responseData);
+      console.log("startup", responseData);
       setStartup(responseData);
     } catch (e) {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    getAllStartupData();
+  }, []);
 
   return (
     <>
@@ -29,7 +33,7 @@ export default function Startup() {
         <div className="container">
           <div className="row">
             <Typography variant="h4" className="mt-2">
-              Network
+              Startup
             </Typography>
             <div className="container">
               <div className="row">
@@ -62,52 +66,35 @@ export default function Startup() {
                       <th>View</th>
                       {/* <th>Remove</th> */}
                     </tr>
-
-                    <tr>
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src="/img/the_kubers_logo.jpg"
-                          alt="user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mt-2">wasjhgsmd </h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2 ">hgsdbuk </h6>
-                      </td>
-                      {/* <td>
-                          <div className="mt-2">
+                    {startup.map((item) => (
+                      <tr>
+                        <td>
+                          <img
+                            className="rounded-circle"
+                            style={{ width: "40px" }}
+                            src="/img/the_kubers_logo.jpg"
+                            alt="user"
+                          />
+                        </td>
+                        <td>
+                          <h6 className="mt-2">{item.name} </h6>
+                        </td>
+                        <td>
+                          <h6 className="mt-2 "> {item.contact_person} </h6>
+                        </td>
+                        <td>
+                          <Link to={`startup/${item.id}/${item.slug}`}>
                             <Button
                               variant="outlined"
                               size="small"
-                              className="mx-2"
-                              color="secondary"
-                              style={{ width: "94px" }}
+                              color="default"
                             >
-                              {item.is_approved ? "Approved" : "Reject"}
+                              View
                             </Button>
-                          </div>
-                        </td> */}
-                      <td>
-                        <Link>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            color="default"
-                          >
-                            View
-                          </Button>
-                        </Link>
-                      </td>
-                      {/* <td>
-                          <IconButton>
-                            <Delete color="secondary" />
-                          </IconButton>
-                        </td> */}
-                    </tr>
+                          </Link>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
