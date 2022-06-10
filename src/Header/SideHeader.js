@@ -24,7 +24,9 @@ export default function SideHeader({ toggle }) {
         <Link className="linkstyle" to="/network">
           <SidebarLink icon={<CellTower />} text="Networks" />
         </Link>
-        <SidebarLink icon={<Rocket />} text="Startups" />
+        <Link className="linkstyle" to="/startup">
+          <SidebarLink icon={<Rocket />} text="Startups" />
+        </Link>
         <SidebarLink icon={<Person />} text="Investor" />
         <SidebarLink icon={<MonetizationOnOutlined />} text="Investment" />
       </div>
