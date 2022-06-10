@@ -1,5 +1,6 @@
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 
 export default function Profile() {
@@ -7,9 +8,10 @@ export default function Profile() {
     <>
       <Header />
       <div className="main">
-        <Typography variant="caption"> Profile</Typography>
+        <Typography variant="caption">Profile</Typography>
         <div className="container">
-          <div className="row">
+          <div className="row py-2">
+            <h3 className="text-center">Profile</h3>
             <div className="col-12 rounded shadow">
               <div className="row p-4">
                 <div className="col-12 col-md-3">
@@ -76,6 +78,13 @@ export default function Profile() {
                         >
                           LinkedIn
                         </TextField>
+                      </div>
+                      <div className="col-6 mt-3 text-end">
+                        <Link to="/setting" style={{ textDecoration: "none" }}>
+                          <Button variant="outlined" color="primary">
+                            Edit Info
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </Box>

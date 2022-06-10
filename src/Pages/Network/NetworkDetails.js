@@ -100,7 +100,7 @@ export default function NetworkDetails() {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src={networkDetails.image}
+                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
                       alt="network img"
                     />
                   </div>
