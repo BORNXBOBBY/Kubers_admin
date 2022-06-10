@@ -22,7 +22,7 @@ function App() {
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute
               exact
-              path="/network/:slug"
+              path="/network/:id/:slug"
               component={NetworkDetails}
             />
             <Route exact path="signup" component={Signup} />

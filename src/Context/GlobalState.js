@@ -8,10 +8,11 @@ function GlobalState(props) {
   const [profilePic, setProfilePic] = useState();
   const [profileDetails, setProfileDetails] = useState([]);
   const [network, setNetwork] = useState([]);
+  const [toggleSelect, setToggleSelect] = useState("not-aproved");
 
   const getAllNetworkData = async () => {
     try {
-      var res = await getRequest("/dashboard/networks/not-approved", true);
+      var res = await getRequest("/dashboard/networks/" + toggleSelect, true);
       // console.log("res", res);
       var responseData = await res.json();
       // console.log("responseData", responseData);
@@ -50,6 +51,8 @@ function GlobalState(props) {
           getProfileData: getProfileData,
           network: network,
           getAllNetworkData: getAllNetworkData,
+          setToggleSelect: setToggleSelect,
+          toggleSelect: toggleSelect,
         }}
       >
         {props.children}
