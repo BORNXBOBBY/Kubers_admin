@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getRequest } from "../Constant/apiCall";
-import { login_credentials } from "../Constant/auth";
 import GlobalContext from "./GlobalContext";
 
 function GlobalState(props) {
