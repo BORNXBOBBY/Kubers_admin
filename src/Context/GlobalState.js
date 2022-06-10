@@ -12,7 +12,7 @@ function GlobalState(props) {
 
   const getAllNetworkData = async () => {
     try {
-      var res = await getRequest("dashboard/networks/not-approved", true);
+      var res = await getRequest("/dashboard/networks/not-approved", true);
       // console.log("res", res);
       var responseData = await res.json();
       // console.log("responseData", responseData);
@@ -23,30 +23,8 @@ function GlobalState(props) {
     }
   };
 
-  useEffect(() => {
-    getAllNetworkData();
-  }, []);
-
   const toggleSidebar = () => {
     setToggle(!toggle);
-  };
-
-  const getId = async () => {
-    try {
-      var localData = await JSON.parse(localStorage.getItem(login_credentials));
-      getProfileData(localData.id);
-    } catch (err) {
-      // console.log("er", err);
-    }
-  };
-
-  const getUserName = async () => {
-    try {
-      var localData = await JSON.parse(localStorage.getItem(login_credentials));
-      setUserName(localData.username);
-    } catch (err) {
-      // console.log("er", err);
-    }
   };
 
   const getProfileData = async (id) => {
@@ -71,8 +49,8 @@ function GlobalState(props) {
           toggleSidebar: toggleSidebar,
           setUserName: setUserName,
           getProfileData: getProfileData,
-          setNetwork: setNetwork,
           network: network,
+          getAllNetworkData: getAllNetworkData,
         }}
       >
         {props.children}
