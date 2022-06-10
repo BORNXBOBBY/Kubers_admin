@@ -7,6 +7,7 @@ import Profile from "./Pages/Profile";
 import Signup from "./Login/Signup";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import { Network } from "./Pages/Network/Network";
+import NetworkDetails from "./Pages/Network/NetworkDetails";
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
             <ProtectedRoute exact path="/network" component={Network} />
             <ProtectedRoute exact path="/setting" component={Setting} />
             <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute
+              exact
+              path="/network-details"
+              component={NetworkDetails}
+            />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
