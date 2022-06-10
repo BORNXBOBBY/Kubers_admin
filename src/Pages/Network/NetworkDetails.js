@@ -3,7 +3,31 @@ import React from "react";
 import Header from "../../Header/Header";
 import TextField from "@mui/material/TextField";
 
+import { useParams } from "react-router-dom";
+import { getRequest } from "../../Constant/apiCall";
+import { useState } from "react";
+import { useEffect } from "react";
+
 export default function NetworkDetails() {
+  var { slug } = useParams();
+  const [networkDetails, setNetworkDetails] = useState();
+
+  const getAllNetworkData = async () => {
+    try {
+      var res = await getRequest(`dashboard/network/${slug}`, true);
+      // console.log("res", res);
+      var responseData = await res.json();
+      // console.log("responseData", responseData);
+      console.log("network", responseData);
+      setNetworkDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getAllNetworkData();
+  }, []);
   return (
     <>
       <Header />

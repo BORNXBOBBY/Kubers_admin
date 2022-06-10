@@ -6,6 +6,7 @@ import "./Network.css";
 import Select from "@mui/material/Select";
 import { Delete } from "@mui/icons-material";
 import GlobalContext from "../../Context/GlobalContext";
+import { Link } from "react-router-dom";
 
 export const Network = (props) => {
   const { getAllNetworkData, network } = useContext(GlobalContext);
@@ -79,13 +80,15 @@ export const Network = (props) => {
                           </div>
                         </td>
                         <td>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            color="default"
-                          >
-                            View{" "}
-                          </Button>
+                          <Link to={`/network/${item.slug}`}>
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              color="default"
+                            >
+                              View{" "}
+                            </Button>
+                          </Link>
                         </td>
                         <td>
                           <IconButton>
