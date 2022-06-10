@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getRequest } from "../Constant/apiCall";
 import { login_credentials } from "../Constant/auth";
 import GlobalContext from "./GlobalContext";
@@ -8,6 +8,24 @@ function GlobalState(props) {
   const [userName, setUserName] = useState();
   const [profilePic, setProfilePic] = useState();
   const [profileDetails, setProfileDetails] = useState([]);
+  const [network, setNetwork] = useState([]);
+
+  const getAllNetworkData = async () => {
+    try {
+      var res = await getRequest("dashboard/networks/not-approved", true);
+      // console.log("res", res);
+      var responseData = await res.json();
+      // console.log("responseData", responseData);
+      console.log("network", responseData);
+      setNetwork(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getAllNetworkData();
+  }, []);
 
   const toggleSidebar = () => {
     setToggle(!toggle);
@@ -53,6 +71,8 @@ function GlobalState(props) {
           toggleSidebar: toggleSidebar,
           setUserName: setUserName,
           getProfileData: getProfileData,
+          setNetwork: setNetwork,
+          network: network,
         }}
       >
         {props.children}
