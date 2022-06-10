@@ -5,13 +5,10 @@ import Header from "../../Header/Header";
 import "./Network.css";
 import Select from "@mui/material/Select";
 import GlobalContext from "../../Context/GlobalContext";
+import { Link } from "react-router-dom";
 
 export const Network = (props) => {
   const { network, getAllNetworkData } = useContext(GlobalContext);
-
-  const handleOpen = () => {
-    props.history.push("/network-details");
-  };
 
   useEffect(() => {
     getAllNetworkData();
@@ -86,14 +83,15 @@ export const Network = (props) => {
                           </div>
                         </td> */}
                         <td>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            color="default"
-                            onClick={handleOpen}
-                          >
-                            View{" "}
-                          </Button>
+                          <Link to={`/network/${item.slug}`}>
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              color="default"
+                            >
+                              View{" "}
+                            </Button>
+                          </Link>
                         </td>
                         {/* <td>
                           <IconButton>

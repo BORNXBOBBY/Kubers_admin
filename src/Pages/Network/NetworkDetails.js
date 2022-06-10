@@ -3,7 +3,38 @@ import React from "react";
 import Header from "../../Header/Header";
 import TextField from "@mui/material/TextField";
 
+import { useParams } from "react-router-dom";
+import { getRequest } from "../../Constant/apiCall";
+import { useState } from "react";
+import { useEffect } from "react";
+
 export default function NetworkDetails() {
+  var { slug } = useParams();
+  const [networkDetails, setNetworkDetails] = useState([]);
+
+  const getAllNetworkData = async () => {
+    try {
+      var res = await getRequest(`/dashboard/network/${slug}`, true);
+      // console.log("res", res);
+      var responseData = await res.json();
+      // console.log("responseData", responseData);
+      console.log("network", responseData);
+      setNetworkDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const date = new Date(`${networkDetails.date}`);
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  // console.log("err", formattedDate);
+
+  useEffect(() => {
+    getAllNetworkData();
+  }, []);
   return (
     <>
       <Header />
@@ -23,19 +54,17 @@ export default function NetworkDetails() {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                      src={networkDetails.image}
                       alt="network img"
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>Bihar Angel Network</h4>
-                    <span className="text-muted">43 Members</span>
-                    <p className="text-muted mb-0">Founder : Anurag verma</p>
-                    <p>
-                      Discription -- Bihar Angel Network started in 2021 with
-                      the aim to help young talent in bihar and help them
-                      achieve growth in startup s...
+                    <h4 style={{ color: "#1976d2" }}>{networkDetails.name}</h4>
+                    <span className="text-muted">{formattedDate}</span>
+                    <p className="text-muted mb-0">
+                      Founder : {networkDetails.compliance_officer}
                     </p>
+                    <p>{networkDetails.desc}</p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
@@ -82,7 +111,7 @@ export default function NetworkDetails() {
                         id="outlined-disabled"
                         label="Compliance Officer"
                         variant="outlined"
-                        value="Anurag Verma"
+                        value={networkDetails.name}
                       />
                     </div>
                     <div className="col-md-6 mt-3">
