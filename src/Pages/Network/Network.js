@@ -1,39 +1,71 @@
 import { Button, Typography } from "@material-ui/core";
 import { FormControl, IconButton, InputLabel, MenuItem } from "@mui/material";
-import React, { useState } from "react";
-import Header from "../Header/Header";
+import React, { useState, useEffect } from "react";
+import Header from "../../Header/Header";
 import "./Network.css";
 import Select from "@mui/material/Select";
 import { Delete } from "@mui/icons-material";
 
 export const Network = () => {
-  const [select, setSelect] = useState();
-  const [approved, setApproved] = useState([
+  const [select] = useState();
+  const [approvedData, setApproved] = useState([
     {
       id: 1,
-      isApproved: true,
+      isApproved: "approved",
     },
     {
       id: 2,
-      isApproved: true,
+      isApproved: "approved",
     },
     {
       id: 3,
-      isApproved: false,
+      isApproved: "reject",
     },
     {
       id: 4,
-      isApproved: true,
+      isApproved: "approved",
     },
     {
       id: 5,
-      isApproved: false,
+      isApproved: "reject",
     },
     {
       id: 6,
-      isApproved: true,
+      isApproved: "approved",
     },
   ]);
+  const [dataCopy, setDataCopy] = useState([...approvedData]);
+
+  const deleteRow = (id) => {
+    const newData = [...approvedData];
+    const deletedData = newData.filter((item, index) => {
+      return index !== id;
+    });
+    setApproved(deletedData);
+  };
+  // const filterdata = (value) => {
+  //   console.log("va", value);
+  //   const newArr = [...filterData];
+  //   const fitlerd = newArr.filter((item) => {
+  //     return item.isApproved === value;
+  //   });
+  //   console.log(fitlerd);
+  //   setApproved(fitlerd);
+  // };
+  // useEffect(() => {
+  //   setFilterData(approvedData);
+  // }, []);
+  const filterdata = (value) => {
+    console.log("va", value);
+    // const newArr = [...approvedData];
+    // console.log("newArr", newArr);
+    const fitlerd = dataCopy.filter((item) => {
+      return item.isApproved === value;
+    });
+    console.log("filtereddata", fitlerd);
+    setApproved(fitlerd);
+  };
+
   return (
     <>
       <Header />
@@ -55,8 +87,9 @@ export const Network = () => {
                       id="demo-simple-select"
                       value={select}
                       label="Select"
+                      onChange={(e) => filterdata(e.target.value)}
                     >
-                      <MenuItem value="approve">Approve</MenuItem>
+                      <MenuItem value="approved">Approved</MenuItem>
                       <MenuItem value="reject">Reject</MenuItem>
                     </Select>
                   </FormControl>
@@ -74,7 +107,7 @@ export const Network = () => {
                       <th>Actions</th>
                       <th>Remove</th>
                     </tr>
-                    {approved.map((index) => (
+                    {approvedData.map((item, index) => (
                       <tr index>
                         <td>
                           <img
@@ -97,21 +130,22 @@ export const Network = () => {
                               size="small"
                               className="mx-2"
                               color="default"
+                              style={{ width: "94px" }}
                             >
-                              Reject
+                              {item.isApproved}
                             </Button>
-
+                            {/* 
                             <Button
                               variant="outlined"
                               size="small"
                               color="primary"
                             >
                               Approve
-                            </Button>
+                            </Button> */}
                           </div>
                         </td>
                         <td>
-                          <IconButton>
+                          <IconButton onClick={() => deleteRow(index)}>
                             <Delete color="secondary" />
                           </IconButton>
                         </td>
