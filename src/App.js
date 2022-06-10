@@ -10,6 +10,8 @@ import { Network } from "./Pages/Network/Network";
 import NetworkDetails from "./Pages/Network/NetworkDetails";
 import StartupDetails from "./Pages/Startup/StartupDetails";
 import Startup from "./Pages/Startup/Startup";
+import Investor from "./Pages/Investor/Investor";
+import InvestorDetails from "./Pages/Investor/InvestorDetails";
 
 function App() {
   return (
@@ -32,6 +34,12 @@ function App() {
               exact
               path="/startup/:id/:slug"
               component={StartupDetails}
+            />
+            <ProtectedRoute exact path="/investor" component={Investor} />
+            <ProtectedRoute
+              exact
+              path="/investor/:id"
+              component={InvestorDetails}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />

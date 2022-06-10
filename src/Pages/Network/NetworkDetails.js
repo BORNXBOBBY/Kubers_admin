@@ -1,8 +1,6 @@
 import { Button } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
-import TextField from "@mui/material/TextField";
-
 import { useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
@@ -77,7 +75,7 @@ export default function NetworkDetails() {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src={networkDetails.image}
+                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
                       alt="network img"
                     />
                   </div>
