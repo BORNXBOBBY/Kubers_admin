@@ -9,32 +9,32 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function NetworkDetails() {
-  //   var { slug } = useParams();
-  //   const [networkDetails, setNetworkDetails] = useState([]);
+  var { slug } = useParams();
+  const [startupDetails, setStartupDetails] = useState([]);
 
-  //   const getAllNetworkData = async () => {
-  //     try {
-  //       var res = await getRequest(`/dashboard/network/${slug}`, true);
-  //       // console.log("res", res);
-  //       var responseData = await res.json();
-  //       // console.log("responseData", responseData);
-  //       console.log("network", responseData);
-  //       setNetworkDetails(responseData);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-  //   const date = new Date(`${networkDetails.date}`);
-  //   const formattedDate = date.toLocaleDateString("en-GB", {
-  //     day: "numeric",
-  //     month: "long",
-  //     year: "numeric",
-  //   });
-  //   // console.log("err", formattedDate);
+  const getAllStartupData = async () => {
+    try {
+      var res = await getRequest(`/dashboard/startups/${slug}`, true);
+      // console.log("res", res);
+      var responseData = await res.json();
+      // console.log("responseData", responseData);
+      console.log("network", responseData);
+      setStartupDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const date = new Date(`${startupDetails.date}`);
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  // console.log("err", formattedDate);
 
-  //   useEffect(() => {
-  //     getAllNetworkData();
-  //   }, []);
+  useEffect(() => {
+    getAllStartupData();
+  }, []);
   return (
     <>
       <Header />

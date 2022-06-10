@@ -30,7 +30,7 @@ function App() {
             <ProtectedRoute exact path="/startup" component={Startup} />
             <ProtectedRoute
               exact
-              path="/startup/details"
+              path="/startup/:id/:slug"
               component={StartupDetails}
             />
             <Route exact path="signup" component={Signup} />
