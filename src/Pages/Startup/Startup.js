@@ -2,12 +2,11 @@ import { Button, Typography } from "@material-ui/core";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
-import "./Network.css";
 import Select from "@mui/material/Select";
 import { Link } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 
-export const Network = () => {
+export default function Startup() {
   const [startup, setStartup] = React.useState([]);
 
   const getAllStartupData = async () => {
@@ -17,7 +16,7 @@ export const Network = () => {
       var responseData = await res.json();
       // console.log("responseData", responseData);
       console.log("network", responseData);
-      setNetwork(responseData);
+      setStartup(responseData);
     } catch (e) {
       console.log(e);
     }
@@ -118,4 +117,4 @@ export const Network = () => {
       </div>
     </>
   );
-};
+}

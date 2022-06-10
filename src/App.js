@@ -9,7 +9,7 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import { Network } from "./Pages/Network/Network";
 import NetworkDetails from "./Pages/Network/NetworkDetails";
 import StartupDetails from "./Pages/Startup/StartupDetails";
-import Startup from "./Pages/Startup/Startup.js";
+import Startup from "./Pages/Startup/Startup";
 
 function App() {
   return (
