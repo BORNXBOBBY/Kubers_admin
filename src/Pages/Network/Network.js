@@ -9,7 +9,11 @@ import GlobalContext from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
 
 export const Network = (props) => {
-  const { getAllNetworkData, network } = useContext(GlobalContext);
+  const { network, getAllNetworkData } = useContext(GlobalContext);
+
+  useEffect = () => {
+    getAllNetworkData();
+  };
   return (
     <>
       <Header />
@@ -43,12 +47,12 @@ export const Network = (props) => {
                 <table className="table table-hover">
                   <tbody className="text-center">
                     <tr className="tablebody">
-                      <th>Profile</th>
-                      <th>Newtorks</th>
-                      <th>​ compliance_officer</th>
-                      <th>Actions</th>
+                      <th>User Profile</th>
+                      <th>Newtork Name</th>
+                      <th>​ Compliance Officer</th>
+                      {/* <th>Actions</th> */}
                       <th>View</th>
-                      <th>Remove</th>
+                      {/* <th>Remove</th> */}
                     </tr>
                     {network.map((item) => (
                       <tr>
@@ -56,7 +60,7 @@ export const Network = (props) => {
                           <img
                             className="rounded-circle"
                             style={{ width: "40px" }}
-                            src=""
+                            src="/img/the_kubers_logo.jpg"
                             alt="user"
                           />
                         </td>
@@ -66,7 +70,7 @@ export const Network = (props) => {
                         <td>
                           <h6 className="mt-2 ">{item.compliance_officer} </h6>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="mt-2">
                             <Button
                               variant="outlined"
@@ -78,7 +82,7 @@ export const Network = (props) => {
                               {item.is_approved ? "Approved" : "Reject"}
                             </Button>
                           </div>
-                        </td>
+                        </td> */}
                         <td>
                           <Link to={`/network/${item.slug}`}>
                             <Button
@@ -90,11 +94,11 @@ export const Network = (props) => {
                             </Button>
                           </Link>
                         </td>
-                        <td>
+                        {/* <td>
                           <IconButton>
                             <Delete color="secondary" />
                           </IconButton>
-                        </td>
+                        </td> */}
                       </tr>
                     ))}
                   </tbody>
