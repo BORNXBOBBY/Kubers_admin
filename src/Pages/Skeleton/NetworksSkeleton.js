@@ -1,10 +1,13 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function NetworksSkeleton() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState({
+    count: 0,
+    count: 1,
+  });
   return (
     <div>
       <div className="container">

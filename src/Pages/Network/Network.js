@@ -4,7 +4,6 @@ import Header from "../../Header/Header";
 import "./Network.css";
 import GlobalContext from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
-import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 
 export const Network = (props) => {
   const {
@@ -25,18 +24,15 @@ export const Network = (props) => {
     <>
       <Header />
       <div className="main">
-        {NetworkSkeleton ? (
-          <NetworksSkeleton />
-        ) : (
-          <div className="container">
-            <div className="row">
-              <Typography variant="h4" className="mt-2">
-                Network
-              </Typography>
-              <div className="container">
-                <div className="row">
-                  <div className="offset-sm-9 col-sm-3">
-                    {/* <FormControl fullWidth>
+        <div className="container">
+          <div className="row">
+            <Typography variant="h4" className="mt-2">
+              Network
+            </Typography>
+            <div className="container">
+              <div className="row">
+                <div className="offset-sm-9 col-sm-3">
+                  {/* <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
                       Select
                     </InputLabel>
@@ -51,52 +47,50 @@ export const Network = (props) => {
                       <MenuItem value="not-approved">Unapproved</MenuItem>
                     </Select>
                   </FormControl> */}
-                    <select
-                      class="form-select form-select-lg mb-3"
-                      aria-label=".form-select-lg example"
-                      value={toggleSelect}
-                      onChange={(e) => setToggleSelect(e.target.value)}
-                    >
-                      <option value="selected" disabled>
-                        Select
-                      </option>
-                      <option value="unapproved">Unapproved</option>
-                      <option value="approved">Approved</option>
-                    </select>
-                  </div>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example"
+                    value={toggleSelect}
+                    onChange={(e) => setToggleSelect(e.target.value)}
+                  >
+                    <option value="selected" disabled>
+                      Select
+                    </option>
+                    <option value="unapproved">Unapproved</option>
+                    <option value="approved">Approved</option>
+                  </select>
                 </div>
               </div>
-              <div className=" py-3 px-sm-5">
-                <div className="table-responsive">
-                  <table className="table table-hover">
-                    <tbody className="text-center">
-                      <tr className="tablebody">
-                        <th>User Profile</th>
-                        <th>Newtork Name</th>
-                        <th>​ Compliance Officer</th>
-                        {/* <th>Actions</th> */}
-                        <th>View</th>
-                        {/* <th>Remove</th> */}
-                      </tr>
-                      {network.map((item, id) => (
-                        <tr key={id}>
-                          <td>
-                            <img
-                              className="rounded-circle"
-                              style={{ width: "40px" }}
-                              src="/img/the_kubers_logo.jpg"
-                              alt="user"
-                            />
-                          </td>
-                          <td>
-                            <h6 className="mt-2">{item.name} </h6>
-                          </td>
-                          <td>
-                            <h6 className="mt-2 ">
-                              {item.compliance_officer}{" "}
-                            </h6>
-                          </td>
-                          {/* <td>
+            </div>
+            <div className=" py-3 px-sm-5">
+              <div className="table-responsive">
+                <table className="table table-hover">
+                  <tbody className="text-center">
+                    <tr className="tablebody">
+                      <th>User Profile</th>
+                      <th>Network Name</th>
+                      <th>​ Compliance Officer</th>
+                      {/* <th>Actions</th> */}
+                      <th>View</th>
+                      {/* <th>Remove</th> */}
+                    </tr>
+                    {network.map((item, id) => (
+                      <tr key={id}>
+                        <td>
+                          <img
+                            className="rounded-circle"
+                            style={{ width: "40px" }}
+                            src="/img/the_kubers_logo.jpg"
+                            alt="user"
+                          />
+                        </td>
+                        <td>
+                          <h6 className="mt-2">{item.name} </h6>
+                        </td>
+                        <td>
+                          <h6 className="mt-2 ">{item.compliance_officer} </h6>
+                        </td>
+                        {/* <td>
                           <div className="mt-2">
                             <Button
                               variant="outlined"
@@ -109,31 +103,30 @@ export const Network = (props) => {
                             </Button>
                           </div>
                         </td> */}
-                          <td>
-                            <Link to={`/network/${item.id}/${item.slug}`}>
-                              <Button
-                                variant="outlined"
-                                size="small"
-                                color="default"
-                              >
-                                View
-                              </Button>
-                            </Link>
-                          </td>
-                          {/* <td>
+                        <td>
+                          <Link to={`/network/${item.id}/${item.slug}`}>
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              color="default"
+                            >
+                              View
+                            </Button>
+                          </Link>
+                        </td>
+                        {/* <td>
                           <IconButton>
                             <Delete color="secondary" />
                           </IconButton>
                         </td> */}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

@@ -43,7 +43,7 @@ export default function Startup() {
                   <tbody className="text-center">
                     <tr className="tablebody">
                       <th>User Profile</th>
-                      <th>Newtork Name</th>
+                      <th>Startup Name</th>
                       <th>​ Compliance Officer</th>
                       {/* <th>Actions</th> */}
                       <th>View</th>
