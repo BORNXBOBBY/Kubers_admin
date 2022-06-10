@@ -8,6 +8,8 @@ import Signup from "./Login/Signup";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import { Network } from "./Pages/Network/Network";
 import NetworkDetails from "./Pages/Network/NetworkDetails";
+import StartupDetails from "./Pages/Startup/StartupDetails";
+import Startup from "./Pages/Startup/Startup.js";
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
               exact
               path="/network/:id/:slug"
               component={NetworkDetails}
+            />
+            <ProtectedRoute exact path="/startup" component={Startup} />
+            <ProtectedRoute
+              exact
+              path="/startup/details"
+              component={StartupDetails}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
