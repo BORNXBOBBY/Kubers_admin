@@ -72,7 +72,7 @@ export default function Profile() {
                           id="outlined-disabled"
                           label="LinkedIn"
                           variant="outlined"
-                          value="Male"
+                          value="www.linkedin.in"
                         >
                           LinkedIn
                         </TextField>

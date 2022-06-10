@@ -25,6 +25,7 @@ export default function NetworkDetails() {
       console.log(e);
     }
   };
+  console.log("err", networkDetails.compliance_officer);
   const date = new Date(`${networkDetails.date}`);
   const formattedDate = date.toLocaleDateString("en-GB", {
     day: "numeric",
@@ -130,66 +131,142 @@ export default function NetworkDetails() {
                 <div className="container mb-3">
                   <h6 className="display-6">Basic Details : </h6>
                   <div className="row px-4 mt-3">
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="Compliance Officer"
-                        variant="outlined"
-                        value={networkDetails.name}
-                      />
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="Email"
-                        variant="outlined"
-                        value="abcdefghijklmn09876@gmail.com"
-                      />
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="LinkedIn"
-                        variant="outlined"
-                        value="abcdefghijklmn09876@gmail.com"
-                      />
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="Website"
-                        variant="outlined"
-                        value="thekubers.com"
-                      />
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="CIN No."
-                        variant="outlined"
-                        value="AV22LNP"
-                      />
-                    </div>
-                    <div className="col-md-6 mt-3">
-                      <TextField
-                        disabled
-                        className="w-100"
-                        id="outlined-disabled"
-                        label="Registered Address"
-                        variant="outlined"
-                        value="Doctors Colony Main Road, Kankarbagh, Patna"
-                      />
-                    </div>
+                    <form>
+                      <fieldset disabled>
+                        <div className="row">
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Network Type
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.type}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Complaince Officer
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.compliance_officer}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Website
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.website}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Email
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.email}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                LinkedIn
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.linkedin_url}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Address 1
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.address_line_1}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Address 2
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.address_line_2}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-6">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Address 3
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.address_line_3}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-3">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                City
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.city}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-3">
+                            <div class="mb-3">
+                              <label for="disabledTextInput" class="form-label">
+                                Pincode
+                              </label>
+                              <input
+                                type="text"
+                                id="disabledTextInput"
+                                class="form-control"
+                                placeholder={networkDetails.pincode}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
                   </div>
                 </div>
                 <div className="container">
@@ -199,12 +276,9 @@ export default function NetworkDetails() {
                       <h6>
                         Economy Sector :{" "}
                         <ul className="text-muted">
-                          <li>Agriculture</li>
-                          <li>Bank & Finance</li>
-                          <li>Education</li>
-                          <li>Basic Metal Production</li>
-                          <li>Basic Metal Production</li>
-                          <li>Basic Metal Production</li>
+                          {networkDetails.economysector?.map((item, id) => (
+                            <li>{item}</li>
+                          ))}
                         </ul>
                       </h6>
                     </div>
@@ -212,14 +286,9 @@ export default function NetworkDetails() {
                       <h6>
                         Emerging Sector :{" "}
                         <ul className="text-muted">
-                          <li>Adtech</li>
-                          <li>Agtech</li>
-                          <li>Biotech</li>
-                          <li>Bitcoin</li>
-                          <li>Bitcoin</li>
-                          <li>Bitcoin</li>
-                          <li>Bitcoin</li>
-                          <li>Bitcoin</li>
+                          {networkDetails.emergingsector?.map((item, id) => (
+                            <li>{item}</li>
+                          ))}
                         </ul>
                       </h6>
                     </div>
@@ -227,16 +296,11 @@ export default function NetworkDetails() {
                       <h6>
                         Emerging Technology :{" "}
                         <ul className="text-muted">
-                          <li>Artificial Intelligence</li>
-                          <li>virtual reality</li>
-                          <li>Augmented Reality</li>
-                          <li>3D Printing</li>
-                          <li>Blockchain</li>
-                          <li>Big Data</li>
-                          <li>Machine Learning</li>
-                          <li>Robotics</li>
-                          <li>SaaS</li>
-                          <li>Quantum Computing</li>
+                          {networkDetails.emergingtechnology?.map(
+                            (item, id) => (
+                              <li>{item}</li>
+                            )
+                          )}
                         </ul>
                       </h6>
                     </div>
@@ -244,9 +308,19 @@ export default function NetworkDetails() {
                       <h6>
                         Geography :{" "}
                         <ul className="text-muted">
-                          <li>India</li>
-                          <li>Japan</li>
-                          <li>Rome</li>
+                          {networkDetails.geography?.map((item, id) => (
+                            <li>{item}</li>
+                          ))}
+                        </ul>
+                      </h6>
+                    </div>
+                    <div className="col-12 col-md-6">
+                      <h6>
+                        Product Status :{" "}
+                        <ul className="text-muted">
+                          {networkDetails.productstatus?.map((item, id) => (
+                            <li>{item}</li>
+                          ))}
                         </ul>
                       </h6>
                     </div>
