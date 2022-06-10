@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
 export const Network = (props) => {
   const { network, getAllNetworkData } = useContext(GlobalContext);
 
-  useEffect = () => {
+  useEffect(() => {
     getAllNetworkData();
-  };
+  }, []);
   return (
     <>
       <Header />
