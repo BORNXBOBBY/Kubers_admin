@@ -111,7 +111,7 @@ export default function NetworkDetails() {
                         id="outlined-disabled"
                         label="Compliance Officer"
                         variant="outlined"
-                        value={networkDetails.name}
+                        value={networkDetails.compliance_officer}
                       />
                     </div>
                     <div className="col-md-6 mt-3">
@@ -121,7 +121,7 @@ export default function NetworkDetails() {
                         id="outlined-disabled"
                         label="Email"
                         variant="outlined"
-                        value="abcdefghijklmn09876@gmail.com"
+                        value={networkDetails.email}
                       />
                     </div>
                     <div className="col-md-6 mt-3">
