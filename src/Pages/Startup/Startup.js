@@ -1,30 +1,17 @@
 import { Button, Typography } from "@material-ui/core";
-import { FormControl, InputLabel, MenuItem } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../../Header/Header";
-import Select from "@mui/material/Select";
 import { Link } from "react-router-dom";
-import { getRequest } from "../../Constant/apiCall";
+import GlobalContext from "../../Context/GlobalContext";
 
 export default function Startup() {
-  const [startup, setStartup] = React.useState([]);
-
-  const getAllStartupData = async () => {
-    try {
-      var res = await getRequest("/dashboard/startups/not-aproved", true);
-      //   console.log("res", res);
-      var responseData = await res.json();
-      //   console.log("responseData", responseData);
-      console.log("startup", responseData);
-      setStartup(responseData);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
+  const { startup, getAllStartupData, startupToggle, setStartupToggle } =
+    useContext(GlobalContext);
   useEffect(() => {
     getAllStartupData();
-  }, []);
+  }, [startupToggle]);
+
+  console.log("s", startupToggle);
 
   return (
     <>
@@ -41,9 +28,11 @@ export default function Startup() {
                   <select
                     class="form-select form-select-lg mb-3"
                     aria-label=".form-select-lg example"
+                    // onChange={(e) => setStartupToggle(e.target.value)}
+                    onChange={(e) => setStartupToggle(e.target.value)}
                   >
-                    <option value="1">Approved</option>
-                    <option value="2">Unapproved</option>
+                    <option value="Unapproved">UnApproved</option>
+                    <option value="approved">approved</option>
                   </select>
                 </div>
               </div>

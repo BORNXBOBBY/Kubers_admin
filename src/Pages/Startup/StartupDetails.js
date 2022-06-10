@@ -4,12 +4,14 @@ import Header from "../../Header/Header";
 import TextField from "@mui/material/TextField";
 
 import { useParams } from "react-router-dom";
-import { getRequest } from "../../Constant/apiCall";
+import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function NetworkDetails() {
   var { slug } = useParams();
+  var { id } = useParams();
   const [startupDetails, setStartupDetails] = useState([]);
 
   const getAllStartupData = async () => {
@@ -20,6 +22,49 @@ export default function NetworkDetails() {
       // console.log("responseData", responseData);
       console.log("network", responseData);
       setStartupDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const StartupApprove = async () => {
+    try {
+      let data = {
+        is_approved: startupDetails.is_approved ? false : true,
+      };
+      var res = await postRequest(
+        `/dashboard/startup/update/${id}`,
+        JSON.stringify(data),
+        "PATCH",
+        true
+      );
+
+      var responseData = await res.json();
+      console.log("res", responseData);
+      if (responseData.is_approved === true) {
+        toast.success("Approved!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.success("Unapproved!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+
+      // console.log("responseData", responseData);
+      // setNetworkDetails(responseData);
     } catch (e) {
       console.log(e);
     }
@@ -38,6 +83,7 @@ export default function NetworkDetails() {
   return (
     <>
       <Header />
+      <ToastContainer />
       <div className="main">
         <div className="container">
           <div className="row">
@@ -67,31 +113,36 @@ export default function NetworkDetails() {
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
-                      <Button
-                        style={{
-                          color: "#1976d2",
-                          border: "1px solid #1976d2",
-                        }}
-                        variant="outlined"
-                        className="mb-md-3"
-                        //   size="small"
-                      >
-                        Approve
-                      </Button>
+                      {startupDetails.is_approved ? (
+                        <div className="text-center">
+                          <Button
+                            onClick={() => StartupApprove()}
+                            variant="outlined"
+                            className="px-4"
+                            style={{
+                              color: "#1976d2",
+                              border: "1px solid #1976d2",
+                            }}
+                            //   size="small"
+                          >
+                            Approve
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          onClick={() => StartupApprove()}
+                          style={{
+                            color: "red",
+                            border: "1px solid red",
+                          }}
+                          variant="outlined"
+                          className="mb-md-3"
+                          //   size="small"
+                        >
+                          Unapprove
+                        </Button>
+                      )}
                     </div>
-                    {/* <div className="text-center">
-                      <Button
-                        variant="outlined"
-                        className="px-4"
-                        style={{
-                          color: "red",
-                          border: "1px solid red",
-                        }}
-                        //   size="small"
-                      >
-                        Reject
-                      </Button>
-                    </div> */}
                   </div>
                 </div>
                 <hr />

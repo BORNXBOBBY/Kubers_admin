@@ -9,7 +9,22 @@ function GlobalState(props) {
   const [profileDetails, setProfileDetails] = useState([]);
   const [network, setNetwork] = useState([]);
   const [toggleSelect, setToggleSelect] = useState("not-aproved");
+  const [startup, setStartup] = React.useState([]);
+  const [startupToggle, setStartupToggle] = useState("not-approved");
+  const [NetworkSkeleton, setNetworkSkeleton] = useState(false);
 
+  const getAllStartupData = async () => {
+    try {
+      var res = await getRequest("/dashboard/startups/" + startupToggle, true);
+      //   console.log("res", res);
+      var responseData = await res.json();
+      //   console.log("responseData", responseData);
+      console.log("startup", responseData);
+      setStartup(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const getAllNetworkData = async () => {
     try {
       var res = await getRequest("/dashboard/networks/" + toggleSelect, true);
@@ -18,6 +33,7 @@ function GlobalState(props) {
       // console.log("responseData", responseData);
       console.log("network", responseData);
       setNetwork(responseData);
+      setNetworkSkeleton(true);
     } catch (e) {
       console.log(e);
     }
@@ -53,6 +69,12 @@ function GlobalState(props) {
           getAllNetworkData: getAllNetworkData,
           setToggleSelect: setToggleSelect,
           toggleSelect: toggleSelect,
+          getAllStartupData: getAllStartupData,
+          startup: startup,
+          startupToggle: startupToggle,
+          setStartupToggle: setStartupToggle,
+          NetworkSkeleton: NetworkSkeleton,
+          setNetworkSkeleton: setNetworkSkeleton,
         }}
       >
         {props.children}

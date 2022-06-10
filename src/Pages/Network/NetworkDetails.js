@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
-import TextField from "@mui/material/TextField";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
@@ -47,6 +48,27 @@ export default function NetworkDetails() {
       );
       var responseData = await res.json();
       console.log("res", responseData);
+      if (responseData.is_approved === true) {
+        toast.success("Approved!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.success("Unapproved!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
 
       // console.log("responseData", responseData);
       // setNetworkDetails(responseData);
@@ -61,6 +83,7 @@ export default function NetworkDetails() {
   return (
     <>
       <Header />
+      <ToastContainer />x
       <div className="main">
         <div className="container">
           <div className="row">
@@ -102,7 +125,7 @@ export default function NetworkDetails() {
                           }}
                           //   size="small"
                         >
-                          Unapproved
+                          Unapprove
                         </Button>
                       ) : (
                         <Button
