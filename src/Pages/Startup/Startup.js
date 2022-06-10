@@ -38,23 +38,17 @@ export default function Startup() {
             <div className="container">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Select
-                    </InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      label="Select"
-                    >
-                      <MenuItem value="approved">Approved</MenuItem>
-                      <MenuItem value="not-approved">Unapproved</MenuItem>
-                    </Select>
-                  </FormControl>
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example"
+                  >
+                    <option value="1">Approved</option>
+                    <option value="2">Unapproved</option>
+                  </select>
                 </div>
               </div>
             </div>
-            <div className="card-block px-0 py-3">
+            <div className="px-sm-5 py-3">
               <div className="table-responsive">
                 <table className="table table-hover">
                   <tbody className="text-center">

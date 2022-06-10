@@ -1,5 +1,11 @@
 import { Button, Typography } from "@material-ui/core";
-import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  FormControl,
+  InputLabel,
+  MenuItem,
+} from "@mui/material";
 import React, { useEffect, useContext } from "react";
 import Header from "../../Header/Header";
 import "./Network.css";
@@ -29,7 +35,7 @@ export const Network = (props) => {
             <div className="container">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
-                  <FormControl fullWidth>
+                  {/* <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
                       Select
                     </InputLabel>
@@ -43,11 +49,20 @@ export const Network = (props) => {
                       <MenuItem value="approved">Approved</MenuItem>
                       <MenuItem value="not-approved">Unapproved</MenuItem>
                     </Select>
-                  </FormControl>
+                  </FormControl> */}
+                  <select
+                    class="form-select form-select-lg mb-3"
+                    aria-label=".form-select-lg example"
+                    value={toggleSelect}
+                    onChange={(e) => setToggleSelect(e.target.value)}
+                  >
+                    <option value="unapproved">Unpproved</option>
+                    <option value="approved">Approved</option>
+                  </select>
                 </div>
               </div>
             </div>
-            <div className="card-block px-0 py-3">
+            <div className=" py-3 px-sm-5">
               <div className="table-responsive">
                 <table className="table table-hover">
                   <tbody className="text-center">

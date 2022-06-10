@@ -13,7 +13,7 @@ function GlobalState(props) {
   const getAllNetworkData = async () => {
     try {
       var res = await getRequest("/dashboard/networks/" + toggleSelect, true);
-      // console.log("res", res);
+      console.log("res", res);
       var responseData = await res.json();
       // console.log("responseData", responseData);
       console.log("network", responseData);
