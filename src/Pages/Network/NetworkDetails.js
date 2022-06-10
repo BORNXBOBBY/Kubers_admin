@@ -4,12 +4,13 @@ import Header from "../../Header/Header";
 import TextField from "@mui/material/TextField";
 
 import { useParams } from "react-router-dom";
-import { getRequest } from "../../Constant/apiCall";
+import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
 
 export default function NetworkDetails() {
   var { slug } = useParams();
+  var { id } = useParams();
   const [networkDetails, setNetworkDetails] = useState([]);
 
   const getAllNetworkData = async () => {
@@ -31,6 +32,27 @@ export default function NetworkDetails() {
     year: "numeric",
   });
   // console.log("err", formattedDate);
+
+  const NetworkApprove = async () => {
+    try {
+      let data = {
+        is_approved: networkDetails.is_approved ? false : true,
+      };
+      var res = await postRequest(
+        `/dashboard/network/update/${id}`,
+        JSON.stringify(data),
+        "PATCH",
+        true
+      );
+      var responseData = await res.json();
+      console.log("res", responseData);
+
+      // console.log("responseData", responseData);
+      // setNetworkDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     getAllNetworkData();
@@ -68,31 +90,35 @@ export default function NetworkDetails() {
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
-                      <Button
-                        style={{
-                          color: "#1976d2",
-                          border: "1px solid #1976d2",
-                        }}
-                        variant="outlined"
-                        className="mb-md-3"
-                        //   size="small"
-                      >
-                        Approve
-                      </Button>
+                      {networkDetails.is_approved ? (
+                        <Button
+                          variant="outlined"
+                          onClick={() => NetworkApprove()}
+                          className="px-4"
+                          style={{
+                            color: "red",
+                            border: "1px solid red",
+                          }}
+                          //   size="small"
+                        >
+                          Unapproved
+                        </Button>
+                      ) : (
+                        <Button
+                          onClick={() => NetworkApprove()}
+                          style={{
+                            color: "#1976d2",
+                            border: "1px solid #1976d2",
+                          }}
+                          variant="outlined"
+                          className="mb-md-3"
+                          //   size="small"
+                        >
+                          Approve
+                        </Button>
+                      )}
                     </div>
-                    {/* <div className="text-center">
-                      <Button
-                        variant="outlined"
-                        className="px-4"
-                        style={{
-                          color: "red",
-                          border: "1px solid red",
-                        }}
-                        //   size="small"
-                      >
-                        Reject
-                      </Button>
-                    </div> */}
+                    {/* <div className="text-center"></div> */}
                   </div>
                 </div>
                 <hr />
@@ -111,7 +137,7 @@ export default function NetworkDetails() {
                         id="outlined-disabled"
                         label="Compliance Officer"
                         variant="outlined"
-                        value={networkDetails.compliance_officer}
+                        value={networkDetails.name}
                       />
                     </div>
                     <div className="col-md-6 mt-3">
@@ -121,7 +147,7 @@ export default function NetworkDetails() {
                         id="outlined-disabled"
                         label="Email"
                         variant="outlined"
-                        value={networkDetails.email}
+                        value="abcdefghijklmn09876@gmail.com"
                       />
                     </div>
                     <div className="col-md-6 mt-3">

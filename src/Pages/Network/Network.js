@@ -8,11 +8,15 @@ import GlobalContext from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
 
 export const Network = (props) => {
-  const { network, getAllNetworkData } = useContext(GlobalContext);
+  const { network, getAllNetworkData, setToggleSelect, toggleSelect } =
+    useContext(GlobalContext);
 
   useEffect(() => {
     getAllNetworkData();
-  }, []);
+  }, [toggleSelect]);
+
+  console.log("fdsa", toggleSelect);
+
   return (
     <>
       <Header />
@@ -33,9 +37,11 @@ export const Network = (props) => {
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
                       label="Select"
+                      value={toggleSelect}
+                      onChange={(e) => setToggleSelect(e.target.value)}
                     >
                       <MenuItem value="approved">Approved</MenuItem>
-                      <MenuItem value="reject">Reject</MenuItem>
+                      <MenuItem value="not-approved">Unapproved</MenuItem>
                     </Select>
                   </FormControl>
                 </div>
@@ -53,8 +59,8 @@ export const Network = (props) => {
                       <th>View</th>
                       {/* <th>Remove</th> */}
                     </tr>
-                    {network.map((item) => (
-                      <tr>
+                    {network.map((item, id) => (
+                      <tr key={id}>
                         <td>
                           <img
                             className="rounded-circle"
@@ -83,13 +89,13 @@ export const Network = (props) => {
                           </div>
                         </td> */}
                         <td>
-                          <Link to={`/network/${item.slug}`}>
+                          <Link to={`/network/${item.id}/${item.slug}`}>
                             <Button
                               variant="outlined"
                               size="small"
                               color="default"
                             >
-                              View{" "}
+                              View
                             </Button>
                           </Link>
                         </td>
