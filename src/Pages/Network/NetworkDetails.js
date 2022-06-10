@@ -10,9 +10,10 @@ export default function NetworkDetails() {
       <div className="main">
         <div className="container">
           <div className="row">
-            <div className="col-12 pt-4">
+            <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
                 <h2 className="text-center">Network Details</h2>
+
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
@@ -28,7 +29,8 @@ export default function NetworkDetails() {
                   </div>
                   <div className="col-12 col-md-7">
                     <h4 style={{ color: "#1976d2" }}>Bihar Angel Network</h4>
-                    <span className="text-muted">Founder : Anurag verma</span>
+                    <span className="text-muted">43 Members</span>
+                    <p className="text-muted mb-0">Founder : Anurag verma</p>
                     <p>
                       Discription -- Bihar Angel Network started in 2021 with
                       the aim to help young talent in bihar and help them
@@ -66,15 +68,16 @@ export default function NetworkDetails() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h5 className="ps-0 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
                     About :-{" "}
                   </h5>
                 </div>
-                <div className="container">
-                  <div className="display-6">Basic Details : </div>
+                <div className="container mb-3">
+                  <h6 className="display-6">Basic Details : </h6>
                   <div className="row px-4 mt-3">
                     <div className="col-md-6 mt-3">
                       <TextField
+                        disabled
                         className="w-100"
                         id="outlined-disabled"
                         label="Compliance Officer"
@@ -84,20 +87,52 @@ export default function NetworkDetails() {
                     </div>
                     <div className="col-md-6 mt-3">
                       <TextField
+                        disabled
                         className="w-100"
-                        id="filled-disabled"
+                        id="outlined-disabled"
                         label="Email"
-                        variant="filled"
+                        variant="outlined"
                         value="abcdefghijklmn09876@gmail.com"
                       />
                     </div>
                     <div className="col-md-6 mt-3">
                       <TextField
+                        disabled
                         className="w-100"
-                        id="standard-disabled"
+                        id="outlined-disabled"
                         label="LinkedIn"
-                        variant="standard"
+                        variant="outlined"
                         value="abcdefghijklmn09876@gmail.com"
+                      />
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <TextField
+                        disabled
+                        className="w-100"
+                        id="outlined-disabled"
+                        label="Website"
+                        variant="outlined"
+                        value="thekubers.com"
+                      />
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <TextField
+                        disabled
+                        className="w-100"
+                        id="outlined-disabled"
+                        label="CIN No."
+                        variant="outlined"
+                        value="AV22LNP"
+                      />
+                    </div>
+                    <div className="col-md-6 mt-3">
+                      <TextField
+                        disabled
+                        className="w-100"
+                        id="outlined-disabled"
+                        label="Registered Address"
+                        variant="outlined"
+                        value="Doctors Colony Main Road, Kankarbagh, Patna"
                       />
                     </div>
                   </div>
