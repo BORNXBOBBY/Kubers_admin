@@ -2,11 +2,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import GlobalState from "./Context/GlobalState";
 import Login from "./Login/Login";
 import MainIndex from "./MainIndex";
-import { Network } from "./Pages/Network";
 import Setting from "./Pages/Setting/Setting";
 import Profile from "./Pages/Profile";
 import Signup from "./Login/Signup";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import { Network } from "./Pages/Network/Network";
 
 function App() {
   return (
