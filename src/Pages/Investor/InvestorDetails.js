@@ -2,20 +2,65 @@ import React, { useEffect } from "react";
 import Header from "../../Header/Header";
 import { Box, Button } from "@material-ui/core";
 import TextField from "@mui/material/TextField";
-import { getRequest } from "../../Constant/apiCall";
+import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function InvestorDetails() {
+  var { slug } = useParams();
   var { id } = useParams();
+
   const [investorDetails, setInvestorDetails] = useState([]);
   const getInvestorDetails = async () => {
     try {
-      var respon = await getRequest(`/dashboard/investment/${id}`, true);
+      var respon = await getRequest(`/dashboard/investor/${id}`, true);
       console.log("respon", respon);
       var responseData = await respon.json();
       console.log("investorDetails", responseData);
-      setInvestorDetails(responseData && responseData);
+      setInvestorDetails(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const InvestorApprove = async () => {
+    try {
+      let data = {
+        kyc_verified: investorDetails.kyc_verified ? false : true,
+      };
+      var res = await postRequest(
+        `/dashboard/investor/update/${id}`,
+        JSON.stringify(data),
+        "PUT",
+        true
+      );
+      var responseData = await res.json();
+      console.log("res", responseData);
+      if (responseData.kyc_verified === true) {
+        toast.success("Verified!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.success("Notverified!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+
+      // console.log("responseData", responseData);
+      // setNetworkDetails(responseData);
     } catch (e) {
       console.log(e);
     }
@@ -28,6 +73,7 @@ export default function InvestorDetails() {
   return (
     <>
       <Header />
+      <ToastContainer />
       <div className="main">
         <div className="container">
           <div className="row">
@@ -63,31 +109,36 @@ export default function InvestorDetails() {
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
-                      <Button
-                        style={{
-                          color: "#1976d2",
-                          border: "1px solid #1976d2",
-                        }}
-                        variant="outlined"
-                        className="mb-md-3"
-                        //   size="small"
-                      >
-                        Approve
-                      </Button>
+                      {investorDetails.kyc_verified ? (
+                        <Button
+                          onClick={() => InvestorApprove()}
+                          style={{
+                            color: "red",
+                            border: "1px solid red",
+                          }}
+                          variant="outlined"
+                          className="mb-md-3"
+                          //   size="small"
+                        >
+                          Not verify
+                        </Button>
+                      ) : (
+                        <div className="text-center">
+                          <Button
+                            onClick={() => InvestorApprove()}
+                            variant="outlined"
+                            className="px-4"
+                            style={{
+                              color: "#1976d2",
+                              border: "1px solid #1976d2",
+                            }}
+                            //   size="small"
+                          >
+                            Verify
+                          </Button>
+                        </div>
+                      )}
                     </div>
-                    {/* <div className="text-center">
-                      <Button
-                        variant="outlined"
-                        className="px-4"
-                        style={{
-                          color: "red",
-                          border: "1px solid red",
-                        }}
-                        //   size="small"
-                      >
-                        Reject
-                      </Button>
-                    </div> */}
                   </div>
                 </div>
                 <hr />
@@ -101,78 +152,159 @@ export default function InvestorDetails() {
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="Compliance Officer"
-                          variant="outlined"
-                          value="jkhadhs"
+                        <label class="form-label">First Name</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.first_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="Email"
-                          variant="outlined"
-                          value="sjkdfj"
+                        <label class="form-label">last Name</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.last_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="LinkedIn"
-                          variant="outlined"
-                          value="jsifdnj"
+                        <label class="form-label">Investment type</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.investment_type}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="Website"
-                          variant="outlined"
-                          value="kjjjkadsjj"
+                        <label class="form-label">Account Holder Name</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.account_holder_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="CIN No."
-                          variant="outlined"
-                          value="AV22LNP"
+                        <label class="form-label">Account Number</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.account_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <TextField
-                          aria-readonly
-                          className="w-100"
-                          id="outlined-disabled"
-                          label="Registered Address"
-                          variant="outlined"
-                          value="Doctors Colony Main Road, Kankarbagh, Patna"
+                        <label class="form-label">Adhar no</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.aadhar_no}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Bank Name</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.bank_name}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Bank Branch</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.branch}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">City</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.city}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Pincode</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.pincode}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">country</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.country}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Relationship</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.relationship}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Passport exp date</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.passport_exp_date}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Passport </label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.passport}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Pan</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.pan}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Investment Type</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.investment_type}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">gst No</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.gst_no}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Gst Exp. Date</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={investorDetails.gst_expiry_date}
                         />
                       </div>
                     </div>
                   </Box>
                 </div>
-                <div className="container">
+                {/* <div className="container">
                   <h6 className="display-6">Focus Area : </h6>
                   <div className="row px-4">
                     <div className="col-12 col-md-6">
                       <h6>
                         Economy Sector :{" "}
                         <ul className="text-muted">
-                          {/* {networkDetails.economysector.map((item, id) => (
-                            <li>{item}</li>
-                          ))} */}
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
@@ -183,9 +315,6 @@ export default function InvestorDetails() {
                       <h6>
                         Emerging Sector :{" "}
                         <ul className="text-muted">
-                          {/* {networkDetails.emergingsector.map((item, id) => (
-                            <li>{item}</li>
-                          ))} */}
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
@@ -196,9 +325,6 @@ export default function InvestorDetails() {
                       <h6>
                         Emerging Technology :{" "}
                         <ul className="text-muted">
-                          {/* {networkDetails.emergingtechnology.map((item, id) => (
-                            <li>{item}</li>
-                          ))} */}
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
@@ -209,9 +335,6 @@ export default function InvestorDetails() {
                       <h6>
                         Geography :{" "}
                         <ul className="text-muted">
-                          {/* {networkDetails.geography.map((item, id) => (
-                            <li>{item}</li>
-                          ))} */}
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
                           <li>jdbfhjb</li>
@@ -219,7 +342,7 @@ export default function InvestorDetails() {
                       </h6>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

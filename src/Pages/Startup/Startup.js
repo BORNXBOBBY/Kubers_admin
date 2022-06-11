@@ -3,15 +3,23 @@ import React, { useContext, useEffect } from "react";
 import Header from "../../Header/Header";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../Context/GlobalContext";
+import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
+import NetworkEmpty from "../Empty /NetworkEmpty";
 
 export default function Startup() {
-  const { startup, getAllStartupData, startupToggle, setStartupToggle } =
-    useContext(GlobalContext);
+  const {
+    startup,
+    getAllStartupData,
+    startupToggle,
+    setStartupToggle,
+    networkSkeleton,
+  } = useContext(GlobalContext);
   useEffect(() => {
     getAllStartupData();
   }, [startupToggle]);
 
   console.log("s", startupToggle);
+  console.log("res", startup);
 
   return (
     <>
@@ -37,51 +45,59 @@ export default function Startup() {
                 </div>
               </div>
             </div>
-            <div className="px-sm-5 py-3">
-              <div className="table-responsive">
-                <table className="table table-hover">
-                  <tbody className="text-center">
-                    <tr className="tablebody">
-                      <th>User Profile</th>
-                      <th>Startup Name</th>
-                      <th>​ Compliance Officer</th>
-                      {/* <th>Actions</th> */}
-                      <th>View</th>
-                      {/* <th>Remove</th> */}
-                    </tr>
-                    {startup.map((item) => (
-                      <tr>
-                        <td>
-                          <img
-                            className="rounded-circle"
-                            style={{ width: "40px" }}
-                            src="/img/the_kubers_logo.jpg"
-                            alt="user"
-                          />
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.name} </h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2 "> {item.contact_person} </h6>
-                        </td>
-                        <td>
-                          <Link to={`startup/${item.id}/${item.slug}`}>
-                            <Button
-                              variant="outlined"
-                              size="small"
-                              color="default"
-                            >
-                              View
-                            </Button>
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {networkSkeleton ? (
+              <NetworksSkeleton />
+            ) : (
+              <div className="px-sm-5 py-3">
+                {startup.length > 0 ? (
+                  <div className="table-responsive">
+                    <table className="table table-hover">
+                      <tbody className="text-center">
+                        <tr className="tablebody">
+                          <th>User Profile</th>
+                          <th>Startup Name</th>
+                          <th>​ Compliance Officer</th>
+                          {/* <th>Actions</th> */}
+                          <th>View</th>
+                          {/* <th>Remove</th> */}
+                        </tr>
+                        {startup.map((item) => (
+                          <tr>
+                            <td>
+                              <img
+                                className="rounded-circle"
+                                style={{ width: "40px" }}
+                                src="/img/the_kubers_logo.jpg"
+                                alt="user"
+                              />
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.name} </h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2 "> {item.contact_person} </h6>
+                            </td>
+                            <td>
+                              <Link to={`startup/${item.id}/${item.slug}`}>
+                                <Button
+                                  variant="outlined"
+                                  size="small"
+                                  color="default"
+                                >
+                                  View
+                                </Button>
+                              </Link>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <NetworkEmpty />
+                )}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,50 +1,55 @@
-import { Typography } from "@mui/material";
 import React, { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function NetworksSkeleton() {
-  const [count, setCount] = useState({
-    count: 0,
-    count: 1,
-  });
+  const [count, setCount] = useState([
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+  ]);
   return (
     <div>
-      <div className="container">
-        <div className="row">
-          <Typography variant="h4" className="mt-2">
-            Network
-          </Typography>
-          <div className="container">
-            <div className="row">
-              <div className="offset-sm-9 col-sm-3">
-                <Skeleton height={48} width="100%" />
-              </div>
-            </div>
-          </div>
-          <div className=" py-3 px-sm-5">
-            <div className="table-responsive">
-              <table className="table table-hover">
-                <tbody className="text-center">
-                  <tr>
-                    <td>
-                      <Skeleton height={57} width={222} />
-                    </td>
-                    <td>
-                      <Skeleton height={57} width={268} />
-                    </td>
-                    <td>
-                      <Skeleton height={57} width={342} />
-                    </td>
+      <div className=" py-3 px-sm-5">
+        <div className="table-responsive">
+          <table className="table table-hover">
+            <tbody className="text-center">
+              <tr className="tablebody">
+                <th>
+                  <Skeleton height={41} width={209} />
+                </th>
+                <th>
+                  <Skeleton height={41} width={312} />
+                </th>
+                <th>
+                  ​ <Skeleton height={41} width={322} />
+                </th>
+                <th>
+                  <Skeleton height={41} width={156} />
+                </th>
+              </tr>
 
-                    <td>
-                      <Skeleton height={57} width={164} />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+              {count.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <Skeleton height={57} width={208} />
+                  </td>
+                  <td>
+                    <Skeleton height={57} width={312} />{" "}
+                  </td>
+                  <td>
+                    <Skeleton height={57} width={322} />{" "}
+                  </td>
+
+                  <td>
+                    <Skeleton height={57} width={155} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

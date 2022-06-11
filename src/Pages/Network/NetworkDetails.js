@@ -41,7 +41,7 @@ export default function NetworkDetails() {
         is_approved: networkDetails.is_approved ? false : true,
       };
       var res = await postRequest(
-        `/dashboard/network/update/${id}`,
+        `/dashboard/investor/update/${id}`,
         JSON.stringify(data),
         "PATCH",
         true

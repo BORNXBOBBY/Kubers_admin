@@ -3,7 +3,7 @@ import { getToken, logout } from "./auth";
 
 export const getRequest = async (url, token = false) => {
   try {
-    // console.log(`${API_URL}${url}`);
+    console.log(`${API_URL}${url}`);
     var accessToken = "";
     if (token) {
       accessToken = await getToken();
@@ -24,7 +24,7 @@ export const getRequest = async (url, token = false) => {
 };
 
 export const postRequest = async (url, reqBody, reqMethod, token = false) => {
-  // console.log(`${API_URL}${url}`);
+  console.log(`${API_URL}${url}`);
   var accessToken = "";
   if (token) {
     accessToken = await getToken();
