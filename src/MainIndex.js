@@ -1,6 +1,6 @@
 import { Person } from "@material-ui/icons";
 import { CellTower, MonetizationOn, Rocket } from "@mui/icons-material";
-import { Typography, Card, CardContent, CardMedia } from "@mui/material";
+import { Typography, Card } from "@mui/material";
 import React from "react";
 import Header from "./Header/Header";
 import "./MainIndex.css";

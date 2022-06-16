@@ -1,15 +1,12 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
-import TextField from "@mui/material/TextField";
-
 import { useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { useContext } from "react";
-import GlobalContext from "../../Context/GlobalContext";
+import { Button } from "@material-ui/core";
 
 export default function NetworkDetails(props) {
   var { slug } = useParams();
@@ -126,26 +123,26 @@ export default function NetworkDetails(props) {
                             variant="outlined"
                             className="px-4"
                             style={{
-                              color: "#1976d2",
-                              border: "1px solid #1976d2",
+                              color: "red",
+                              border: "1px solid red",
                             }}
                             //   size="small"
                           >
-                            Approve
+                            Unapprove
                           </Button>
                         </div>
                       ) : (
                         <Button
                           onClick={() => StartupApprove()}
                           style={{
-                            color: "red",
-                            border: "1px solid red",
+                            color: "#1976d2",
+                            border: "1px solid #1976d2",
                           }}
                           variant="outlined"
                           className="mb-md-3"
                           //   size="small"
                         >
-                          Unapprove
+                          Approve
                         </Button>
                       )}
                     </div>

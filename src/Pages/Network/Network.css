@@ -12,3 +12,8 @@ table td ,table th{
 .tablebody:hover{
     color: #fff !important;
 }
+@media (max-width:850px){
+    .mobile td{
+        width: 50%;
+    }
+}

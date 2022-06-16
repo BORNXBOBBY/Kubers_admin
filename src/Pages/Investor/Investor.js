@@ -42,7 +42,7 @@ export default function Investor(props) {
                   <option value="selected" disabled>
                     Select
                   </option>
-                  <option value="notverified">Notverified</option>
+                  <option value="notverified">Unverified</option>
                   <option value="verified">Verified</option>
                 </select>
               </div>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "../../Header/Header";
 import { Box, Button } from "@material-ui/core";
-import TextField from "@mui/material/TextField";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -38,7 +37,7 @@ export default function InvestorDetails() {
       var responseData = await res.json();
       console.log("res", responseData);
       if (responseData.kyc_verified === true) {
-        toast.success("Verified!", {
+        toast.success("Verified Successfully!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -48,7 +47,7 @@ export default function InvestorDetails() {
           progress: undefined,
         });
       } else {
-        toast.success("Notverified!", {
+        toast.success("unverified Successfully!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -90,8 +89,7 @@ export default function InvestorDetails() {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src=""
-                      //   src={networkDetails.image}
+                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
                       alt="network img"
                     />
                   </div>
@@ -120,7 +118,7 @@ export default function InvestorDetails() {
                           className="mb-md-3"
                           //   size="small"
                         >
-                          Not verify
+                          unverify
                         </Button>
                       ) : (
                         <div className="text-center">

@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Button } from "@material-ui/core";
 
 export default function NetworkDetails() {
   var { slug } = useParams();
@@ -41,7 +41,7 @@ export default function NetworkDetails() {
         is_approved: networkDetails.is_approved ? false : true,
       };
       var res = await postRequest(
-        `/dashboard/investor/update/${id}`,
+        `/dashboard/network/update/${id}`,
         JSON.stringify(data),
         "PATCH",
         true

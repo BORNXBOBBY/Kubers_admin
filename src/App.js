@@ -12,6 +12,7 @@ import StartupDetails from "./Pages/Startup/StartupDetails";
 import Startup from "./Pages/Startup/Startup";
 import Investor from "./Pages/Investor/Investor";
 import InvestorDetails from "./Pages/Investor/InvestorDetails";
+import Deal from "./Pages/Deals/Deal";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               path="/investor/:id"
               component={InvestorDetails}
             />
+            <ProtectedRoute exact path="/deals" component={Deal} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
