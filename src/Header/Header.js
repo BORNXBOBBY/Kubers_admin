@@ -47,7 +47,7 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" sx={{ top: "0" }} className="bg-dark">
+      <AppBar position="fixed" sx={{ top: "0" }} color="default">
         <Toolbar>
           <IconButton
             edge="start"
