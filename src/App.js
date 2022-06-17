@@ -42,7 +42,7 @@ function App() {
               path="/investor/:id"
               component={InvestorDetails}
             />
-            <ProtectedRoute exact path="/deals" component={Deal} />
+            <ProtectedRoute exact path="/deal" component={Deal} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>

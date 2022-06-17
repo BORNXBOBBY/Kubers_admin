@@ -4,6 +4,7 @@ import {
   Rocket,
   Person,
   MonetizationOnOutlined,
+  AutoAwesomeMotion,
 } from "@mui/icons-material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -30,8 +31,8 @@ export default function SideHeader({ toggle }) {
         <Link to="/investor" className="linkstyle">
           <SidebarLink icon={<Person />} text="Investor" />
         </Link>
-        <Link to="/deals" className="linkstyle">
-          <SidebarLink icon={<Person />} text="Deals" />
+        <Link to="/deal" className="linkstyle">
+          <SidebarLink icon={<AutoAwesomeMotion />} text="Deal" />
         </Link>
         <SidebarLink icon={<MonetizationOnOutlined />} text="Investment" />
       </div>

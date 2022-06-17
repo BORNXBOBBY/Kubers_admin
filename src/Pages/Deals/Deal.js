@@ -1,6 +1,5 @@
 import { Button } from "@material-ui/core";
-import { MoreVert } from "@mui/icons-material";
-import { Card, CardContent, IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { getRequest } from "../../Constant/apiCall";
 import GlobalContext from "../../Context/GlobalContext";
@@ -52,6 +51,7 @@ export default function Deal(props) {
   useEffect(() => {
     getNetworkDeals();
   }, []);
+  //igore this for now
   return (
     <>
       <Header />
@@ -108,12 +108,27 @@ export default function Deal(props) {
                               size="small"
                               onClick={() => handletoggler(index)}
                             >
-                              {item.expand ? "hide" : "show"}
+                              {/* {item.expand ? "hide" : "show"} */}
+                              Show
                             </Button>
                           </td>
                         </tr>
                         {item.expand && (
-                          <td colSpan={6}>
+                          <td colSpan={4}>
+                            {/* <table>
+                              <tr>
+                                <td>
+                                  <div>Purpose of Fund:</div>{" "}
+                                </td>
+                                <td> {item.deal.purpose_of_fund} </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div>Funding Amount:</div>{" "}
+                                </td>
+                                <td>{item.deal.fund_expecting}</td>
+                              </tr>
+                            </table> */}
                             <div className="row">
                               <div className="col-6">
                                 <div>Purpose of Fund:</div>

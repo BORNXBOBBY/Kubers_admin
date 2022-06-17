@@ -1,5 +1,5 @@
 import { Button, Typography } from "@material-ui/core";
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import Header from "../../Header/Header";
 import "./Network.css";
 import GlobalContext from "../../Context/GlobalContext";

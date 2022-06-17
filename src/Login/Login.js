@@ -60,7 +60,7 @@ export default function Login() {
       };
 
       if (validateForm()) {
-        console.log("Login_Data", data);
+        // console.log("Login_Data", data);
         const response = await fetch(url, {
           method: "POST",
           headers: {
