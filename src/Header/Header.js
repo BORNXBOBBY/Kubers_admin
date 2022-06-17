@@ -47,12 +47,11 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" sx={{ top: "0" }} color="default">
+      <AppBar position="fixed" sx={{ top: "0" }} className="bg-dark">
         <Toolbar>
           <IconButton
             edge="start"
             className="d-block d-lg-none"
-            color="inherit"
             aria-label="menu"
             onClick={toggleSidebar}
           >
