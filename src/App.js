@@ -14,6 +14,7 @@ import Investor from "./Pages/Investor/Investor";
 import InvestorDetails from "./Pages/Investor/InvestorDetails";
 import Deal from "./Pages/Deals/Deal";
 import StartupDoc from "./Pages/Startup/StartupDoc";
+import Commitment from "./Pages/Deals/Commitment";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
               component={InvestorDetails}
             />
             <ProtectedRoute exact path="/deal" component={Deal} />
+            <ProtectedRoute exact path="/deal/commitment" component={Commitment} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>

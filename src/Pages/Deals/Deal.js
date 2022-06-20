@@ -6,6 +6,7 @@ import GlobalContext from "../../Context/GlobalContext";
 import Header from "../../Header/Header";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 import { addSubStr } from "../../Constant/Substring";
+import { Link } from 'react-router-dom'
 
 export default function Deal(props) {
   const [networkDeals, setNetworkDeals] = useState([]);
@@ -49,6 +50,8 @@ export default function Deal(props) {
     }
   };
 
+  const current = window.location.pathname
+
   useEffect(() => {
     getNetworkDeals();
   }, []);
@@ -58,6 +61,19 @@ export default function Deal(props) {
       <Header />
       <div className="main">
         <div className="container ">
+        <div className="d-flex border-bottom">
+            <span className="">
+              {" "}
+              <Link className={`${current === '/deal'? 'topLink-active' : 'topLink'}`} to="/deal">
+                Deals
+              </Link>
+            </span>
+            <span className="">
+              <Link className={`${current === '/deal/commitment'? 'topLink-active' : 'topLink'}`} to="/deal/commitment">
+                Deals Commitment
+              </Link>
+            </span>
+          </div>
           <div className="row">
             <div className="col-sm-12 mt-sm-3">
               <Typography variant="h4">Deals</Typography>

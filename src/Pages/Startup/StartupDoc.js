@@ -68,9 +68,9 @@ export default function Startup() {
                       <td>{addSubStr(item.description, 20)}</td>
                       <td>
                         <>
-                          <Link className="link" to={item.documents}>
+                          <a className="link" target="_blank" href={item.documents} rel="noreferrer">
                             view
-                          </Link>
+                          </a>
                         </>
                       </td>
                     </tr>
