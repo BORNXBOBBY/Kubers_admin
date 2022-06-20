@@ -1,0 +1,11 @@
+.topLink{
+    display: block;
+    padding: .5rem 1rem;
+    color: rgb(87, 87, 87) !important;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.topLink:hover{
+    color: #000000 !important;
+}

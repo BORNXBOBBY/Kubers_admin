@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Header from "../../Header/Header";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
+import "./startup.css";
 
 export default function Startup() {
   return (
@@ -9,31 +10,15 @@ export default function Startup() {
       <Header />
       <div className="main">
         <div className="container">
-          {/* <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="collapse navbar-collapse border-bottom" id="navbarNav">
-              <ul class="navbar-nav ">
-                <li class="nav-item">
-                  <Link class="nav-link" to="/startup">
-                    Startup
-                  </Link>
-                </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/startup/startup-doc">
-                    Startup document
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav> */}
           <div className="d-flex border-bottom">
-            <span>
+            <span className="">
               {" "}
-              <Link class="nav-link" to="/startup">
+              <Link class="topLink" to="/startup">
                 Startup
               </Link>
             </span>
-            <span>
-              <Link class="nav-link" to="/startup/startup-doc">
+            <span className="">
+              <Link class="topLink" to="/startup/startup-doc">
                 Startup document
               </Link>
             </span>
