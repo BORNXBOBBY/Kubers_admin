@@ -3,28 +3,28 @@ import Header from "../../Header/Header";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import "./startup.css";
-import { getRequest } from "./Constant/apiCall";
+// import { getRequest } from "./Constant/apiCall";
 
 export default function Startup() {
-  const [startupDoc, setStartupDoc] = useState();
+  // const [startupDoc, setStartupDoc] = useState();
 
-  const getDashboard = async () => {
-    try {
-      var res = await getRequest("/dashboard/admin/home", true);
-      console.log("res", res);
-      var responseData = await res.json();
-      console.log("responseData", responseData);
-      setStartupDoc(responseData);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const getDashboard = async () => {
+  //   try {
+  //     var res = await getRequest("/dashboard/admin/home", true);
+  //     console.log("res", res);
+  //     var responseData = await res.json();
+  //     console.log("responseData", responseData);
+  //     setStartupDoc(responseData);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
-  useEffect(() => {
-    getDashboard();
-  }, []);
+  // useEffect(() => {
+  //   getDashboard();
+  // }, []);
 
-  console.log(startupDoc);
+  // console.log(startupDoc);
 
   return (
     <>
