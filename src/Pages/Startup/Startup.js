@@ -26,6 +26,22 @@ export default function Startup() {
       <Header />
       <div className="main">
         <div className="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse border-bottom" id="navbarNav">
+              <ul class="navbar-nav ">
+                <li class="nav-item">
+                  <Link class="nav-link" to="/startup">
+                    Startup
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/startup/startup-doc">
+                    Startup document
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
           <div className="row">
             <Typography variant="h4" className="mt-2">
               Startup
@@ -51,9 +67,9 @@ export default function Startup() {
               <div className="px-sm-5 py-3">
                 {startup.length > 0 ? (
                   <div className="table-responsive">
-                    <table className="table table-hover">
+                    <table className="table ">
                       <tbody className="text-center">
-                        <tr className="tablebody">
+                        <tr className="tablebody headHover">
                           <th>User Profile</th>
                           <th>Startup Name</th>
                           <th>​ Compliance Officer</th>
@@ -62,7 +78,7 @@ export default function Startup() {
                           {/* <th>Remove</th> */}
                         </tr>
                         {startup.map((item) => (
-                          <tr>
+                          <tr className="tableHover">
                             <td>
                               <img
                                 className="rounded-circle"

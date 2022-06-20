@@ -68,10 +68,10 @@ export const Network = (props) => {
             ) : (
               <div className=" py-3 px-sm-5">
                 {network.length > 0 ? (
-                  <div className="table-responsive">
-                    <table className="table table-hover">
-                      <tbody className="text-center">
-                        <tr className="tablebody">
+                  <div className="px-sm-5 table-responsive ">
+                    <table className="table  border ">
+                      <tbody className="text-center ">
+                        <tr className="tablebody headHover">
                           <th>User Profile</th>
                           <th>Network Name</th>
                           <th>​ Compliance Officer</th>
@@ -80,7 +80,7 @@ export const Network = (props) => {
                           {/* <th>Remove</th> */}
                         </tr>
                         {network.map((item, id) => (
-                          <tr key={id}>
+                          <tr key={id} className="tableHover">
                             <td>
                               <img
                                 className="rounded-circle"

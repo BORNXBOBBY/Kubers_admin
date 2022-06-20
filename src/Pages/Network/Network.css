@@ -6,7 +6,7 @@ table td ,table th{
     float: right;
 }
 .tablebody{
-    background-color: #6f42c1;
+    
     color: #fff;
 }
 .tablebody:hover{
@@ -16,4 +16,25 @@ table td ,table th{
     .mobile td{
         width: 50%;
     }
+}
+.tableHover{
+    background-color: #ffffff;
+
+}
+.tableHover:hover{
+    background-color: #f1fafd;
+
+}
+.headHover{
+    background-color: #6f42c1;
+  
+}
+.headHover:hover{
+    background-color: #7c55c4;
+    
+}
+
+
+.dealsInner{
+    text-align: left !important;
 }

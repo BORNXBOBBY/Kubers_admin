@@ -1,10 +1,11 @@
 import { Button } from "@material-ui/core";
-import { Typography } from "@mui/material";
+import { imageListItemBarClasses, Typography } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { getRequest } from "../../Constant/apiCall";
 import GlobalContext from "../../Context/GlobalContext";
 import Header from "../../Header/Header";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
+import { addSubStr } from "../../Constant/Substring";
 
 export default function Deal(props) {
   const [networkDeals, setNetworkDeals] = useState([]);
@@ -56,7 +57,7 @@ export default function Deal(props) {
     <>
       <Header />
       <div className="main">
-        <div className="container">
+        <div className="container ">
           <div className="row">
             <div className="col-sm-12 mt-sm-3">
               <Typography variant="h4">Deals</Typography>
@@ -64,58 +65,59 @@ export default function Deal(props) {
             {networkSkeleton ? (
               <NetworksSkeleton />
             ) : (
-              <div className="table-responsive">
-                <table className="table table-hover">
-                  <thead className="text-center">
-                    <tr className="tablebody">
-                      <th>
-                        <Typography variant="h6">Network Name</Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">Startup Name</Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">Stage</Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">view</Typography>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-center">
-                    {networkDeals.map((item, index) => (
-                      <>
-                        <tr>
-                          <td>
-                            <h6 className="mt-2">{item.network_name} </h6>
-                          </td>
-                          <td>
-                            <h6 className="mt-2">
-                              {item.deal.startup_name.name}{" "}
-                            </h6>
-                          </td>
-                          <td>
-                            <h6 className="mt-2 ">{item.stage} </h6>
-                          </td>
+              <div className="px-sm-0 px-md-2 px-lg-5 pt-4">
+                <div className="px-sm-0 px-md-2 px-lg-5 table-responsive">
+                  <table className="table border">
+                    <thead className="text-center">
+                      <tr className="tablebody headHover">
+                        <th>
+                          <Typography variant="h6">Network Name</Typography>
+                        </th>
+                        <th>
+                          <Typography variant="h6">Startup Name</Typography>
+                        </th>
+                        <th>
+                          <Typography variant="h6">Stage</Typography>
+                        </th>
+                        <th>
+                          <Typography variant="h6">view</Typography>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-center">
+                      {networkDeals.map((item, index) => (
+                        <>
+                          <tr className="tableHover">
+                            <td>
+                              <h6 className="mt-2">{item.network_name} </h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">
+                                {item.deal.startup_name.name}{" "}
+                              </h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2 ">{item.stage} </h6>
+                            </td>
 
-                          <td>
-                            <Button
-                              data-bs-toggle="collapse"
-                              data-bs-target="#collapseExample"
-                              aria-expanded="false"
-                              aria-controls="collapseExample"
-                              variant="outlined"
-                              size="small"
-                              onClick={() => handletoggler(index)}
-                            >
-                              {/* {item.expand ? "hide" : "show"} */}
-                              Show
-                            </Button>
-                          </td>
-                        </tr>
-                        {item.expand && (
-                          <td colSpan={4}>
-                            {/* <table>
+                            <td>
+                              <Button
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseExample"
+                                aria-expanded="false"
+                                aria-controls="collapseExample"
+                                variant="outlined"
+                                size="small"
+                                onClick={() => handletoggler(index)}
+                              >
+                                {/* {item.expand ? "hide" : "show"} */}
+                                Show
+                              </Button>
+                            </td>
+                          </tr>
+                          {item.expand && (
+                            <td colSpan={4}>
+                              {/* <table>
                               <tr>
                                 <td>
                                   <div>Purpose of Fund:</div>{" "}
@@ -129,33 +131,47 @@ export default function Deal(props) {
                                 <td>{item.deal.fund_expecting}</td>
                               </tr>
                             </table> */}
-                            <div className="row">
-                              <div className="col-6">
-                                <div>Purpose of Fund:</div>
+
+                              <div className="container px-sm-5 px-md-4 px-lg-5">
+                                <div className=" dealsInner px-sm-5 px-md-4 px-lg-5">
+                                  <div className="row px-sm-5 px-md-4 px-lg-5">
+                                    <div className="col-6 mb-3">
+                                      Purpose of Fund:
+                                    </div>
+                                    <div className="col-6">
+                                      {item.deal.purpose_of_fund}
+                                    </div>
+                                    <div className="col-6 mb-3">
+                                      Fund Expected:
+                                    </div>
+                                    <div className="col-6">
+                                      {item.deal.fund_expecting}
+                                    </div>
+                                    <div className="col-6 mb-3">Stage:</div>{" "}
+                                    <div className="col-6">
+                                      {" "}
+                                      {item.deal.stage}
+                                    </div>
+                                    <div className="col-6 mb-3">Date:</div>{" "}
+                                    <div className="col-6">
+                                      {item.deal.created_on}
+                                    </div>
+                                    <div className="col-6 mb-2">
+                                      Description:
+                                    </div>
+                                    <div className="col-6">
+                                      {addSubStr(item.deal.desc, 25)}
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="col-6">
-                                {item.deal.purpose_of_fund}{" "}
-                              </div>
-                              <div className="col-6">Fund Expected:</div>
-                              <div className="col-6">
-                                {" "}
-                                {item.deal.fund_expecting}
-                              </div>
-                              <div className="col-6">Stage:</div>
-                              <div className="col-6"> {item.deal.stage}</div>
-                              <div className="col-5">Date:</div>
-                              <div className="col-6">
-                                {item.deal.created_on}
-                              </div>
-                              <div className="col-6">Description:</div>
-                              <div className="col-12">{item.deal.desc}</div>
-                            </div>
-                          </td>
-                        )}
-                      </>
-                    ))}
-                  </tbody>
-                </table>
+                            </td>
+                          )}
+                        </>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             )}
           </div>

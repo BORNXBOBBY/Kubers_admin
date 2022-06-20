@@ -13,6 +13,7 @@ import Startup from "./Pages/Startup/Startup";
 import Investor from "./Pages/Investor/Investor";
 import InvestorDetails from "./Pages/Investor/InvestorDetails";
 import Deal from "./Pages/Deals/Deal";
+import StartupDoc from "./Pages/Startup/StartupDoc";
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
               component={NetworkDetails}
             />
             <ProtectedRoute exact path="/startup" component={Startup} />
+            <ProtectedRoute
+              exact
+              path="/startup/startup-doc"
+              component={StartupDoc}
+            />
             <ProtectedRoute
               exact
               path="/startup/:id/:slug"
