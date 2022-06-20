@@ -3,28 +3,28 @@ import Header from "../../Header/Header";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import "./startup.css";
-// import { getRequest } from "./Constant/apiCall";
+import { getRequest } from "../../Constant/apiCall";
+import { addSubStr } from "../../Constant/Substring";
 
 export default function Startup() {
-  // const [startupDoc, setStartupDoc] = useState();
+  const [startupDoc, setStartupDoc] = useState([]);
 
-  // const getDashboard = async () => {
-  //   try {
-  //     var res = await getRequest("/dashboard/admin/home", true);
-  //     console.log("res", res);
-  //     var responseData = await res.json();
-  //     console.log("responseData", responseData);
-  //     setStartupDoc(responseData);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const getDocument = async () => {
+    try {
+      var res = await getRequest("/dashboard/startup_documents", true);
+      console.log("res", res);
+      var responseData = await res.json();
+      console.log("responseData", responseData);
+      setStartupDoc(responseData);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  // useEffect(() => {
-  //   getDashboard();
-  // }, []);
-
-  // console.log(startupDoc);
+  useEffect(() => {
+    getDocument();
+  }, []);
+  console.log(startupDoc);
 
   return (
     <>
@@ -53,21 +53,29 @@ export default function Startup() {
             <div class="table-responsive">
               <table class="table">
                 <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Name</th>
+                  <tr align="center">
+                    <th scope="col">Startup Name</th>
                     <th scope="col">Document Type</th>
                     <th scope="col">Description</th>
                     <th scope="col">Documents</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
-                </tbody>
+                {startupDoc.map((item, id) => (
+                  <tbody>
+                    <tr align="center">
+                      <td>{item.startups.name}</td>
+                      <td>{item.document_type}</td>
+                      <td>{addSubStr(item.description, 20)}</td>
+                      <td>
+                        <>
+                          <Link className="link" to={item.documents}>
+                            view
+                          </Link>
+                        </>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
               </table>
             </div>
           </div>
