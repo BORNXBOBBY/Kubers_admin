@@ -5,7 +5,7 @@ import "./Network.css";
 import GlobalContext from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
-import NetworkEmpty from "../Empty /NetworkEmpty";
+import NetworkEmpty from "../Empty/NetworkEmpty";
 
 export const Network = (props) => {
   const {

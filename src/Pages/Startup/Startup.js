@@ -4,7 +4,7 @@ import Header from "../../Header/Header";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../Context/GlobalContext";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
-import NetworkEmpty from "../Empty /NetworkEmpty";
+import NetworkEmpty from "../Empty/NetworkEmpty";
 
 export default function Startup() {
   const {
