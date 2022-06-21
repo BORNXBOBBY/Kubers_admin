@@ -54,9 +54,9 @@ export default function Investor(props) {
                 <NetworksSkeleton />
               ) : (
                 <div className="table-responsive">
-                  <table className="table table-hover">
+                  <table className="table ">
                     <tbody className="text-center">
-                      <tr className="tablebody">
+                      <tr className="headHover text-white">
                         <th>Investor</th>
                         <th>Investment Type</th>
                         <th>Verification</th>
@@ -64,7 +64,7 @@ export default function Investor(props) {
                       </tr>
 
                       {investor.map((item, id) => (
-                        <tr>
+                        <tr className='tableHover'>
                           <td>{`${item.first_name} ${
                             item.middle_name === null ? "" : item.middle_name
                           } ${item.last_name}`}</td>

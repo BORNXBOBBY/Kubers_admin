@@ -608,7 +608,7 @@ export default function Search() {
                       <>
                         {network.map((item, id) => (
                           <div key={id} style={{ width: "90%" }}>
-                            <Link to={`network/${item.slug}`}>
+                            <Link to={`network/${item.id}/${item.slug}`}>
                               <div className="network-card result-card rounded text-white p-2 my-1">
                                 <div className="container">
                                   <div className="row">

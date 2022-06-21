@@ -100,15 +100,17 @@ export default function Header(props) {
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 {" "}
-                <Link className="mx-3 linkstyle" to="/setting">
-                  Setting
-                </Link>
-              </MenuItem>
-              <MenuItem onClick={handleClose2}>
                 <Link className="mx-3 linkstyle" to="/search">
                   Search
                 </Link>
               </MenuItem>
+              <MenuItem onClick={handleClose}>
+                {" "}
+                <Link className="mx-3 linkstyle" to="/setting">
+                  Setting
+                </Link>
+              </MenuItem>
+              
               <MenuItem onClick={handleClose2}>
                 <Link className="mx-3 linkstyle" to="">
                   Logout
