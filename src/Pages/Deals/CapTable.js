@@ -1,10 +1,25 @@
 import { Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getRequest } from "../../Constant/apiCall";
 import Header from "../../Header/Header";
 
 export default function CapTable() {
   const current = window.location.pathname;
+  const [capTable, setCapTable] = useState([]);
+
+  const getCapTable = async () => {
+    var res = await getRequest("/dashboard/startup/captable", true);
+    console.log("res", res);
+    var responseData = await res.json();
+    console.log("responseData", responseData);
+    setCapTable(responseData);
+  };
+  useEffect(() => {
+    getCapTable();
+  }, []);
+
   return (
     <>
       <Header />
@@ -84,29 +99,6 @@ export default function CapTable() {
                     </tr>
                   </thead>
                   <tbody className="text-center">
-                    <tr className="tableHover">
-                      <td>
-                        <h6 className="mt-2">angel network</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">Bootstrap</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">Shekhar</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">29 june 2004</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">23</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">29%</h6>
-                      </td>
-                      <td>
-                        <h6 className="mt-2">10000000000</h6>
-                      </td>
-                    </tr>
                     <tr className="tableHover">
                       <td>
                         <h6 className="mt-2">angel network</h6>
