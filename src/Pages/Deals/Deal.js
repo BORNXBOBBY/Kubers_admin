@@ -87,6 +87,16 @@ export default function Deal(props) {
                 Deals Commitment
               </Link>
             </span>
+            <span className="">
+              <Link
+                className={`${
+                  current === "/deal/captable" ? "topLink-active" : "topLink"
+                }`}
+                to="/deal/captable"
+              >
+                Cap Table
+              </Link>
+            </span>
           </div>
           <div className="row">
             <div className="col-sm-12 mt-sm-3">

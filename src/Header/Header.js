@@ -105,6 +105,11 @@ export default function Header(props) {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleClose2}>
+                <Link className="mx-3 linkstyle" to="/search">
+                  Search
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleClose2}>
                 <Link className="mx-3 linkstyle" to="">
                   Logout
                 </Link>
