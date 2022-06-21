@@ -20,6 +20,7 @@ export default function Startup() {
 
   console.log("s", startupToggle);
   console.log("res", startup);
+  const current = window.location.pathname;
 
   return (
     <>
@@ -29,12 +30,24 @@ export default function Startup() {
           <div className="d-flex border-bottom">
             <span className="">
               {" "}
-              <Link class="topLink" to="/startup">
+              <Link
+                className={`${
+                  current === "/startup" ? "topLink-active" : "topLink"
+                }`}
+                to="/startup"
+              >
                 Startup
               </Link>
             </span>
             <span className="">
-              <Link class="topLink" to="/startup/startup-doc">
+              <Link
+                className={`${
+                  current === "/startup/startup-doc"
+                    ? "topLink-active"
+                    : "topLink"
+                }`}
+                to="/startup/startup-doc"
+              >
                 Startup document
               </Link>
             </span>
