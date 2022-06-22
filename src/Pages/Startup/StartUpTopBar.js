@@ -56,6 +56,18 @@ export default function StartUpTopBar() {
             Team
           </Link>
         </span>
+        <span>
+          <Link
+            className={`${
+              current === `/startup/${id}/${slug}/startup-roles`
+                ? "topLink-active"
+                : "topLink"
+            }`}
+            to={`/startup/${id}/${slug}/startup-roles`}
+          >
+            Startup Roles
+          </Link>
+        </span>
       </div>
     </>
   );

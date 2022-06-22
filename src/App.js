@@ -18,7 +18,8 @@ import Commitment from "./Pages/Deals/Commitment";
 import Search from "./Pages/Search/Search";
 import CapTable from "./Pages/Startup/CapTable";
 import StartUpTeam from "./Pages/Startup/StartUpTeam";
-import NetworkAccess from "./Pages/Network/NetworkAccess";
+import NetworkRoles from "./Pages/Network/NetworkRoles";
+import StartupRoles from "./Pages/Startup/StartupRoles";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
             <ProtectedRoute
               exact
               path="/network/:id/:slug/network-access"
-              component={NetworkAccess}
+              component={NetworkRoles}
             />
 
             <ProtectedRoute exact path="/setting" component={Setting} />
@@ -75,6 +76,11 @@ function App() {
               exact
               path="/startup/:id/:slug/team"
               component={StartUpTeam}
+            />
+            <ProtectedRoute
+              exact
+              path="/startup/:id/:slug/startup-roles"
+              component={StartupRoles}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />

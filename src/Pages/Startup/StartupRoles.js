@@ -1,16 +1,17 @@
-import { Typography } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../Header/Header";
-import NetworkTopbar from "./NetworkTopbar";
+import StartUpTopBar from "./StartUpTopBar";
 import { getRequest } from "../../Constant/apiCall";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { Typography } from "@material-ui/core";
+import { useEffect, useState } from "react";
+import NetworkEmpty from "../Empty/NetworkEmpty";
 
-export default function NetworkAccess() {
+export default function StartupRoles() {
   const [role, setRole] = useState([]);
   var { slug } = useParams();
   const getRole = async () => {
-    var res = await getRequest(`/dashboard/network/roles/${slug}`, true);
+    var res = await getRequest(`/dashboard/startup/roles/${slug}`, true);
     var responseData = await res.json();
     console.log("responseData", responseData);
     setRole(responseData);
@@ -22,15 +23,15 @@ export default function NetworkAccess() {
     <>
       <Header />
       <div className="main">
-        <NetworkTopbar />
+        <StartUpTopBar />
         <div className="container">
           <div className="row">
             <Typography variant="h4" className="my-4">
-              Network Access
+              Startup Roles
             </Typography>
           </div>
 
-          <div className="px-md-2 px-lg-4 pt-4">
+          {role.length > 0 ? <div className="px-md-2 px-lg-4 pt-4">
             <div className="px-md-2 px-lg-4 table-responsive">
               <table className="table border">
                 <thead className="text-center">
@@ -64,7 +65,7 @@ export default function NetworkAccess() {
                 </tbody>
               </table>
             </div>
-          </div>
+          </div>: <NetworkEmpty />}
         </div>
       </div>
     </>
