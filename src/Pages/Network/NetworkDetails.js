@@ -85,10 +85,10 @@ export default function NetworkDetails() {
   return (
     <>
       <Header />
-      <ToastContainer />x
+      <ToastContainer />
       <div className="main">
+        <NetworkTopbar />
         <div className="container">
-          <NetworkTopbar />
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
