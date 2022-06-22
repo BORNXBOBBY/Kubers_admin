@@ -16,13 +16,9 @@ import Deal from "./Pages/Deals/Deal";
 import StartupDoc from "./Pages/Startup/StartupDoc";
 import Commitment from "./Pages/Deals/Commitment";
 import Search from "./Pages/Search/Search";
-<<<<<<< HEAD
 import CapTable from "./Pages/Startup/CapTable";
 import StartUpTeam from "./Pages/Startup/StartUpTeam";
-=======
-import CapTable from "./Pages/Deals/CapTable";
 import NetworkAccess from "./Pages/Network/NetworkAccess";
->>>>>>> cf406b4830011c52971eff01be1c00243505ef6a
 
 function App() {
   return (
