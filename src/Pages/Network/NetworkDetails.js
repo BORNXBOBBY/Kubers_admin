@@ -3,11 +3,12 @@ import Header from "../../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Button } from "@material-ui/core";
+import NetworkTopbar from "./NetworkTopbar";
 
 export default function NetworkDetails() {
   var { slug } = useParams();
@@ -34,6 +35,7 @@ export default function NetworkDetails() {
     year: "numeric",
   });
   // console.log("err", formattedDate);
+  const current = window.location.pathname;
 
   const NetworkApprove = async () => {
     try {
@@ -86,6 +88,7 @@ export default function NetworkDetails() {
       <ToastContainer />x
       <div className="main">
         <div className="container">
+          <NetworkTopbar />
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
