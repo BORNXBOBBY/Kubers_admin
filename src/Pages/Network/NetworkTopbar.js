@@ -7,34 +7,32 @@ export default function NetworkTopbar() {
   var { slug } = useParams();
   return (
     <>
-      <div className="main">
-        <div className="d-flex border-bottom">
-          <span className="">
-            {" "}
-            <Link
-              className={`${
-                current === `/network/${id}/${slug}`
-                  ? "topLink-active"
-                  : "topLink"
-              }`}
-              to={`/network/${id}/${slug}`}
-            >
-              Details
-            </Link>
-          </span>
-          <span className="">
-            <Link
-              className={`${
-                current === "/network/network-access"
-                  ? "topLink-active"
-                  : "topLink"
-              }`}
-              to="/network/network-access"
-            >
-              Network Access
-            </Link>
-          </span>
-        </div>
+      <div className="d-flex border-bottom">
+        <span className="">
+          {" "}
+          <Link
+            className={`${
+              current === `/network/${id}/${slug}`
+                ? "topLink-active"
+                : "topLink"
+            }`}
+            to={`/network/${id}/${slug}`}
+          >
+            Details
+          </Link>
+        </span>
+        <span className="">
+          <Link
+            className={`${
+              current === "/network/network-access"
+                ? "topLink-active"
+                : "topLink"
+            }`}
+            to="/network/network-access"
+          >
+            Role
+          </Link>
+        </span>
       </div>
     </>
   );
