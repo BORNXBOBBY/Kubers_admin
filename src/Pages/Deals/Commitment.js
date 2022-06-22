@@ -56,16 +56,6 @@ export default function Commitment() {
                 Deals Commitment
               </Link>
             </span>
-            <span className="">
-              <Link
-                className={`${
-                  current === "/deal/captable" ? "topLink-active" : "topLink"
-                }`}
-                to="/deal/captable"
-              >
-                Cap Table
-              </Link>
-            </span>
           </div>
           <div className="row">
             <Typography variant="h4" className="my-4">

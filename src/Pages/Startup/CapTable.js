@@ -1,17 +1,18 @@
 import { Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 import Header from "../../Header/Header";
+import StartUpTopBar from "./StartUpTopBar";
 
 export default function CapTable() {
-  const current = window.location.pathname;
   const [capTable, setCapTable] = useState([]);
   const [totalShares, setTotalShares] = useState();
+  var { id } = useParams();
 
   const getCapTable = async () => {
-    var res = await getRequest("/dashboard/captable", true);
+    var res = await getRequest(`/dashboard/captable/${id}`, true);
     console.log("res", res);
     var responseData = await res.json();
     console.log("responseData", responseData);
@@ -42,40 +43,8 @@ export default function CapTable() {
     <>
       <Header />
       <div className="main">
+        <StartUpTopBar />
         <div className="container">
-          <div className="d-flex border-bottom">
-            <span className="">
-              {" "}
-              <Link
-                className={`${
-                  current === "/deal" ? "topLink-active" : "topLink"
-                }`}
-                to="/deal"
-              >
-                Deals
-              </Link>
-            </span>
-            <span className="">
-              <Link
-                className={`${
-                  current === "/deal/commitment" ? "topLink-active" : "topLink"
-                }`}
-                to="/deal/commitment"
-              >
-                Deals Commitment
-              </Link>
-            </span>
-            <span className="">
-              <Link
-                className={`${
-                  current === "/deal/captable" ? "topLink-active" : "topLink"
-                }`}
-                to="/deal/captable"
-              >
-                Cap Table
-              </Link>
-            </span>
-          </div>
           <div className="row">
             <div className="col-sm-12 mt-sm-3">
               <Typography>Cap Table</Typography>

@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Header from "../../Header/Header";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Button } from "@material-ui/core";
+import StartUpTopBar from "./StartUpTopBar";
 
 export default function NetworkDetails(props) {
   var { slug } = useParams();
@@ -85,12 +86,12 @@ export default function NetworkDetails(props) {
       <Header />
       <ToastContainer />
       <div className="main">
+        <StartUpTopBar />
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
                 <h2 className="text-center">Startup Details</h2>
-
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div

@@ -16,7 +16,8 @@ import Deal from "./Pages/Deals/Deal";
 import StartupDoc from "./Pages/Startup/StartupDoc";
 import Commitment from "./Pages/Deals/Commitment";
 import Search from "./Pages/Search/Search";
-import CapTable from "./Pages/Deals/CapTable";
+import CapTable from "./Pages/Startup/CapTable";
+import StartUpTeam from "./Pages/Startup/StartUpTeam";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
             <ProtectedRoute exact path="/startup" component={Startup} />
             <ProtectedRoute
               exact
-              path="/startup/startup-doc"
+              path="/startup/:id/:slug/startup-doc"
               component={StartupDoc}
             />
             <ProtectedRoute
@@ -58,7 +59,16 @@ function App() {
               component={Commitment}
             />
             <ProtectedRoute exact path="/search" component={Search} />
-            <ProtectedRoute exact path="/deal/captable" component={CapTable} />
+            <ProtectedRoute
+              exact
+              path="/startup/:id/:slug/captable"
+              component={CapTable}
+            />
+            <ProtectedRoute
+              exact
+              path="/startup/:id/:slug/team"
+              component={StartUpTeam}
+            />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
