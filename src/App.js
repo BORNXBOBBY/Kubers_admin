@@ -31,7 +31,7 @@ function App() {
             <ProtectedRoute exact path="/network" component={Network} />
             <ProtectedRoute
               exact
-              path="/network/network-access"
+              path="/network/:id/:slug/network-access"
               component={NetworkAccess}
             />
 

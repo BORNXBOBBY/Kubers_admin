@@ -24,11 +24,11 @@ export default function NetworkTopbar() {
         <span className="">
           <Link
             className={`${
-              current === "/network/network-access"
+              current === `/network/${id}/${slug}/network-access`
                 ? "topLink-active"
                 : "topLink"
             }`}
-            to="/network/network-access"
+            to={`/network/${id}/${slug}/network-access`}
           >
             Role
           </Link>
