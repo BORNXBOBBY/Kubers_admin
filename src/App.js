@@ -17,6 +17,7 @@ import StartupDoc from "./Pages/Startup/StartupDoc";
 import Commitment from "./Pages/Deals/Commitment";
 import Search from "./Pages/Search/Search";
 import CapTable from "./Pages/Deals/CapTable";
+import NetworkAccess from "./Pages/Network/NetworkAccess";
 
 function App() {
   return (
@@ -27,6 +28,12 @@ function App() {
             <Route exact path="/login" component={Login} />
             <ProtectedRoute exact path="/dashboard" component={MainIndex} />
             <ProtectedRoute exact path="/network" component={Network} />
+            <ProtectedRoute
+              exact
+              path="/network/network-access"
+              component={NetworkAccess}
+            />
+
             <ProtectedRoute exact path="/setting" component={Setting} />
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute
