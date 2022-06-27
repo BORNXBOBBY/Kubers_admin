@@ -20,6 +20,7 @@ import CapTable from "./Pages/Startup/CapTable";
 import StartUpTeam from "./Pages/Startup/StartUpTeam";
 import NetworkRoles from "./Pages/Network/NetworkRoles";
 import StartupRoles from "./Pages/Startup/StartupRoles";
+import FinancialTableDetails from "./Pages/Startup/FinancialDetails";
 
 function App() {
   return (
@@ -35,7 +36,6 @@ function App() {
               path="/network/:id/:slug/network-access"
               component={NetworkRoles}
             />
-
             <ProtectedRoute exact path="/setting" component={Setting} />
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute
@@ -54,18 +54,6 @@ function App() {
               path="/startup/:id/:slug"
               component={StartupDetails}
             />
-            <ProtectedRoute exact path="/investor" component={Investor} />
-            <ProtectedRoute
-              exact
-              path="/investor/:id"
-              component={InvestorDetails}
-            />
-            <ProtectedRoute exact path="/deal" component={Deal} />
-            <ProtectedRoute
-              exact
-              path="/deal/commitment"
-              component={Commitment}
-            />
             <ProtectedRoute exact path="/search" component={Search} />
             <ProtectedRoute
               exact
@@ -79,8 +67,25 @@ function App() {
             />
             <ProtectedRoute
               exact
+              path="/startup/:id/:slug/financial-details"
+              component={FinancialTableDetails}
+            />
+            <ProtectedRoute
+              exact
               path="/startup/:id/:slug/startup-roles"
               component={StartupRoles}
+            />
+             <ProtectedRoute exact path="/investor" component={Investor} />
+            <ProtectedRoute
+              exact
+              path="/investor/:id"
+              component={InvestorDetails}
+            />
+            <ProtectedRoute exact path="/deal" component={Deal} />
+            <ProtectedRoute
+              exact
+              path="/deal/commitment"
+              component={Commitment}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
