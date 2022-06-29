@@ -85,7 +85,7 @@ export default function Commitment() {
                             <tr key={id} align="center">
                               <td>{item.network_name}</td>
                               <td>{item.startup_name}</td>
-                              <td>{item.name}</td>
+                              <td>{item.name ? item.name : 'No Data'}</td>
                               <td>
                                 {new Date(
                                   item.commitment_date

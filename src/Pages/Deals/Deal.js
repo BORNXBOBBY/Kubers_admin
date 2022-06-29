@@ -140,7 +140,7 @@ export default function Deal(props) {
                                     </h6>
                                   </td>
                                   <td>
-                                    <h6 className="mt-2 ">{item.stage} </h6>
+                                    <h6 style={{textTransform:'capitalize'}} className="mt-2">{item.stage.replace('_', ' ')} </h6>
                                   </td>
 
                                   <td>
@@ -160,21 +160,6 @@ export default function Deal(props) {
                                 </tr>
                                 {item.expand && (
                                   <td colSpan={4}>
-                                    {/* <table>
-                              <tr>
-                                <td>
-                                  <div>Purpose of Fund:</div>{" "}
-                                </td>
-                                <td> {item.deal.purpose_of_fund} </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <div>Funding Amount:</div>{" "}
-                                </td>
-                                <td>{item.deal.fund_expecting}</td>
-                              </tr>
-                            </table> */}
-
                                     <div className="container px-sm-5 px-md-4 px-lg-5">
                                       <div className=" dealsInner px-sm-5 px-md-4 px-lg-5">
                                         <div className="row px-sm-5 px-md-4 px-lg-5">
@@ -182,7 +167,7 @@ export default function Deal(props) {
                                             Purpose of Fund:
                                           </div>
                                           <div className="col-6">
-                                            {item.deal.purpose_of_fund}
+                                            {addSubStr(item.deal.purpose_of_fund, 30)}
                                           </div>
                                           <div className="col-6 mb-3">
                                             Fund Expected:
@@ -193,7 +178,7 @@ export default function Deal(props) {
                                           <div className="col-6 mb-3">
                                             Stage:
                                           </div>{" "}
-                                          <div className="col-6">
+                                          <div style={{textTransform:'capitalize'}} className="col-6">
                                             {" "}
                                             {item.deal.stage}
                                           </div>
@@ -201,7 +186,7 @@ export default function Deal(props) {
                                             Date:
                                           </div>{" "}
                                           <div className="col-6">
-                                            {item.deal.created_on}
+                                            {new Date(item.deal.created_on).toLocaleDateString()}
                                           </div>
                                           <div className="col-6 mb-2">
                                             Description:

@@ -85,7 +85,7 @@ export const Network = (props) => {
                               <img
                                 className="rounded-circle"
                                 style={{ width: "40px" }}
-                                src="/img/the_kubers_logo.jpg"
+                                src={item.image ? item.image : '/img/the_kubers_logo.jpg'}
                                 alt="user"
                               />
                             </td>

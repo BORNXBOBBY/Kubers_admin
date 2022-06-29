@@ -13,6 +13,7 @@ import { Close } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import { logout } from "../Constant/auth";
+import { site_name } from "../Constant/ConstantApi";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +59,7 @@ export default function Header(props) {
             {toggle ? <Close /> : <MenuIcon />}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            TheKubers
+            {site_name}
           </Typography>
 
           <div>

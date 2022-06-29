@@ -143,7 +143,7 @@ export default function MainIndex() {
               </Card>
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="mt-5">
               <LineChart
                 width={1000}
@@ -191,7 +191,7 @@ export default function MainIndex() {
                 <Tooltip />
               </LineChart>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
