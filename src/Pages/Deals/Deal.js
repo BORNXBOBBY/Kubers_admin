@@ -17,22 +17,26 @@ export default function Deal(props) {
   const [dealSkeleton, setDealSkeleton] = useState(false);
 
   const getNetworkDeals = async () => {
-    setDealSkeleton(true);
-    var res = await getRequest("/dashboard/network/stage/deals", true);
-    console.log("res", res);
-    var responseData = await res.json();
-    console.log("responseData", responseData);
-
-    let newData = [];
-    responseData.map((item) =>
-      newData.push({
-        ...item,
-        expand: false,
-      })
-    );
-    setNetworkDeals(newData);
-    // setNetworkSkeleton(false);
-    setDealSkeleton(false);
+    try {
+      setDealSkeleton(true);
+      var res = await getRequest("/dashboard/network/stage/deals", true);
+      console.log("res", res);
+      var responseData = await res.json();
+      console.log("responseData", responseData);
+  
+      let newData = [];
+      responseData.map((item) =>
+        newData.push({
+          ...item,
+          expand: false,
+        })
+      );
+      setNetworkDeals(newData);
+      setDealSkeleton(false);
+    } catch(err) {
+      console.log('err', err)
+    }
+   
   };
   console.log("lersm", networkDeals);
 

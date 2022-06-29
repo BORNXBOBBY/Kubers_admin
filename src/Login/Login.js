@@ -17,6 +17,7 @@ import { login_credentials, login_token } from "../Constant/auth";
 import GlobalContext from "../Context/GlobalContext";
 import { validEmail } from "../Constant/RegexValidation/Regex";
 import "react-toastify/dist/ReactToastify.css";
+import { postRequest } from "../Constant/apiCall";
 
 export default function Login() {
   const [view, setView] = useState();
@@ -53,21 +54,18 @@ export default function Login() {
     try {
       setLoading(true);
       e.preventDefault();
-      const url = `${api_url}/auth/login/`;
+      const url = `${api_url}/dashboard/auth/login`;
       let data = {
         username: loginFormData.user_name,
         password: loginFormData.password,
       };
 
       if (validateForm()) {
-        // console.log("Login_Data", data);
-        const response = await fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+        var response = await postRequest(
+          "/dashboard/auth/login",
+          JSON.stringify(data),
+          "POST"
+        );
         const responseJson = await response.json();
         console.log("res", response.status, response);
         if (response.status === 200 || response.status === 201) {
