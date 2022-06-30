@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 import Header from "../../Header/Header";
+import NetworkEmpty from "../Empty/NetworkEmpty";
 import CaptTabaleSkeleton from "../Skeleton/CaptTabaleSkeleton";
 import StartUpTopBar from "./StartUpTopBar";
 
@@ -52,90 +53,101 @@ export default function CapTable() {
             <div className="col-sm-12 mt-sm-3">
               <Typography>Cap Table</Typography>
             </div>
-            {capSkeleton ? <CaptTabaleSkeleton /> : (<div className="px-sm-0 px-md-2 px-lg-1 pt-4">
-              <div className="px-sm-0 px-md-2 px-lg-5 table-responsive">
-                <table className="table border">
-                  <thead className="text-center">
-                    <tr className="tablebody headHover">
-                      <th>
-                        <Typography variant="h6">
-                          Network <br /> Name
-                        </Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">
-                          Startup <br /> Name
-                        </Typography>
-                      </th>
-                      <th className="pb-4">
-                        <Typography variant="h6">Stage</Typography>
-                      </th>
-                      <th className="pb-4">
-                        <Typography variant="h6">Name</Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">
-                          Date of <br /> Allotment
-                        </Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">
-                          No. of <br /> Shares
-                        </Typography>
-                      </th>
-                      <th>
-                        <Typography variant="h6">
-                          % of <br /> Holding
-                        </Typography>
-                      </th>
-                      <th className="pb-4">
-                        <Typography variant="h6">Amount</Typography>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-center">
-                    {capTable.map((item, id) => (
-                      <tr key={id} className="tableHover">
-                        <td>
-                          <h6 className="mt-2">
-                            {item.network_name ? item.network_name : "No Data"}
-                          </h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.startup_name}</h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.stage}</h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.name}</h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.date_of_allotment}</h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">{item.no_of_shares}</h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">
-                            {parseFloat(
-                              (item.no_of_shares / totalShares) * 100
-                            ).toFixed(2)}
-                            %
-                          </h6>
-                        </td>
-                        <td>
-                          <h6 className="mt-2">
-                            {parseFloat(item.price_per_instruement) *
-                              item.no_of_shares}
-                          </h6>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+
+            {capSkeleton ? (
+              <CaptTabaleSkeleton />
+            ) : (
+              <div className="px-sm-0 px-md-2 px-lg-1 pt-4">
+                {capTable.length > 0 ? (
+                  <div className="px-sm-0 px-md-2 px-lg-5 table-responsive">
+                    <table className="table border">
+                      <thead className="text-center">
+                        <tr className="tablebody headHover">
+                          <th>
+                            <Typography variant="h6">
+                              Network <br /> Name
+                            </Typography>
+                          </th>
+                          <th>
+                            <Typography variant="h6">
+                              Startup <br /> Name
+                            </Typography>
+                          </th>
+                          <th className="pb-4">
+                            <Typography variant="h6">Stage</Typography>
+                          </th>
+                          <th className="pb-4">
+                            <Typography variant="h6">Name</Typography>
+                          </th>
+                          <th>
+                            <Typography variant="h6">
+                              Date of <br /> Allotment
+                            </Typography>
+                          </th>
+                          <th>
+                            <Typography variant="h6">
+                              No. of <br /> Shares
+                            </Typography>
+                          </th>
+                          <th>
+                            <Typography variant="h6">
+                              % of <br /> Holding
+                            </Typography>
+                          </th>
+                          <th className="pb-4">
+                            <Typography variant="h6">Amount</Typography>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-center">
+                        {capTable.map((item, id) => (
+                          <tr key={id} className="tableHover">
+                            <td>
+                              <h6 className="mt-2">
+                                {item.network_name
+                                  ? item.network_name
+                                  : "No Data"}
+                              </h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.startup_name}</h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.stage}</h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.name}</h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.date_of_allotment}</h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">{item.no_of_shares}</h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">
+                                {parseFloat(
+                                  (item.no_of_shares / totalShares) * 100
+                                ).toFixed(2)}
+                                %
+                              </h6>
+                            </td>
+                            <td>
+                              <h6 className="mt-2">
+                                {parseFloat(item.price_per_instruement) *
+                                  item.no_of_shares}
+                              </h6>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <NetworkEmpty />
+                )}
               </div>
-            </div>)}
+            )}
           </div>
         </div>
       </div>

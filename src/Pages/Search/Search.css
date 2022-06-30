@@ -25,7 +25,7 @@
     position: fixed;
 }
 .filter_fixed{
-    background-color: #5322e5;
+    background-color: #694dbd;
     color: white;
 }
 .sidebar_togg{
@@ -41,8 +41,13 @@
 }
 .result-card:hover {
     transform: scale(1.02);
-    transition: 500ms;
-    background-color: rgb(34, 50, 227);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition:700ms;
+    background-color:#4682b4;
+    animation-delay: calc(0.5s + 0.5s * var(--i));
+    animation: fadein 0.5s;
+    animation-fill-mode: forwards;
+
 }
 .result-card:hover p, .result-card:hover h6 {
     color: white;
@@ -57,11 +62,13 @@
 @media (max-width:700px) {
     .sidebar_togg{
         width: 0px;
+        display: none;
         height: 0px;
     }
 
     .sidebar_togg_true{
         width: 85%;
+        display: block;
         position: absolute;
         left: 0;
         z-index: 99;

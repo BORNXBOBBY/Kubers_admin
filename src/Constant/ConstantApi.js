@@ -1,9 +1,9 @@
-// export const api_url = "https://thekubers.codestacklabs.com";
+export const api_url = "https://thekubers.codestacklabs.com";
 
 // Heroku Url
 // export const api_url = "https://kuber-admin.herokuapp.com";
 
-export const api_url = "https://kubers-prod.codestacklabs.com";
+// export const api_url = "https://kubers-prod.codestacklabs.com";
 
 export const site_name = 'AltInvest1'
 

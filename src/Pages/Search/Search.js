@@ -209,10 +209,10 @@ export default function Search() {
       <Header />
       <div className="main">
         <div className="container mt-3">
-          <div className="row">
+          <div className="row ">
             <div className="col-md-4 col-lg-3 m-0 p-0 ps-4 fixed_side">
               <div
-                className={`shadow rounded filter_fixed ${
+                className={`shadow rounded filter_fixed mt-2 ${
                   sidebar ? "sidebar_togg_true" : "sidebar_togg"
                 }`}
               >
@@ -582,7 +582,7 @@ export default function Search() {
               </div>
             </div>
 
-            <div className="inner_results col-md-7 col-lg-8">
+            <div className="inner_results col-md-7 col-lg-8 mt-2">
               <SearchBar
                 onChange={(newValue) => handleNetworkSearch(newValue)}
               />
