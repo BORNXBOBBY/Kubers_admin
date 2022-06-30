@@ -4,11 +4,13 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 import Header from "../../Header/Header";
+import CaptTabaleSkeleton from "../Skeleton/CaptTabaleSkeleton";
 import StartUpTopBar from "./StartUpTopBar";
 
 export default function CapTable() {
   const [capTable, setCapTable] = useState([]);
   const [totalShares, setTotalShares] = useState();
+  const [capSkeleton, setCapSkeleton] = useState(true);
   var { id } = useParams();
 
   const getCapTable = async () => {
@@ -18,6 +20,7 @@ export default function CapTable() {
     console.log("responseData", responseData);
     setCapTable(responseData);
     getSharesSum(responseData);
+    setCapSkeleton(false);
   };
   const getSharesSum = (row) => {
     try {
@@ -49,7 +52,7 @@ export default function CapTable() {
             <div className="col-sm-12 mt-sm-3">
               <Typography>Cap Table</Typography>
             </div>
-            <div className="px-sm-0 px-md-2 px-lg-1 pt-4">
+            {capSkeleton ? <CaptTabaleSkeleton /> : (<div className="px-sm-0 px-md-2 px-lg-1 pt-4">
               <div className="px-sm-0 px-md-2 px-lg-5 table-responsive">
                 <table className="table border">
                   <thead className="text-center">
@@ -132,7 +135,7 @@ export default function CapTable() {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </div>)}
           </div>
         </div>
       </div>
