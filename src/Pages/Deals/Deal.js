@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { imageListItemBarClasses, Typography } from "@mui/material";
+import { imageListItemBarClasses, Tooltip, Typography } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { getRequest } from "../../Constant/apiCall";
 // import GlobalContext from "../../Context/GlobalContext";
@@ -12,6 +12,7 @@ import NetworkEmpty from "../Empty/NetworkEmpty";
 export default function Deal(props) {
   const [networkDeals, setNetworkDeals] = useState([]);
   const [expanded, setExpanded] = useState(false);
+  const [showToolTip, setShowToolTip] = useState(false);
 
   // const { networkSkeleton, setNetworkSkeleton } = useContext(GlobalContext);
   const [dealSkeleton, setDealSkeleton] = useState(false);
@@ -23,7 +24,7 @@ export default function Deal(props) {
       console.log("res", res);
       var responseData = await res.json();
       console.log("responseData", responseData);
-  
+
       let newData = [];
       responseData.map((item) =>
         newData.push({
@@ -33,10 +34,9 @@ export default function Deal(props) {
       );
       setNetworkDeals(newData);
       setDealSkeleton(false);
-    } catch(err) {
-      console.log('err', err)
+    } catch (err) {
+      console.log("err", err);
     }
-   
   };
   console.log("lersm", networkDeals);
 
@@ -140,7 +140,12 @@ export default function Deal(props) {
                                     </h6>
                                   </td>
                                   <td>
-                                    <h6 style={{textTransform:'capitalize'}} className="mt-2">{item.stage.replace('_', ' ')} </h6>
+                                    <h6
+                                      style={{ textTransform: "capitalize" }}
+                                      className="mt-2"
+                                    >
+                                      {item.stage.replace("_", " ")}{" "}
+                                    </h6>
                                   </td>
 
                                   <td>
@@ -167,7 +172,10 @@ export default function Deal(props) {
                                             Purpose of Fund:
                                           </div>
                                           <div className="col-6">
-                                            {addSubStr(item.deal.purpose_of_fund, 30)}
+                                            {addSubStr(
+                                              item.deal.purpose_of_fund,
+                                              30
+                                            )}
                                           </div>
                                           <div className="col-6 mb-3">
                                             Fund Expected:
@@ -178,7 +186,12 @@ export default function Deal(props) {
                                           <div className="col-6 mb-3">
                                             Stage:
                                           </div>{" "}
-                                          <div style={{textTransform:'capitalize'}} className="col-6">
+                                          <div
+                                            style={{
+                                              textTransform: "capitalize",
+                                            }}
+                                            className="col-6"
+                                          >
                                             {" "}
                                             {item.deal.stage}
                                           </div>
@@ -186,14 +199,31 @@ export default function Deal(props) {
                                             Date:
                                           </div>{" "}
                                           <div className="col-6">
-                                            {new Date(item.deal.created_on).toLocaleDateString()}
+                                            {new Date(
+                                              item.deal.created_on
+                                            ).toLocaleDateString()}
                                           </div>
                                           <div className="col-6 mb-2">
                                             Description:
                                           </div>
-                                          <div className="col-6">
-                                            {addSubStr(item.deal.desc, 25)}
-                                          </div>
+                                          <Tooltip
+                                            placement="top-start"
+                                            title={<h6> {item.deal.desc}</h6>}
+                                            open={showToolTip}
+                                            onClose={() =>
+                                              setShowToolTip(false)
+                                            }
+                                            onOpen={() => setShowToolTip(true)}
+                                          >
+                                            <div
+                                              className="col-6"
+                                              onTouchStart={() =>
+                                                setShowToolTip(!showToolTip)
+                                              }
+                                            >
+                                              {addSubStr(item.deal.desc, 25)}
+                                            </div>
+                                          </Tooltip>
                                         </div>
                                       </div>
                                     </div>
