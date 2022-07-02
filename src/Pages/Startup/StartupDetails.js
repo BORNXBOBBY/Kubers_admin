@@ -101,7 +101,11 @@ export default function NetworkDetails(props) {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src={item.image ? item.image : 'https://i.ibb.co/Tm92ZWW/user.png'}
+                      src={
+                        item.image
+                          ? item.image
+                          : "https://i.ibb.co/Tm92ZWW/user.png"
+                      }
                       alt="network img"
                     />
                   </div>

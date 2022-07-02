@@ -9,6 +9,7 @@ import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 import NetworkEmpty from "../Empty/NetworkEmpty";
 
 export default function Investor(props) {
+  const [data, setData] = useState();
   const {
     networkSkeleton,
     getInvestor,
@@ -64,10 +65,16 @@ export default function Investor(props) {
                       </tr>
 
                       {investor.map((item, id) => (
-                        <tr className='tableHover'>
-                          <td>{`${item.first_name} ${
-                            item.middle_name === null ? "" : item.middle_name
-                          } ${item.last_name}`}</td>
+                        <tr className="tableHover">
+                          <td>
+                            {item.full_name
+                              ? item.full_name
+                              : `${item.first_name} ${
+                                  item.middle_name === null
+                                    ? ""
+                                    : item.middle_name
+                                } ${item.last_name}`}
+                          </td>
                           <td>{item.investment_type}</td>
                           <td>
                             {item.kyc_verified === false

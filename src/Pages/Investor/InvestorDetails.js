@@ -89,21 +89,29 @@ export default function InvestorDetails() {
                     <img
                       className="img-fluid rounded-circle shadow"
                       style={{ width: "100%" }}
-                      src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                      src="https://i.ibb.co/Tm92ZWW/user.png"
                       alt="network img"
                     />
                   </div>
                   <div className="col-12 col-md-7">
                     <h4 style={{ color: "#1976d2" }}>{`${
                       investorDetails.first_name
+                        ? investorDetails.first_name
+                        : ""
                     } ${
-                      investorDetails.middle_name === null
-                        ? ""
-                        : investorDetails.middle_name
-                    } ${investorDetails.last_name}`}</h4>
-                    <span className="text-muted">jdgjhsagdjh</span>
-                    <p className="text-muted mb-0">Founder : dhsyjhgh</p>
-                    <p>cjkduhuj</p>
+                      investorDetails.middle_name
+                        ? investorDetails.middle_name
+                        : ""
+                    } ${
+                      investorDetails.last_name ? investorDetails.last_name : ""
+                    }`}</h4>
+                    <span className="text-muted">
+                      {investorDetails.fname_authorized_person_karta}{" "}
+                    </span>
+                    <p className="text-muted mb-0">
+                      Founder : {investorDetails.account_holder_name}
+                    </p>
+                    <p>{investorDetails.date} </p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">

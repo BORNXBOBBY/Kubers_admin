@@ -73,7 +73,7 @@ export default function Header(props) {
               {/* <AccountCircle /> */}
               <Avatar
                 alt="Remy Sharp"
-                src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                src="https://i.ibb.co/Tm92ZWW/user.png"
               />
             </IconButton>
             <Menu
@@ -111,7 +111,7 @@ export default function Header(props) {
                   Setting
                 </Link>
               </MenuItem>
-              
+
               <MenuItem onClick={handleClose2}>
                 <Link className="mx-3 linkstyle" to="">
                   Logout
