@@ -69,11 +69,9 @@ export default function Investor(props) {
                           <td>
                             {item.full_name
                               ? item.full_name
-                              : `${item.first_name} ${
-                                  item.middle_name === null
-                                    ? ""
-                                    : item.middle_name
-                                } ${item.last_name}`}
+                              : `${item.first_name ? item.first_name : ""} ${
+                                  item.middle_name ? item.middle_name : ""
+                                } ${item.last_name ? item.last_name : ""} `}
                           </td>
                           <td>{item.investment_type}</td>
                           <td>
