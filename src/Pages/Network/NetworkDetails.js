@@ -102,7 +102,11 @@ export default function NetworkDetails() {
                   >
                     <img
                       className="img-fluid rounded-circle shadow"
-                      style={{ width: "100%", height: "90%" }}
+                      style={{
+                        width: "100%",
+                        height: "90%",
+                        objectFit: "contain",
+                      }}
                       src={
                         networkDetails.image
                           ? networkDetails.image
