@@ -100,7 +100,7 @@ export default function NetworkDetails(props) {
                   >
                     <img
                       className="img-fluid rounded-circle shadow"
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", height: "90%" }}
                       src={
                         item.image
                           ? item.image

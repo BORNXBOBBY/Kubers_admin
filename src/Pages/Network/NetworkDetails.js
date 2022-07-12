@@ -102,8 +102,12 @@ export default function NetworkDetails() {
                   >
                     <img
                       className="img-fluid rounded-circle shadow"
-                      style={{ width: "100%" }}
-                      src={networkDetails.image ? networkDetails.image : "https://i.ibb.co/Tm92ZWW/user.png"}
+                      style={{ width: "100%", height: "90%" }}
+                      src={
+                        networkDetails.image
+                          ? networkDetails.image
+                          : "https://i.ibb.co/bLCKZws/logi.png"
+                      }
                       alt="network img"
                     />
                   </div>

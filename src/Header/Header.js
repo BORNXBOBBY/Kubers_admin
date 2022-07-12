@@ -58,9 +58,13 @@ export default function Header(props) {
           >
             {toggle ? <Close /> : <MenuIcon />}
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            {site_name}
-          </Typography>
+          <div className={classes.title}>
+            <img
+              style={{ width: "150px" }}
+              src="https://i.ibb.co/bLCKZws/logi.png"
+              alt=""
+            />
+          </div>
 
           <div>
             <IconButton
