@@ -58,6 +58,7 @@ export default function Investor(props) {
                   <table className="table ">
                     <tbody className="text-center">
                       <tr className="headHover text-white">
+                        {/* <th>Date Of Creation </th> */}
                         <th>Investor</th>
                         <th>Investment Type</th>
                         <th>Verification</th>
@@ -66,6 +67,9 @@ export default function Investor(props) {
 
                       {investor.map((item, id) => (
                         <tr className="tableHover">
+                          {/* <td> 
+                            {new Date(item.date).toLocaleDateString()}
+                          </td> */}
                           <td>
                             {item.full_name
                               ? item.full_name

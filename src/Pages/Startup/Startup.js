@@ -54,6 +54,7 @@ export default function Startup() {
                     <table className="table ">
                       <tbody className="text-center">
                         <tr className="tablebody headHover">
+                          {/* <th>Date Of Creation</th> */}
                           <th>User Profile</th>
                           <th>Startup Name</th>
                           <th>​ Compliance Officer</th>
@@ -63,6 +64,9 @@ export default function Startup() {
                         </tr>
                         {startup.map((item) => (
                           <tr className="tableHover">
+                            {/* <td> 
+                            {new Date(item.date).toLocaleDateString()}
+                          </td> */}
                             <td>
                               <img
                                 className="rounded-circle"

@@ -72,15 +72,17 @@ export const Network = (props) => {
                     <table className="table  border ">
                       <tbody className="text-center ">
                         <tr className="tablebody headHover">
+                          {/* <th>Date Of Creation</th> */}
                           <th>User Profile</th>
                           <th>Network Name</th>
                           <th>​ Compliance Officer</th>
-                          {/* <th>Actions</th> */}
                           <th>View</th>
-                          {/* <th>Remove</th> */}
                         </tr>
                         {network.map((item, id) => (
                           <tr key={id} className="tableHover">
+                            {/* <td> 
+                            {new Date(item.date).toLocaleDateString()}
+                          </td> */}
                             <td>
                               <img
                                 className="rounded-circle"
