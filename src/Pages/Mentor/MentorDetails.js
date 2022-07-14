@@ -1,40 +1,34 @@
-import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../Header/Header";
-import { Link, useParams } from "react-router-dom";
-import { getRequest, postRequest } from "../../Constant/apiCall";
-import { useState } from "react";
-import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { Button } from "@material-ui/core";
-import StartUpTopBar from "./StartUpTopBar";
+import { useParams } from "react-router-dom";
+import { getRequest, postRequest } from "../../Constant/apiCall";
+import { Box, Button } from "@material-ui/core";
 
-export default function NetworkDetails(props) {
+export default function MentorDetails() {
   var { slug } = useParams();
   var { id } = useParams();
-  const [item, setStartupDetails] = useState([]);
-
-  const getStartupDetails = async () => {
+  const [item, setMentorDetails] = useState([]);
+  const getMentorDetails = async () => {
     try {
-      var res = await getRequest(`/dashboard/startup/${slug}`, true);
+      var res = await getRequest(`/dashboard/mentor/${slug}`, true);
       // console.log("res", res);
       var responseData = await res.json();
-      console.log("responseData", responseData);
-      console.log("startup_details", responseData);
-      setStartupDetails(responseData);
+      // console.log("responseData", responseData);
+      console.log("mentor_details", responseData);
+      setMentorDetails(responseData);
     } catch (e) {
       console.log(e);
     }
   };
 
-  console.log("stateStat", item);
-  const StartupApprove = async () => {
+  const MentorApprove = async () => {
     try {
       let data = {
         is_approved: item.is_approved ? false : true,
       };
       var res = await postRequest(
-        `/dashboard/startup/update/${id}`,
+        `/dashboard/mentor/update/${id}`,
         JSON.stringify(data),
         "PATCH",
         true
@@ -70,28 +64,20 @@ export default function NetworkDetails(props) {
       console.log(e);
     }
   };
-  const date = new Date(`${item.date}`);
-  const formattedDate = date.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  // console.log("err", formattedDate);
 
   useEffect(() => {
-    getStartupDetails();
+    getMentorDetails();
   }, []);
   return (
     <>
       <Header />
       <ToastContainer />
       <div className="main">
-        <StartUpTopBar />
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Startup Details</h2>
+                <h2 className="text-center">Mentor Details</h2>
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
@@ -105,30 +91,22 @@ export default function NetworkDetails(props) {
                         height: "90%",
                         objectFit: "contain",
                       }}
-                      src={
-                        item.image
-                          ? item.image
-                          : "https://i.ibb.co/Tm92ZWW/user.png"
-                      }
-                      alt="network img"
+                      src={item.logo}
+                      alt=""
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{item.name} </h4>
-                    <span className="text-muted">
-                      {item.startup_start_date}{" "}
-                    </span>
-                    <p className="text-muted mb-0">
-                      Founder :{item.founder_name}
-                    </p>
-                    <p>{item.desc} </p>
+                    <h4 style={{ color: "#1976d2" }}>{item.full_name} </h4>
+                    <p className="text-muted mb-0">{item.designation}</p>
+                    <span className="text-muted">{item.name_of_the_firm} </span>
+                    <p>{item.description} </p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
                       {item.is_approved ? (
                         <div className="text-center">
                           <Button
-                            onClick={() => StartupApprove()}
+                            onClick={() => MentorApprove()}
                             variant="outlined"
                             className="px-4"
                             style={{
@@ -142,7 +120,7 @@ export default function NetworkDetails(props) {
                         </div>
                       ) : (
                         <Button
-                          onClick={() => StartupApprove()}
+                          onClick={() => MentorApprove()}
                           style={{
                             color: "#1976d2",
                             border: "1px solid #1976d2",
@@ -158,67 +136,119 @@ export default function NetworkDetails(props) {
                   </div>
                 </div>
                 <hr />
-
                 <div className="row">
                   <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
-                    About :-{" "}
+                    About :-
                   </h5>
                 </div>
                 <div className="container mb-3">
-                  <h6 className="display-6">Basic Details : </h6>
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">
-                        <label class="form-label"> startup Name</label>
-                        <input type="" class="form-control" value={item.name} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Founder Name</label>
+                        <label class="form-label">Full Name</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.founder_name}
+                          value={item.full_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Contact Person</label>
+                        <label class="form-label">Company Name</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.contact_person}
+                          value={item.name_of_the_firm}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">DAte</label>
-                        <input type="" class="form-control" value={item.date} />
+                        <label class="form-label">Contact Number</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.contact_no}
+                        />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Desc</label>
-                        <input type="" class="form-control" value={item.desc} />
+                        <label class="form-label">Email Address</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.business_email_id}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">LinkedIn</label>
+                        <br />
+                        <a href={item.linkedin}>{item.linkedin}</a>
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Designation</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.designation}
+                        />
                       </div>
 
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Fund Raised Stage</label>
+                        <label class="form-label">CIN no. / LLP no.</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.fund_raised_stage}
+                          value={item.cin_no_llp_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Fund Stage</label>
+                        <label class="form-label">Experience</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.fund_stage}
+                          value={item.experience}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Linkedin Page</label>
+                        <label class="form-label">Existing Clients</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.linkedin_page}
+                          value={item.existing_clients}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Tax/PAN no.</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.tax_pan_no}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Website</label>
+                        <br />
+                        <a href={item.website}>{item.website}</a>
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Fee Range</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.fee_range}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Address Line 2</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.address_line_1}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label class="form-label">Address Line 2</label>
+                        <input
+                          type=""
+                          class="form-control"
+                          value={item.address_line_2}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -226,11 +256,11 @@ export default function NetworkDetails(props) {
                         <input type="" class="form-control" value={item.city} />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Pincode</label>
+                        <label class="form-label">State</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.pincode}
+                          value={item.state}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -242,112 +272,55 @@ export default function NetworkDetails(props) {
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Relationship</label>
+                        <label class="form-label">Servicing Areas</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.relationship}
+                          value={item.servicing_areas}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Mobile Number</label>
+                        <label class="form-label">No. of Employees</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.mobile_no}
+                          value={item.no_of_employees}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Product Status </label>
+                        <label class="form-label">TDS no.</label>
                         <input
                           type=""
                           class="form-control"
-                          value={item.product_status}
+                          value={item.tds_no}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label"> Start up Date</label>
-                        <input
-                          type=""
-                          class="form-control"
-                          value={item.startup_start_date}
-                        />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">State</label>
-                        <input
-                          type=""
-                          class="form-control"
-                          value={item.state}
-                        />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Totsl Fund Raised</label>
-                        <input
-                          type=""
-                          class="form-control"
-                          value={item.total_fund_raised}
-                        />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Type</label>
-                        <input type="" class="form-control" value={item.type} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Website</label>
-                        <input
-                          type=""
-                          class="form-control"
-                          value={item.website}
-                        />
-                      </div>
+                      {item.are_you_a_part_of_network ? (
+                        <div className="col-md-6 mt-3">
+                          <label class="form-label">Part of a Network</label>
+                          <input
+                            type=""
+                            class="form-control"
+                            value={item.are_you_a_part_of_network}
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      {item.other_company_name ? (
+                        <div className="col-md-6 mt-3">
+                          <label class="form-label">Other Company Name</label>
+                          <input
+                            type=""
+                            class="form-control"
+                            value={item.other_company_name}
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
                     </div>
                   </Box>
-                </div>
-                <div className="container">
-                  <h6 className="display-6">Focus Area : </h6>
-                  <div className="row px-4">
-                    <div className="col-12 col-md-6">
-                      <h6>Economy Sector : </h6>
-                      <ul>
-                        {item.economysector?.map((data) => (
-                          <li>{data} </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <h6>Emerging Sector : </h6>
-                      <ul>
-                        {item.emergingsector?.map((data) => (
-                          <li>{data} </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <h6>Emerging Technology : </h6>
-                      <ul>
-                        {item.emergingtechnology?.map((data) => (
-                          <li>{data} </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="col-12 col-md-6">
-                      <h6>Product Status : </h6>
-                      <ul>
-                        {item.productstatus?.map((data) => (
-                          <li>{data} </li>
-                        ))}
-                      </ul>
-                      <div className="col-12 col-md-6">
-                        <h6>Geography : </h6>
-                        <ul>
-                          {item.geography?.map((data) => (
-                            <li>{data} </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

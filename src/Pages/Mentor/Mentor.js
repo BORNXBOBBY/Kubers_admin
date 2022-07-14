@@ -1,26 +1,23 @@
 import { Button, Typography } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
-import Header from "../../Header/Header";
+import React, { useContext } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../Context/GlobalContext";
-import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
+import Header from "../../Header/Header";
 import NetworkEmpty from "../Empty/NetworkEmpty";
+import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 
-export default function Startup() {
+export default function Mentor() {
   const {
-    startup,
-    getAllStartupData,
-    startupToggle,
-    setStartupToggle,
+    Mentor,
+    mentorToggle,
+    setMentorToggle,
+    getAllMentorData,
     networkSkeleton,
   } = useContext(GlobalContext);
   useEffect(() => {
-    getAllStartupData();
-  }, [startupToggle]);
-
-  console.log("s", startupToggle);
-  console.log("res", startup);
-
+    getAllMentorData();
+  }, [mentorToggle]);
   return (
     <>
       <Header />
@@ -28,7 +25,7 @@ export default function Startup() {
         <div className="container">
           <div className="row">
             <Typography variant="h4" className="mt-2">
-              Startup
+              Mentor
             </Typography>
             <div className="container">
               <div className="row">
@@ -36,8 +33,7 @@ export default function Startup() {
                   <select
                     class="form-select form-select-lg mb-3"
                     aria-label=".form-select-lg example"
-                    // onChange={(e) => setStartupToggle(e.target.value)}
-                    onChange={(e) => setStartupToggle(e.target.value)}
+                    onChange={(e) => setMentorToggle(e.target.value)}
                   >
                     <option value="Unapproved">UnApproved</option>
                     <option value="approved">Approved</option>
@@ -49,20 +45,20 @@ export default function Startup() {
               <NetworksSkeleton />
             ) : (
               <div className="px-sm-5 py-3">
-                {startup.length > 0 ? (
+                {Mentor.length > 0 ? (
                   <div className="table-responsive">
                     <table className="table ">
                       <tbody className="text-center">
                         <tr className="tablebody headHover">
                           {/* <th>Date Of Creation</th> */}
-                          <th>User Profile</th>
-                          <th>Startup Name</th>
-                          <th>​ Compliance Officer</th>
+                          <th>Logo</th>
+                          <th>Full Name</th>
+                          <th>Company Name</th>
                           {/* <th>Actions</th> */}
                           <th>View</th>
                           {/* <th>Remove</th> */}
                         </tr>
-                        {startup.map((item, id) => (
+                        {Mentor.map((item, id) => (
                           <tr key={id} className="tableHover">
                             {/* <td> 
                             {new Date(item.date).toLocaleDateString()}
@@ -72,21 +68,24 @@ export default function Startup() {
                                 className="rounded-circle"
                                 style={{ width: "40px" }}
                                 src={
-                                  item.image
-                                    ? item.image
+                                  item.logo
+                                    ? item.logo
                                     : "/img/the_kubers_logo.jpg"
                                 }
                                 alt="user"
                               />
                             </td>
                             <td>
-                              <h6 className="mt-2">{item.name} </h6>
+                              <h6 className="mt-2">{item.full_name} </h6>
                             </td>
                             <td>
-                              <h6 className="mt-2 "> {item.contact_person} </h6>
+                              <h6 className="mt-2 ">
+                                {" "}
+                                {item.name_of_the_firm}{" "}
+                              </h6>
                             </td>
                             <td>
-                              <Link to={`startup/${item.id}/${item.slug}`}>
+                              <Link to={`mentor/${item.id}/${item.slug}`}>
                                 <Button
                                   variant="outlined"
                                   size="small"

@@ -10,6 +10,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Header/SideHeader.css";
 import SidebarLink from "./SidebarLInk";
+import { FaChalkboardTeacher } from "react-icons/fa";
 
 export default function SideHeader({ toggle }) {
   return (
@@ -27,6 +28,9 @@ export default function SideHeader({ toggle }) {
         </Link>
         <Link className="linkstyle" to="/startup">
           <SidebarLink icon={<Rocket />} text="Startups" />
+        </Link>
+        <Link to="/mentor" className="linkstyle">
+          <SidebarLink icon={<FaChalkboardTeacher />} text="Mentor" />
         </Link>
         <Link to="/investor" className="linkstyle">
           <SidebarLink icon={<Person />} text="Investor" />

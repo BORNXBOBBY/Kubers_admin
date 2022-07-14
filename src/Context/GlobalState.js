@@ -11,6 +11,8 @@ function GlobalState(props) {
   const [toggleSelect, setToggleSelect] = useState("not-aproved");
   const [startup, setStartup] = React.useState([]);
   const [startupToggle, setStartupToggle] = useState("not-approved");
+  const [Mentor, setMentor] = useState([]);
+  const [mentorToggle, setMentorToggle] = useState("not-approved");
   const [networkSkeleton, setNetworkSkeleton] = useState(true);
   const [investor, setInvestor] = useState([]);
   const [investorToggle, setInvestorToggle] = useState("not-verified");
@@ -58,6 +60,19 @@ function GlobalState(props) {
       console.log(e);
     }
   };
+  const getAllMentorData = async () => {
+    try {
+      var res = await getRequest("/dashboard/mentors/" + mentorToggle, true);
+      console.log("res", res);
+      var responseData = await res.json();
+      // console.log("responseData", responseData);
+      console.log("network", responseData);
+      setMentor(responseData);
+      setNetworkSkeleton(false);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const toggleSidebar = () => {
     setToggle(!toggle);
@@ -87,12 +102,16 @@ function GlobalState(props) {
           getProfileData: getProfileData,
           network: network,
           getAllNetworkData: getAllNetworkData,
+          getAllMentorData: getAllMentorData,
           setToggleSelect: setToggleSelect,
           toggleSelect: toggleSelect,
           getAllStartupData: getAllStartupData,
           startup: startup,
           startupToggle: startupToggle,
           setStartupToggle: setStartupToggle,
+          Mentor: Mentor,
+          mentorToggle: mentorToggle,
+          setMentorToggle: setMentorToggle,
           networkSkeleton: networkSkeleton,
           setNetworkSkeleton: setNetworkSkeleton,
           setNetworkSkeleton: setNetworkSkeleton,

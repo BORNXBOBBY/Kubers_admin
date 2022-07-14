@@ -21,6 +21,8 @@ import StartUpTeam from "./Pages/Startup/StartUpTeam";
 import NetworkRoles from "./Pages/Network/NetworkRoles";
 import StartupRoles from "./Pages/Startup/StartupRoles";
 import FinancialTableDetails from "./Pages/Startup/FinancialDetails";
+import Mentor from "./Pages/Mentor/Mentor";
+import MentorDetails from "./Pages/Mentor/MentorDetails";
 
 function App() {
   return (
@@ -75,7 +77,7 @@ function App() {
               path="/startup/:id/:slug/startup-roles"
               component={StartupRoles}
             />
-             <ProtectedRoute exact path="/investor" component={Investor} />
+            <ProtectedRoute exact path="/investor" component={Investor} />
             <ProtectedRoute
               exact
               path="/investor/:id"
@@ -86,6 +88,12 @@ function App() {
               exact
               path="/deal/commitment"
               component={Commitment}
+            />
+            <ProtectedRoute exact path="/mentor" component={Mentor} />
+            <ProtectedRoute
+              exact
+              path="/mentor/:id/:slug"
+              component={MentorDetails}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
