@@ -23,6 +23,9 @@ import StartupRoles from "./Pages/Startup/StartupRoles";
 import FinancialTableDetails from "./Pages/Startup/FinancialDetails";
 import Mentor from "./Pages/Mentor/Mentor";
 import MentorDetails from "./Pages/Mentor/MentorDetails";
+import AllEvents from "./Pages/Network/AllEvents";
+import NetworkEvents from "./Pages/Network/NetworkEvents";
+import Documents from "./Pages/Startup/Documents";
 
 function App() {
   return (
@@ -38,6 +41,16 @@ function App() {
               path="/network/:id/:slug/network-access"
               component={NetworkRoles}
             />
+            <ProtectedRoute
+              exact
+              path="/network/:id/:slug/events"
+              component={NetworkEvents}
+            />
+            <ProtectedRoute
+              exact
+              path="/network/dashboard/events"
+              component={AllEvents}
+            />
             <ProtectedRoute exact path="/setting" component={Setting} />
             <ProtectedRoute exact path="/profile" component={Profile} />
             <ProtectedRoute
@@ -46,6 +59,11 @@ function App() {
               component={NetworkDetails}
             />
             <ProtectedRoute exact path="/startup" component={Startup} />
+            <ProtectedRoute
+              exact
+              path="/startup/documents"
+              component={Documents}
+            />
             <ProtectedRoute
               exact
               path="/startup/:id/:slug/startup-doc"

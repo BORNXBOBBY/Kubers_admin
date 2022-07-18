@@ -20,16 +20,41 @@ export const Network = (props) => {
     getAllNetworkData();
   }, [toggleSelect]);
 
+  const current = window.location.pathname;
+
   return (
     <>
       <Header />
       <div className="main">
         <div className="container">
+        <div className="d-flex border-bottom">
+            <span className="">
+              {" "}
+              <Link
+                className={`${
+                  current === "/networks" ? "topLink-active" : "topLink"
+                }`}
+                to="/network"
+              >
+                Networks
+              </Link>
+            </span>
+            <span className="">
+              <Link
+                className={`${
+                  current === "/network/dashboard/events" ? "topLink-active" : "topLink"
+                }`}
+                to="/network/dashboard/events"
+              >
+                Events
+              </Link>
+            </span>
+          </div>
           <div className="row">
-            <Typography variant="h4" className="mt-2">
+            {/* <Typography variant="h4" className="mt-2">
               Network
-            </Typography>
-            <div className="container">
+            </Typography> */}
+            <div className="container mt-3">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
                   {/* <FormControl fullWidth>

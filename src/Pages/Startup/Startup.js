@@ -21,15 +21,40 @@ export default function Startup() {
   console.log("s", startupToggle);
   console.log("res", startup);
 
+  const current = window.location.pathname;
+
   return (
     <>
       <Header />
       <div className="main">
         <div className="container">
+        <div className="d-flex border-bottom">
+            <span className="">
+              {" "}
+              <Link
+                className={`${
+                  current === "/startup" ? "topLink-active" : "topLink"
+                }`}
+                to="/startup"
+              >
+                Startups
+              </Link>
+            </span>
+            <span className="">
+              <Link
+                className={`${
+                  current === "/startup/documents" ? "topLink-active" : "topLink"
+                }`}
+                to="/startup/documents"
+              >
+                Documents
+              </Link>
+            </span>
+          </div>
           <div className="row">
-            <Typography variant="h4" className="mt-2">
+            {/* <Typography variant="h4" className="mt-2">
               Startup
-            </Typography>
+            </Typography> */}
             <div className="container">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">

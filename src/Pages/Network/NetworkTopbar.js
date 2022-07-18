@@ -33,6 +33,18 @@ export default function NetworkTopbar() {
             Role
           </Link>
         </span>
+        <span className="">
+          <Link
+            className={`${
+              current === `/network/${id}/${slug}/events`
+                ? "topLink-active"
+                : "topLink"
+            }`}
+            to={`/network/${id}/${slug}/events`}
+          >
+            Events
+          </Link>
+        </span>
       </div>
     </>
   );
