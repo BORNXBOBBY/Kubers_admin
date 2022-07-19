@@ -26,6 +26,7 @@ import MentorDetails from "./Pages/Mentor/MentorDetails";
 import AllEvents from "./Pages/Network/AllEvents";
 import NetworkEvents from "./Pages/Network/NetworkEvents";
 import Documents from "./Pages/Startup/Documents";
+import Users from "./Pages/Users/User";
 
 function App() {
   return (
@@ -112,6 +113,11 @@ function App() {
               exact
               path="/mentor/:id/:slug"
               component={MentorDetails}
+            />
+            <ProtectedRoute
+              exact
+              path="/users"
+              component={Users}
             />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
