@@ -27,6 +27,7 @@ import AllEvents from "./Pages/Network/AllEvents";
 import NetworkEvents from "./Pages/Network/NetworkEvents";
 import Documents from "./Pages/Startup/Documents";
 import Users from "./Pages/Users/User";
+import CorporateProfile from "./Pages/Mentor/CorporateProfile";
 
 function App() {
   return (
@@ -116,9 +117,10 @@ function App() {
             />
             <ProtectedRoute
               exact
-              path="/users"
-              component={Users}
+              path="/mentor/corporate-profile"
+              component={CorporateProfile}
             />
+            <ProtectedRoute exact path="/users" component={Users} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>

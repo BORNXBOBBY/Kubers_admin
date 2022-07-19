@@ -28,7 +28,7 @@ export default function Startup() {
       <Header />
       <div className="main">
         <div className="container">
-        <div className="d-flex border-bottom">
+          <div className="d-flex border-bottom">
             <span className="">
               {" "}
               <Link
@@ -43,7 +43,9 @@ export default function Startup() {
             <span className="">
               <Link
                 className={`${
-                  current === "/startup/documents" ? "topLink-active" : "topLink"
+                  current === "/startup/documents"
+                    ? "topLink-active"
+                    : "topLink"
                 }`}
                 to="/startup/documents"
               >
@@ -64,8 +66,8 @@ export default function Startup() {
                     // onChange={(e) => setStartupToggle(e.target.value)}
                     onChange={(e) => setStartupToggle(e.target.value)}
                   >
-                    <option value="Unapproved">UnApproved</option>
                     <option value="approved">Approved</option>
+                    <option value="Unapproved">Not Approved</option>
                   </select>
                 </div>
               </div>

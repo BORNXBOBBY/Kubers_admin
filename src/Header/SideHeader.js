@@ -29,6 +29,9 @@ export default function SideHeader({ toggle }) {
         <Link className="linkstyle" to="/startup">
           <SidebarLink icon={<Rocket />} text="Startups" />
         </Link>
+        <Link className="linkstyle" to="/users">
+          <SidebarLink icon={<Person />} text="Users" />
+        </Link>
         <Link to="/mentor" className="linkstyle">
           <SidebarLink icon={<FaChalkboardTeacher />} text="Mentor" />
         </Link>

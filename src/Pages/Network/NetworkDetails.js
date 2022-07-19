@@ -49,19 +49,32 @@ export default function NetworkDetails() {
         true
       );
       var responseData = await res.json();
-      console.log("res", responseData);
-      if (responseData.is_approved === true) {
-        toast.success("Approved!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+      console.log("res", responseData, res.status);
+      if (res.status === 200) {
+        getAllNetworkData();
+        if (responseData.is_approved === true) {
+          toast.success("Approved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.success("Unapproved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       } else {
-        toast.success("Unapproved!", {
+        toast.error("Unsuccessful!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

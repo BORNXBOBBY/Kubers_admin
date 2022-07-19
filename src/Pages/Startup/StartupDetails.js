@@ -42,18 +42,31 @@ export default function NetworkDetails(props) {
 
       var responseData = await res.json();
       console.log("res", responseData);
-      if (responseData.is_approved === true) {
-        toast.success("Approved!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+      if (res.status === 200) {
+        getStartupDetails();
+        if (responseData.is_approved === true) {
+          toast.success("Approved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.success("Unapproved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       } else {
-        toast.success("Unapproved!", {
+        toast.success("Unsuccessful!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -169,135 +182,155 @@ export default function NetworkDetails(props) {
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">
-                        <label class="form-label"> startup Name</label>
-                        <input type="" class="form-control" value={item.name} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Founder Name</label>
+                        <label className="form-label"> startup Name</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
+                          value={item.name}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label className="form-label">Founder Name</label>
+                        <input
+                          type=""
+                          className="form-control"
                           value={item.founder_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Contact Person</label>
+                        <label className="form-label">Contact Person</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.contact_person}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">DAte</label>
-                        <input type="" class="form-control" value={item.date} />
+                        <label className="form-label">DAte</label>
+                        <input
+                          type=""
+                          className="form-control"
+                          value={item.date}
+                        />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Desc</label>
-                        <input type="" class="form-control" value={item.desc} />
+                        <label className="form-label">Desc</label>
+                        <input
+                          type=""
+                          className="form-control"
+                          value={item.desc}
+                        />
                       </div>
 
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Fund Raised Stage</label>
+                        <label className="form-label">Fund Raised Stage</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.fund_raised_stage}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Fund Stage</label>
+                        <label className="form-label">Fund Stage</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.fund_stage}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Linkedin Page</label>
+                        <label className="form-label">Linkedin Page</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.linkedin_page}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">City</label>
-                        <input type="" class="form-control" value={item.city} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Pincode</label>
+                        <label className="form-label">City</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
+                          value={item.city}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label className="form-label">Pincode</label>
+                        <input
+                          type=""
+                          className="form-control"
                           value={item.pincode}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">country</label>
+                        <label className="form-label">country</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.country}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Relationship</label>
+                        <label className="form-label">Relationship</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.relationship}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Mobile Number</label>
+                        <label className="form-label">Mobile Number</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.mobile_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Product Status </label>
+                        <label className="form-label">Product Status </label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.product_status}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label"> Start up Date</label>
+                        <label className="form-label"> Start up Date</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.startup_start_date}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">State</label>
+                        <label className="form-label">State</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.state}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Totsl Fund Raised</label>
+                        <label className="form-label">Totsl Fund Raised</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.total_fund_raised}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Type</label>
-                        <input type="" class="form-control" value={item.type} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">Website</label>
+                        <label className="form-label">Type</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
+                          value={item.type}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label className="form-label">Website</label>
+                        <input
+                          type=""
+                          className="form-control"
                           value={item.website}
                         />
                       </div>
@@ -310,40 +343,70 @@ export default function NetworkDetails(props) {
                     <div className="col-12 col-md-6">
                       <h6>Economy Sector : </h6>
                       <ul>
-                        {item.economysector?.map((data) => (
-                          <li>{data} </li>
-                        ))}
+                        {item.economysector?.length > 0 ? (
+                          <>
+                            {item.economysector?.map((data) => (
+                              <li>{data} </li>
+                            ))}
+                          </>
+                        ) : (
+                          "No Data"
+                        )}
                       </ul>
                     </div>
                     <div className="col-12 col-md-6">
                       <h6>Emerging Sector : </h6>
                       <ul>
-                        {item.emergingsector?.map((data) => (
-                          <li>{data} </li>
-                        ))}
+                        {item.emergingsector?.length > 0 ? (
+                          <>
+                            {item.emergingsector?.map((data) => (
+                              <li>{data} </li>
+                            ))}
+                          </>
+                        ) : (
+                          "No Data"
+                        )}
                       </ul>
                     </div>
                     <div className="col-12 col-md-6">
                       <h6>Emerging Technology : </h6>
                       <ul>
-                        {item.emergingtechnology?.map((data) => (
-                          <li>{data} </li>
-                        ))}
+                        {item.emergingtechnology?.length > 0 ? (
+                          <>
+                            {item.emergingtechnology?.map((data) => (
+                              <li>{data} </li>
+                            ))}
+                          </>
+                        ) : (
+                          "No Data"
+                        )}
                       </ul>
                     </div>
                     <div className="col-12 col-md-6">
                       <h6>Product Status : </h6>
                       <ul>
-                        {item.productstatus?.map((data) => (
-                          <li>{data} </li>
-                        ))}
+                        {item.productstatus?.length > 0 ? (
+                          <>
+                            {item.productstatus?.map((data) => (
+                              <li>{data} </li>
+                            ))}
+                          </>
+                        ) : (
+                          "No Data"
+                        )}
                       </ul>
                       <div className="col-12 col-md-6">
                         <h6>Geography : </h6>
                         <ul>
-                          {item.geography?.map((data) => (
-                            <li>{data} </li>
-                          ))}
+                          {item.geography?.length > 0 ? (
+                            <>
+                              {item.geography?.map((data) => (
+                                <li>{data} </li>
+                              ))}
+                            </>
+                          ) : (
+                            "No Data"
+                          )}
                         </ul>
                       </div>
                     </div>

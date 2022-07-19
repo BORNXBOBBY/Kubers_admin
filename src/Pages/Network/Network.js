@@ -27,7 +27,7 @@ export const Network = (props) => {
       <Header />
       <div className="main">
         <div className="container">
-        <div className="d-flex border-bottom">
+          <div className="d-flex border-bottom">
             <span className="">
               {" "}
               <Link
@@ -42,7 +42,9 @@ export const Network = (props) => {
             <span className="">
               <Link
                 className={`${
-                  current === "/network/dashboard/events" ? "topLink-active" : "topLink"
+                  current === "/network/dashboard/events"
+                    ? "topLink-active"
+                    : "topLink"
                 }`}
                 to="/network/dashboard/events"
               >
@@ -81,8 +83,8 @@ export const Network = (props) => {
                     <option value="selected" disabled>
                       Select
                     </option>
-                    <option value="unapproved">Unapproved</option>
                     <option value="approved">Approved</option>
+                    <option value="unapproved">Not Approved</option>
                   </select>
                 </div>
               </div>
@@ -112,7 +114,11 @@ export const Network = (props) => {
                               <img
                                 className="rounded-circle"
                                 style={{ width: "40px" }}
-                                src={item.image ? item.image : '/img/the_kubers_logo.jpg'}
+                                src={
+                                  item.image
+                                    ? item.image
+                                    : "/img/the_kubers_logo.jpg"
+                                }
                                 alt="user"
                               />
                             </td>

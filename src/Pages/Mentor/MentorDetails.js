@@ -36,16 +36,29 @@ export default function MentorDetails() {
 
       var responseData = await res.json();
       console.log("res", responseData);
-      if (responseData.is_approved === true) {
-        toast.success("Approved!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+      if (res.status === 200) {
+        getMentorDetails();
+        if (responseData.is_approved === true) {
+          toast.success("Approved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else {
+          toast.success("Unapproved!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       } else {
         toast.success("Unapproved!", {
           position: "top-right",
@@ -145,162 +158,168 @@ export default function MentorDetails() {
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Full Name</label>
+                        <label className="form-label">Full Name</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.full_name}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Company Name</label>
+                        <label className="form-label">Company Name</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.name_of_the_firm}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Contact Number</label>
+                        <label className="form-label">Contact Number</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.contact_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Email Address</label>
+                        <label className="form-label">Email Address</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.business_email_id}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">LinkedIn</label>
+                        <label className="form-label">LinkedIn</label>
                         <br />
                         <a href={item.linkedin}>{item.linkedin}</a>
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Designation</label>
+                        <label className="form-label">Designation</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.designation}
                         />
                       </div>
 
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">CIN no. / LLP no.</label>
+                        <label className="form-label">CIN no. / LLP no.</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.cin_no_llp_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Experience</label>
+                        <label className="form-label">Experience</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.experience}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Existing Clients</label>
+                        <label className="form-label">Existing Clients</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.existing_clients}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Tax/PAN no.</label>
+                        <label className="form-label">Tax/PAN no.</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.tax_pan_no}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Website</label>
+                        <label className="form-label">Website</label>
                         <br />
                         <a href={item.website}>{item.website}</a>
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Fee Range</label>
+                        <label className="form-label">Fee Range</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.fee_range}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Address Line 2</label>
+                        <label className="form-label">Address Line 2</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.address_line_1}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Address Line 2</label>
+                        <label className="form-label">Address Line 2</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.address_line_2}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">City</label>
-                        <input type="" class="form-control" value={item.city} />
-                      </div>
-                      <div className="col-md-6 mt-3">
-                        <label class="form-label">State</label>
+                        <label className="form-label">City</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
+                          value={item.city}
+                        />
+                      </div>
+                      <div className="col-md-6 mt-3">
+                        <label className="form-label">State</label>
+                        <input
+                          type=""
+                          className="form-control"
                           value={item.state}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">country</label>
+                        <label className="form-label">country</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.country}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Servicing Areas</label>
+                        <label className="form-label">Servicing Areas</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.servicing_areas}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">No. of Employees</label>
+                        <label className="form-label">No. of Employees</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.no_of_employees}
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">TDS no.</label>
+                        <label className="form-label">TDS no.</label>
                         <input
                           type=""
-                          class="form-control"
+                          className="form-control"
                           value={item.tds_no}
                         />
                       </div>
                       {item.are_you_a_part_of_network ? (
                         <div className="col-md-6 mt-3">
-                          <label class="form-label">Part of a Network</label>
+                          <label className="form-label">
+                            Part of a Network
+                          </label>
                           <input
                             type=""
-                            class="form-control"
+                            className="form-control"
                             value={item.are_you_a_part_of_network}
                           />
                         </div>
@@ -309,10 +328,12 @@ export default function MentorDetails() {
                       )}
                       {item.other_company_name ? (
                         <div className="col-md-6 mt-3">
-                          <label class="form-label">Other Company Name</label>
+                          <label className="form-label">
+                            Other Company Name
+                          </label>
                           <input
                             type=""
-                            class="form-control"
+                            className="form-control"
                             value={item.other_company_name}
                           />
                         </div>

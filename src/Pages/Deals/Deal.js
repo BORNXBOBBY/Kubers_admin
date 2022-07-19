@@ -158,8 +158,8 @@ export default function Deal(props) {
                                       size="small"
                                       onClick={() => handletoggler(index)}
                                     >
-                                      {/* {item.expand ? "hide" : "show"} */}
-                                      Show
+                                      {item.expand ? "hide" : "show"}
+                                      {/* Show */}
                                     </Button>
                                   </td>
                                 </tr>

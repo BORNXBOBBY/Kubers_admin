@@ -6,6 +6,7 @@ import GlobalContext from "../../Context/GlobalContext";
 import Header from "../../Header/Header";
 import NetworkEmpty from "../Empty/NetworkEmpty";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
+import MentorTopBar from "./MentorTopBar";
 
 export default function Mentor() {
   const {
@@ -22,6 +23,7 @@ export default function Mentor() {
     <>
       <Header />
       <div className="main">
+        <MentorTopBar />
         <div className="container">
           <div className="row">
             <Typography variant="h4" className="mt-2">
@@ -35,8 +37,8 @@ export default function Mentor() {
                     aria-label=".form-select-lg example"
                     onChange={(e) => setMentorToggle(e.target.value)}
                   >
-                    <option value="Unapproved">UnApproved</option>
                     <option value="approved">Approved</option>
+                    <option value="Unapproved">Not Approved</option>
                   </select>
                 </div>
               </div>
