@@ -28,11 +28,8 @@ import NetworkEvents from "./Pages/Network/NetworkEvents";
 import Documents from "./Pages/Startup/Documents";
 import Users from "./Pages/Users/User";
 import CorporateProfile from "./Pages/Mentor/CorporateProfile";
-<<<<<<< HEAD
 import MentorCorporateProfile from "./Pages/Mentor/MentorCorporateProfile";
-=======
 import UserUpdate from "./Pages/Users/UserUpdate";
->>>>>>> 669eaf2e13ff0550e389fc24fd20fd8631a0b534
 
 function App() {
   return (
@@ -131,7 +128,11 @@ function App() {
               component={MentorCorporateProfile}
             />
             <ProtectedRoute exact path="/users" component={Users} />
-            <ProtectedRoute exact path="/user/:id/update" component={UserUpdate} />
+            <ProtectedRoute
+              exact
+              path="/user/:id/update"
+              component={UserUpdate}
+            />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
