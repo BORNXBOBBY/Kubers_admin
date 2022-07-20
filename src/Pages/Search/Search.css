@@ -3,10 +3,10 @@
     flex-wrap: wrap;
 }
 .filters12 ul li {
-    background-color: rgba(68, 62, 138, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 2px 0 0 10px;
     border-radius: 5px;
-    color: white;
+    color:white;
     font-size: 12px;
 }
 .flowing::-webkit-scrollbar{
@@ -25,8 +25,8 @@
     position: fixed;
 }
 .filter_fixed{
-    background-color: #694dbd;
-    color: white;
+    background-color: white;
+    color: black;
 }
 .sidebar_togg{
     width: 100%;
@@ -40,20 +40,16 @@
     color: black;
 }
 .result-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition:700ms;
-    background-color:#4682b4;
-    animation-delay: calc(0.5s + 0.5s * var(--i));
-    animation: fadein 0.5s;
-    animation-fill-mode: forwards;
-
+    /* transform: scale(1.002); */
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: 500ms;
 }
-.result-card:hover p, .result-card:hover h6 {
+/* .result-card:hover p, .result-card:hover h6 {
     color: white;
-}
+} */
 .search_ico {
-    color:white;
+    color:#5322e5;
     font-size: 16px;
 }
 .fixed_hr {
@@ -62,13 +58,11 @@
 @media (max-width:700px) {
     .sidebar_togg{
         width: 0px;
-        display: none;
         height: 0px;
     }
 
     .sidebar_togg_true{
         width: 85%;
-        display: block;
         position: absolute;
         left: 0;
         z-index: 99;

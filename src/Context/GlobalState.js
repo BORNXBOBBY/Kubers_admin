@@ -8,14 +8,14 @@ function GlobalState(props) {
   const [profilePic, setProfilePic] = useState();
   const [profileDetails, setProfileDetails] = useState([]);
   const [network, setNetwork] = useState([]);
-  const [toggleSelect, setToggleSelect] = useState("not-aproved");
+  const [toggleSelect, setToggleSelect] = useState("approved");
   const [startup, setStartup] = React.useState([]);
-  const [startupToggle, setStartupToggle] = useState("not-approved");
+  const [startupToggle, setStartupToggle] = useState("approved");
   const [Mentor, setMentor] = useState([]);
-  const [mentorToggle, setMentorToggle] = useState("not-approved");
+  const [mentorToggle, setMentorToggle] = useState("approved");
   const [networkSkeleton, setNetworkSkeleton] = useState(true);
   const [investor, setInvestor] = useState([]);
-  const [investorToggle, setInvestorToggle] = useState("not-verified");
+  const [investorToggle, setInvestorToggle] = useState("verified");
 
   const getInvestor = async () => {
     try {

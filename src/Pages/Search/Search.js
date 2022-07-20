@@ -26,6 +26,7 @@ import { GiProgression } from "react-icons/gi";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { MdMargin } from "react-icons/md";
 import Header from "../../Header/Header";
+import { getToken } from "../../Constant/auth";
 
 const style = {
   position: "absolute",
@@ -72,27 +73,47 @@ export default function Search() {
 
   const getNetwork = async (url) => {
     try {
+      var accessToken = "";
+      accessToken = await getToken();
+      if (accessToken) accessToken = JSON.parse(accessToken).access;
+
       var res = await fetch(
-        `${url ? url : `${api_url}/dashboard/list/network`}`
+        `${url ? url : `${api_url}/dashboard/list/network`}`,
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       var response = await res.json();
       console.log("net", response);
       setNetwork(response);
     } catch (err) {
-      console.log("error", err);
+      // console.log("error", err);
     }
   };
 
   const getStartup = async (url) => {
     try {
+      var accessToken = "";
+      accessToken = await getToken();
+      if (accessToken) accessToken = JSON.parse(accessToken).access;
+
       var res = await fetch(
-        `${url ? url : `${api_url}/dashboard/list/startup`}`
+        `${url ? url : `${api_url}/dashboard/list/startup`}`,
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       var response = await res.json();
       console.log("startup", response);
       setStartup(response);
     } catch (err) {
-      console.log("error", err);
+      // console.log("error", err);
     }
   };
 
@@ -238,7 +259,7 @@ export default function Search() {
                         }
                         control={
                           <Checkbox
-                            style={{ color: "white" }}
+                            style={{ color: "#5322e5" }}
                             checked={def.default_1}
                           />
                         }
@@ -250,7 +271,7 @@ export default function Search() {
                         }
                         control={
                           <Checkbox
-                            style={{ color: "white" }}
+                            style={{ color: "#5322e5" }}
                             checked={def.default_2}
                           />
                         }
@@ -277,7 +298,7 @@ export default function Search() {
                           style={{ marginRight: "10px" }}
                           size="small"
                         >
-                          <AddIcon style={{ color: "white" }} />
+                          <AddIcon style={{ color: "#5322e5" }} />
                         </IconButton>
 
                         <Modal
@@ -355,7 +376,7 @@ export default function Search() {
                                 <CancelIcon
                                   style={{
                                     fontSize: "14px",
-                                    color: "white",
+                                    color: "#5322e5",
                                   }}
                                 />
                               </IconButton>{" "}
@@ -383,7 +404,7 @@ export default function Search() {
                           style={{ marginRight: "10px" }}
                           size="small"
                         >
-                          <AddIcon style={{ color: "white" }} />
+                          <AddIcon style={{ color: "#5322e5" }} />
                         </IconButton>
                       </div>
                       <div className="mt-1">
@@ -407,7 +428,7 @@ export default function Search() {
                                 <CancelIcon
                                   style={{
                                     fontSize: "20px",
-                                    color: "white",
+                                    color: "#5322e5",
                                   }}
                                 />
                               </IconButton>{" "}
@@ -438,7 +459,7 @@ export default function Search() {
                           style={{ marginRight: "10px" }}
                           size="small"
                         >
-                          <AddIcon style={{ color: "white" }} />
+                          <AddIcon style={{ color: "#5322e5" }} />
                         </IconButton>
                       </div>
                       <div className="mt-1">
@@ -462,7 +483,7 @@ export default function Search() {
                                 <CancelIcon
                                   style={{
                                     fontSize: "20px",
-                                    color: "white",
+                                    color: "#5322e5",
                                   }}
                                 />
                               </IconButton>{" "}
@@ -493,7 +514,7 @@ export default function Search() {
                           style={{ marginRight: "10px" }}
                           size="small"
                         >
-                          <AddIcon style={{ color: "white" }} />
+                          <AddIcon style={{ color: "#5322e5" }} />
                         </IconButton>
                       </div>
                       <div className="mt-1">
@@ -517,7 +538,7 @@ export default function Search() {
                                 <CancelIcon
                                   style={{
                                     fontSize: "20px",
-                                    color: "white",
+                                    color: "#5322e5",
                                   }}
                                 />
                               </IconButton>{" "}
@@ -546,7 +567,7 @@ export default function Search() {
                           style={{ marginRight: "10px" }}
                           size="small"
                         >
-                          <AddIcon style={{ color: "white" }} />
+                          <AddIcon style={{ color: "#5322e5" }} />
                         </IconButton>
                       </div>
                       <div className="mt-1 pb-2">
@@ -568,7 +589,7 @@ export default function Search() {
                                   }
                                   style={{
                                     fontSize: "20px",
-                                    color: "white",
+                                    color: "#5322e5",
                                   }}
                                 />
                               </IconButton>{" "}
@@ -609,7 +630,7 @@ export default function Search() {
                         {network.map((item, id) => (
                           <div key={id} style={{ width: "90%" }}>
                             <Link to={`network/${item.id}/${item.slug}`}>
-                              <div className="network-card result-card rounded text-white p-2 my-1">
+                              <div className="network-card result-card rounded text-#5322e5 p-2 my-1">
                                 <div className="container">
                                   <div className="row">
                                     <div className="col-2 network-img me-0">
@@ -619,10 +640,15 @@ export default function Search() {
                                         style={{
                                           borderRadius: "5px",
                                           height: "70px",
-                                          objectFit: "cover",
+                                          objectFit: `${
+                                            item.image ===
+                                            "https://thekubers.s3.amazonaws.com/uploads/default.jpg"
+                                              ? "contain"
+                                              : "cover"
+                                          }`,
                                           objectPosition: "center",
                                         }}
-                                        src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU="
+                                        src={item.image}
                                         alt=""
                                       />
                                     </div>
@@ -676,10 +702,15 @@ export default function Search() {
                                         style={{
                                           borderRadius: "5px",
                                           height: "70px",
-                                          objectFit: "cover",
+                                          objectFit: `${
+                                            item.image ===
+                                            "https://thekubers.s3.amazonaws.com/uploads/default.jpg"
+                                              ? "contain"
+                                              : "cover"
+                                          }`,
                                           objectPosition: "center",
                                         }}
-                                        src="https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU="
+                                        src={item.image}
                                         alt=""
                                       />
                                     </div>
