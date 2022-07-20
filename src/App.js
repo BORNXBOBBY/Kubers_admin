@@ -28,6 +28,7 @@ import NetworkEvents from "./Pages/Network/NetworkEvents";
 import Documents from "./Pages/Startup/Documents";
 import Users from "./Pages/Users/User";
 import CorporateProfile from "./Pages/Mentor/CorporateProfile";
+import UserUpdate from "./Pages/Users/UserUpdate";
 
 function App() {
   return (
@@ -121,6 +122,7 @@ function App() {
               component={CorporateProfile}
             />
             <ProtectedRoute exact path="/users" component={Users} />
+            <ProtectedRoute exact path="/user/:id/update" component={UserUpdate} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
