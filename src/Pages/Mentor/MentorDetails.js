@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../Header/Header";
 import { toast, ToastContainer } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { Box, Button } from "@material-ui/core";
 
@@ -9,6 +9,8 @@ export default function MentorDetails() {
   var { slug } = useParams();
   var { id } = useParams();
   const [item, setMentorDetails] = useState([]);
+  const current = window.location.pathname;
+
   const getMentorDetails = async () => {
     try {
       var res = await getRequest(`/dashboard/mentor/${slug}`, true);
@@ -86,6 +88,32 @@ export default function MentorDetails() {
       <Header />
       <ToastContainer />
       <div className="main">
+        <div className="d-flex border-bottom">
+          <span>
+            <Link
+              className={`${
+                current === `/mentor/${id}/${slug}`
+                  ? "topLink-active"
+                  : "topLink"
+              }`}
+              to={`/mentor/${id}/${slug}`}
+            >
+              Mentor's Detail
+            </Link>
+          </span>
+          <span>
+            <Link
+              className={`${
+                current === `/mentor/${id}/${slug}/corporate-profile`
+                  ? "topLink-active"
+                  : "topLink"
+              }`}
+              to={`/mentor/${id}/${slug}/corporate-profile`}
+            >
+              Corporate Profile
+            </Link>
+          </span>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
