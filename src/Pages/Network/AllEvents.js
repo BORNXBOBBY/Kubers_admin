@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { IconButton } from "@material-ui/core";
-import { Button, Card } from "@mui/material";
+import { Button, IconButton } from "@material-ui/core";
+import { Card } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -9,10 +9,12 @@ import { CustomTooltip } from "../../Constant/CustomTooltip";
 import { addSubStr } from "../../Constant/Substring";
 import Header from "../../Header/Header";
 import AddIcon from "@mui/icons-material/Add";
+import EventSkeleton from "../Skeleton/EventSkeleton";
 
 export default function AllEvents() {
   const [event, setEvent] = useState([]);
   const [toggle, setToggle] = useState("active");
+  const [eventSkeleton, setEventSkeleton] = useState(true);
 
   const current = window.location.pathname;
 
@@ -23,6 +25,7 @@ export default function AllEvents() {
       console.log(responseData, res.status);
       if (res.status === 200) setEvent(responseData);
       else setEvent([]);
+      setEventSkeleton(false);
     } catch (err) {
       console.log("er", err);
     }
@@ -116,8 +119,12 @@ export default function AllEvents() {
             className="col-sm-12 mt-3 "
           >
             <div className="col-sm-4">
-              <select onChange={(e) => setToggle(e.target.value)} class="form-select" aria-label="Default select example">
-                <option  value="active" selected>
+              <select
+                onChange={(e) => setToggle(e.target.value)}
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option value="active" selected>
                   Active
                 </option>
                 <option value="expired">Expired</option>
@@ -125,116 +132,127 @@ export default function AllEvents() {
             </div>
           </div>
 
-          <div className="row">
-            {event.map((item, id) => (
-              <div className="col-lg-6">
-                <Card className="mt-3" key={id}>
-                  <div className="d-flex align-items-start m-2">
-                    <div className="m-4 text-center">
-                      <h2 className="mb-0" style={{ color: "#3f51b5" }}>
-                        {getDate(item.event_date)}
-                      </h2>
-                      <p className="small"> {getMonth(item.event_date)}</p>
-                      <div style={{ color: "#3f51b5" }}>
-                        <time> {item.event_time} </time>
-                      </div>
-                    </div>
+          {eventSkeleton ? (
+            <EventSkeleton />
+          ) : (
+            <>
+              <div className="row">
+                {event.map((item, id) => (
+                  <div className="col-lg-6">
+                    <Card className="mt-3" key={id}>
+                      <div className="d-flex align-items-start m-2">
+                        <div className="m-4 text-center">
+                          <h2 className="mb-0" style={{ color: "#3f51b5" }}>
+                            {getDate(item.event_date)}
+                          </h2>
+                          <p className="small"> {getMonth(item.event_date)}</p>
+                          <div style={{ color: "#3f51b5" }}>
+                            <time> {item.event_time} </time>
+                          </div>
+                        </div>
 
-                    <div
-                      style={{ position: "relative" }}
-                      className="media-body mt-2"
-                    >
-                      <div
-                        style={{
-                          position: "absolute",
-                          right: "5px",
-                          top: "5px",
-                        }}
-                      >
-                        <CustomTooltip title="Add to Calender" placement="top">
-                          <a
-                            onClick={() =>
-                              openGoogleCalendar(
-                                item.event_title,
-                                item.event_desc,
-                                item.event_date,
-                                item.event_time
-                              )
-                            }
-                          >
-                            <IconButton size="small">
-                              <AddIcon />
-                            </IconButton>
-                          </a>
-                        </CustomTooltip>
-                      </div>
-                      <h5 className="mb-0"> {item.event_title} </h5>
-                      <span
-                        style={{
-                          fontSize: "16px",
-                          color: "gray",
-                        }}
-                      >
-                        {addSubStr(item.network, 25)}
-                      </span>
-
-                      <CustomTooltip
-                        title={
-                          <p
-                            style={{
-                              fontSize: "12px",
-                              marginBottom: "0",
-                            }}
-                          >
-                            {item.event_desc}
-                          </p>
-                        }
-                        placement="bottom"
-                      >
-                        <p className="small d-none d-sm-block ">
-                          {addSubStr(item.event_desc, 80)}
-                        </p>
-                      </CustomTooltip>
-                      <CustomTooltip
-                        title={
-                          <p
-                            style={{
-                              fontSize: "14px",
-                              marginBottom: "0",
-                            }}
-                          >
-                            {item.event_desc}
-                          </p>
-                        }
-                        placement="bottom"
-                        enterTouchDelay={0}
-                      >
-                        <p className="small d-block d-sm-none ">
-                          {addSubStr(item.event_desc, 45)}
-                        </p>
-                      </CustomTooltip>
-
-                      {toggle !== 'expired' && <div style={{ position: "absolute" }}>
-                        <a
-                          target="_blank"
-                          href={item.event_url}
-                          rel="noreferrer"
+                        <div
+                          style={{ position: "relative" }}
+                          className="media-body mt-2"
                         >
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            size="small"
+                          <div
+                            style={{
+                              position: "absolute",
+                              right: "5px",
+                              top: "5px",
+                            }}
                           >
-                            Join Event
-                          </Button>
-                        </a>
-                      </div>}
-                    </div>
+                            <CustomTooltip
+                              title="Add to Calender"
+                              placement="top"
+                            >
+                              <a
+                                onClick={() =>
+                                  openGoogleCalendar(
+                                    item.event_title,
+                                    item.event_desc,
+                                    item.event_date,
+                                    item.event_time
+                                  )
+                                }
+                              >
+                                <IconButton size="small">
+                                  <AddIcon />
+                                </IconButton>
+                              </a>
+                            </CustomTooltip>
+                          </div>
+                          <h5 className="mb-0"> {item.event_title} </h5>
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              color: "gray",
+                            }}
+                          >
+                            {addSubStr(item.network, 25)}
+                          </span>
+
+                          <CustomTooltip
+                            title={
+                              <p
+                                style={{
+                                  fontSize: "12px",
+                                  marginBottom: "0",
+                                }}
+                              >
+                                {item.event_desc}
+                              </p>
+                            }
+                            placement="bottom"
+                          >
+                            <p className="small d-none d-sm-block ">
+                              {addSubStr(item.event_desc, 80)}
+                            </p>
+                          </CustomTooltip>
+                          <CustomTooltip
+                            title={
+                              <p
+                                style={{
+                                  fontSize: "14px",
+                                  marginBottom: "0",
+                                }}
+                              >
+                                {item.event_desc}
+                              </p>
+                            }
+                            placement="bottom"
+                            enterTouchDelay={0}
+                          >
+                            <p className="small d-block d-sm-none ">
+                              {addSubStr(item.event_desc, 45)}
+                            </p>
+                          </CustomTooltip>
+
+                          {toggle !== "expired" && (
+                            <div style={{ position: "absolute" }}>
+                              <a
+                                target="_blank"
+                                href={item.event_url}
+                                rel="noreferrer"
+                              >
+                                <Button
+                                  variant="contained"
+                                  color="primary"
+                                  size="small"
+                                >
+                                  Join Event
+                                </Button>
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </Card>
                   </div>
-                </Card>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </div>
     </>
