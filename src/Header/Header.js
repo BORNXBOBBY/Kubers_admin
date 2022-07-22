@@ -48,7 +48,11 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" sx={{ top: "0" }} color="default">
+      <AppBar
+        position="fixed"
+        sx={{ top: "0" }}
+        style={{ backgroundColor: "#2d325c" }}
+      >
         <Toolbar>
           <IconButton
             edge="start"

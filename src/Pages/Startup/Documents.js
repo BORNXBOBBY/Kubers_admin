@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 import { addSubStr } from "../../Constant/Substring";
 import Header from "../../Header/Header";
-import { Network } from "../Network/Network";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 
 export default function Documents() {

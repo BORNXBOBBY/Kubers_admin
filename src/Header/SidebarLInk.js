@@ -12,7 +12,7 @@ function SidebarLink({ text, icon }) {
     <div>
       <List>
         <ListItem className="sideitem">
-          <ListItemIcon>{icon} </ListItemIcon>
+          <ListItemIcon style={{ color: "white" }}>{icon} </ListItemIcon>
           <ListItemText primary={text} />
         </ListItem>
       </List>

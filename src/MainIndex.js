@@ -55,7 +55,7 @@ export default function MainIndex() {
         <div className="container">
           <div className="row ">
             <Typography variant="h4" sx={{ mt: 3 }}>
-              Dashobard{" "}
+              Dashboard{" "}
             </Typography>
             <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
               <Card className="rounded" sx={{ p: 1 }}>
