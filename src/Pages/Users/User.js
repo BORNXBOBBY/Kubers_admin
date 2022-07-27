@@ -37,7 +37,7 @@ export default function Users(props) {
               </div>
               <div className=" col-sm-3">
                 <select
-                  class="form-select form-select-lg"
+                  className="form-select form-select-lg"
                   aria-label=".form-select-lg example"
                   onChange={(e) => setToggleUsers(e.target.value)}
                 >

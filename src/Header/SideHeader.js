@@ -23,18 +23,26 @@ export default function SideHeader({ toggle }) {
           <SidebarLink icon={<Dashboard />} text="Dashboard" />
         </Link>
 
-        <Link className="linkstyle" to="/network">
-          <SidebarLink icon={<CellTower />} text="Networks" />
-        </Link>
-        <Link className="linkstyle" to="/startup">
-          <SidebarLink icon={<Rocket />} text="Startups" />
-        </Link>
-        <Link className="linkstyle" to="/users">
-          <SidebarLink icon={<Person />} text="Users" />
-        </Link>
-        <Link to="/mentor" className="linkstyle">
-          <SidebarLink icon={<FaChalkboardTeacher />} text="Mentor" />
-        </Link>
+        <div className="unique-classname4">
+          <Link className="linkstyle" to="/network">
+            <SidebarLink icon={<CellTower />} text="Networks" />
+          </Link>
+        </div>
+        <div className="unique-classname5">
+          <Link className="linkstyle" to="/startup">
+            <SidebarLink icon={<Rocket />} text="Startups" />
+          </Link>
+        </div>
+        <div className="unique-classname6">
+          <Link className="linkstyle" to="/users">
+            <SidebarLink icon={<Person />} text="Users" />
+          </Link>
+        </div>
+        <div className="unique-classname7">
+          <Link to="/mentor" className="linkstyle">
+            <SidebarLink icon={<FaChalkboardTeacher />} text="Mentor" />
+          </Link>
+        </div>
         <Link to="/investor" className="linkstyle">
           <SidebarLink icon={<Person />} text="Investor" />
         </Link>

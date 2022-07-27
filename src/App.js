@@ -30,114 +30,122 @@ import Users from "./Pages/Users/User";
 import CorporateProfile from "./Pages/Mentor/CorporateProfile";
 import MentorCorporateProfile from "./Pages/Mentor/MentorCorporateProfile";
 import UserUpdate from "./Pages/Users/UserUpdate";
+import UserGuide from "react-user-guide";
+import { guides, buttonConfig } from "./UserOnBoarding";
 
 function App() {
   return (
     <>
-      <GlobalState>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <ProtectedRoute exact path="/dashboard" component={MainIndex} />
-            <ProtectedRoute exact path="/network" component={Network} />
-            <ProtectedRoute
-              exact
-              path="/network/:id/:slug/network-access"
-              component={NetworkRoles}
-            />
-            <ProtectedRoute
-              exact
-              path="/network/:id/:slug/events"
-              component={NetworkEvents}
-            />
-            <ProtectedRoute
-              exact
-              path="/network/dashboard/events"
-              component={AllEvents}
-            />
-            <ProtectedRoute exact path="/setting" component={Setting} />
-            <ProtectedRoute exact path="/profile" component={Profile} />
-            <ProtectedRoute
-              exact
-              path="/network/:id/:slug"
-              component={NetworkDetails}
-            />
-            <ProtectedRoute exact path="/startup" component={Startup} />
-            <ProtectedRoute
-              exact
-              path="/startup/documents"
-              component={Documents}
-            />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug/startup-doc"
-              component={StartupDoc}
-            />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug"
-              component={StartupDetails}
-            />
-            <ProtectedRoute exact path="/search" component={Search} />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug/captable"
-              component={CapTable}
-            />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug/team"
-              component={StartUpTeam}
-            />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug/financial-details"
-              component={FinancialTableDetails}
-            />
-            <ProtectedRoute
-              exact
-              path="/startup/:id/:slug/startup-roles"
-              component={StartupRoles}
-            />
-            <ProtectedRoute exact path="/investor" component={Investor} />
-            <ProtectedRoute
-              exact
-              path="/investor/:id"
-              component={InvestorDetails}
-            />
-            <ProtectedRoute exact path="/deal" component={Deal} />
-            <ProtectedRoute
-              exact
-              path="/deal/commitment"
-              component={Commitment}
-            />
-            <ProtectedRoute exact path="/mentor" component={Mentor} />
-            <ProtectedRoute
-              exact
-              path="/mentor/:id/:slug"
-              component={MentorDetails}
-            />
-            <ProtectedRoute
-              exact
-              path="/mentor/corporate-profile"
-              component={CorporateProfile}
-            />
-            <ProtectedRoute
-              exact
-              path="/mentor/:id/:slug/corporate-profile"
-              component={MentorCorporateProfile}
-            />
-            <ProtectedRoute exact path="/users" component={Users} />
-            <ProtectedRoute
-              exact
-              path="/user/:id/update"
-              component={UserUpdate}
-            />
-            <Route exact path="signup" component={Signup} />
-            <Route exact path="/" component={Login} />
-          </Switch>
-        </BrowserRouter>
-      </GlobalState>
+      <UserGuide
+        content="Would you like us to walk you through different features in AltInvest1 ?"
+        buttonConfig={buttonConfig}
+        guides={guides}
+      >
+        <GlobalState>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/login" component={Login} />
+              <ProtectedRoute exact path="/dashboard" component={MainIndex} />
+              <ProtectedRoute exact path="/network" component={Network} />
+              <ProtectedRoute
+                exact
+                path="/network/:id/:slug/network-access"
+                component={NetworkRoles}
+              />
+              <ProtectedRoute
+                exact
+                path="/network/:id/:slug/events"
+                component={NetworkEvents}
+              />
+              <ProtectedRoute
+                exact
+                path="/network/dashboard/events"
+                component={AllEvents}
+              />
+              <ProtectedRoute exact path="/setting" component={Setting} />
+              <ProtectedRoute exact path="/profile" component={Profile} />
+              <ProtectedRoute
+                exact
+                path="/network/:id/:slug"
+                component={NetworkDetails}
+              />
+              <ProtectedRoute exact path="/startup" component={Startup} />
+              <ProtectedRoute
+                exact
+                path="/startup/documents"
+                component={Documents}
+              />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug/startup-doc"
+                component={StartupDoc}
+              />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug"
+                component={StartupDetails}
+              />
+              <ProtectedRoute exact path="/search" component={Search} />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug/captable"
+                component={CapTable}
+              />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug/team"
+                component={StartUpTeam}
+              />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug/financial-details"
+                component={FinancialTableDetails}
+              />
+              <ProtectedRoute
+                exact
+                path="/startup/:id/:slug/startup-roles"
+                component={StartupRoles}
+              />
+              <ProtectedRoute exact path="/investor" component={Investor} />
+              <ProtectedRoute
+                exact
+                path="/investor/:id"
+                component={InvestorDetails}
+              />
+              <ProtectedRoute exact path="/deal" component={Deal} />
+              <ProtectedRoute
+                exact
+                path="/deal/commitment"
+                component={Commitment}
+              />
+              <ProtectedRoute exact path="/mentor" component={Mentor} />
+              <ProtectedRoute
+                exact
+                path="/mentor/:id/:slug"
+                component={MentorDetails}
+              />
+              <ProtectedRoute
+                exact
+                path="/mentor/corporate-profile"
+                component={CorporateProfile}
+              />
+              <ProtectedRoute
+                exact
+                path="/mentor/:id/:slug/corporate-profile"
+                component={MentorCorporateProfile}
+              />
+              <ProtectedRoute exact path="/users" component={Users} />
+              <ProtectedRoute
+                exact
+                path="/user/:id/update"
+                component={UserUpdate}
+              />
+              <Route exact path="signup" component={Signup} />
+              <Route exact path="/" component={Login} />
+            </Switch>
+          </BrowserRouter>
+        </GlobalState>
+      </UserGuide>
     </>
   );
 }

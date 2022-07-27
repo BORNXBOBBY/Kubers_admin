@@ -60,7 +60,7 @@ export default function MainIndex() {
             <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
               <Card className="rounded" sx={{ p: 1 }}>
                 <div className="d-flex justify-content-around">
-                  <div>
+                  <div className="unique-classname">
                     <Typography
                       variant="h5"
                       component="div"
@@ -81,7 +81,7 @@ export default function MainIndex() {
             <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
               <Card className="rounded" sx={{ p: 1 }}>
                 <div className="d-flex justify-content-around">
-                  <div>
+                  <div className="unique-classname1">
                     <Typography
                       variant="h5"
                       component="div"
@@ -102,7 +102,7 @@ export default function MainIndex() {
             <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
               <Card className="rounded" sx={{ p: 1 }}>
                 <div className="d-flex justify-content-around">
-                  <div>
+                  <div className="unique-classname2">
                     <Typography
                       variant="h5"
                       component="div"
@@ -123,7 +123,7 @@ export default function MainIndex() {
             <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
               <Card className="rounded" sx={{ p: 1 }}>
                 <div className="d-flex justify-content-around">
-                  <div>
+                  <div className="unique-classname3">
                     <Typography
                       variant="h5"
                       component="div"

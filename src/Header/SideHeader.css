@@ -1,3 +1,4 @@
+@import '~react-user-guide/dist/custom-style.css';
 .sidebar{
     width: 18vw;
     /* min-width: 150px; */
@@ -46,4 +47,29 @@
     text-decoration: none;
     color: #333;
 }
+
+.userGuide--modal h1{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4d7dbd;
+  margin-bottom: 1rem;
+}
+
+
+.userGuide--message h3 {
+  font-size: 20px !important;
+  color: #4d7dbd;
+  align-items: left;
+  }
+  .userGuide--message p{
+    opacity: 0.5;
+  }
+
+  .userGuide--mask {
+
+    background-color: rgba(0, 0, 0, 0.3) !important;
+
+    
+}
+
   
