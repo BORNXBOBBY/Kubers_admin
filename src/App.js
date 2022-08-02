@@ -30,6 +30,7 @@ import Users from "./Pages/Users/User";
 import CorporateProfile from "./Pages/Mentor/CorporateProfile";
 import MentorCorporateProfile from "./Pages/Mentor/MentorCorporateProfile";
 import UserUpdate from "./Pages/Users/UserUpdate";
+import FocusArea from "./Pages/FocusArea/FocusArea";
 
 function App() {
   return (
@@ -133,6 +134,8 @@ function App() {
               path="/user/:id/update"
               component={UserUpdate}
             />
+            <ProtectedRoute exact path="/focusarea" component={FocusArea} />
+
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>

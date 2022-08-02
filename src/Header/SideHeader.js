@@ -49,7 +49,9 @@ export default function SideHeader({ toggle }) {
         <Link to="/deal" className="linkstyle">
           <SidebarLink icon={<AutoAwesomeMotion />} text="Deal" />
         </Link>
-        {/* <SidebarLink icon={<MonetizationOnOutlined />} text="Investment" /> */}
+        <Link to="/focusarea">
+          <SidebarLink icon={<MonetizationOnOutlined />} text="FocusArea" />
+        </Link>
       </div>
     </div>
   );
