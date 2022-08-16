@@ -6,7 +6,12 @@ import GlobalContext from "../../Context/GlobalContext";
 import { Link } from "react-router-dom";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 import NetworkEmpty from "../Empty/NetworkEmpty";
+import ReactGa from "react-ga";
 
+ReactGa.event({
+  category: "User",
+  action: "User is in Network Page",
+});
 export const Network = (props) => {
   const {
     network,
