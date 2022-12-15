@@ -31,14 +31,15 @@ import CorporateProfile from "./Pages/Mentor/CorporateProfile";
 import MentorCorporateProfile from "./Pages/Mentor/MentorCorporateProfile";
 import UserUpdate from "./Pages/Users/UserUpdate";
 import FocusArea from "./Pages/FocusArea/FocusArea";
-// import { useEffect } from "react";
-// import ReactGA from "react-ga4";
+import ReactGa from "react-ga";
+import { useEffect } from "react";
 
 function App() {
-  // useEffect(() => {
-  //   ReactGA.initialize("G-S7TTGGY53L");
-  //   ReactGA.send("pageview");
-  // }, []);
+  useEffect(() => {
+    ReactGa.initialize("G-C3374DXN5T");
+
+    ReactGa.pageview(window.location.pathname === window.location.search);
+  }, []);
   return (
     <>
       <GlobalState>
