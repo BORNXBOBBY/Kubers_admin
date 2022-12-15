@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function InvestorDetails() {
-  var { slug } = useParams();
   var { id } = useParams();
 
   const [investorDetails, setInvestorDetails] = useState([]);
@@ -64,9 +63,18 @@ export default function InvestorDetails() {
       console.log(e);
     }
   };
+
+  const date = new Date(`${investorDetails.date}`);
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  // console.log("date", formattedDate);
   console.log("rrrrr", investorDetails);
   useEffect(() => {
     getInvestorDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -93,25 +101,27 @@ export default function InvestorDetails() {
                       alt="network img"
                     />
                   </div>
+
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{`${
-                      investorDetails.first_name
-                        ? investorDetails.first_name
-                        : ""
-                    } ${
-                      investorDetails.middle_name
-                        ? investorDetails.middle_name
-                        : ""
-                    } ${
-                      investorDetails.last_name ? investorDetails.last_name : ""
-                    }`}</h4>
+                    <h4 style={{ color: "#1976d2" }}>
+                      {investorDetails.first_name
+                        ? `${investorDetails.first_name} ${
+                            investorDetails.middle_name
+                              ? investorDetails.middle_name
+                              : ""
+                          } ${investorDetails.last_name}`
+                        : investorDetails.full_name}
+                    </h4>
                     <span className="text-muted">
                       {investorDetails.fname_authorized_person_karta}{" "}
                     </span>
                     <p className="text-muted mb-0">
-                      Founder : {investorDetails.account_holder_name}
+                      Founder :{" "}
+                      {investorDetails.account_holder_name
+                        ? investorDetails.account_holder_name
+                        : "No Data"}
                     </p>
-                    <p>{investorDetails.date} </p>
+                    <p>{formattedDate} </p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
@@ -162,7 +172,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.first_name}
+                          value={
+                            investorDetails.first_name
+                              ? investorDetails.first_name
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -170,7 +184,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.last_name}
+                          value={
+                            investorDetails.last_name
+                              ? investorDetails.last_name
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -178,7 +196,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.investment_type}
+                          value={
+                            investorDetails.investment_type
+                              ? investorDetails.investment_type
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -186,7 +208,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.account_holder_name}
+                          value={
+                            investorDetails.account_holder_name
+                              ? investorDetails.account_holder_name
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -194,15 +220,23 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.account_no}
+                          value={
+                            investorDetails.account_no
+                              ? investorDetails.account_no
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label class="form-label">Adhar no</label>
+                        <label class="form-label">Aadhaar no</label>
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.aadhar_no}
+                          value={
+                            investorDetails.aadhar_no
+                              ? investorDetails.aadhar_no
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -210,7 +244,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.bank_name}
+                          value={
+                            investorDetails.bank_name
+                              ? investorDetails.bank_name
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -218,7 +256,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.branch}
+                          value={
+                            investorDetails.branch
+                              ? investorDetails.branch
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -226,7 +268,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.city}
+                          value={
+                            investorDetails.city
+                              ? investorDetails.city
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -234,7 +280,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.pincode}
+                          value={
+                            investorDetails.pincode
+                              ? investorDetails.pincode
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -242,7 +292,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.country}
+                          value={
+                            investorDetails.country
+                              ? investorDetails.country
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -250,7 +304,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.relationship}
+                          value={
+                            investorDetails.relationship
+                              ? investorDetails.relationship
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -258,7 +316,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.passport_exp_date}
+                          value={
+                            investorDetails.passport_exp_date
+                              ? investorDetails.passport_exp_date
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -266,7 +328,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.passport}
+                          value={
+                            investorDetails.passport
+                              ? investorDetails.passport
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -274,7 +340,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.pan}
+                          value={
+                            investorDetails.pan
+                              ? investorDetails.pan
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -282,7 +352,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.investment_type}
+                          value={
+                            investorDetails.investment_type
+                              ? investorDetails.investment_type
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -290,7 +364,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.gst_no}
+                          value={
+                            investorDetails.gst_no
+                              ? investorDetails.gst_no
+                              : "No Data"
+                          }
                         />
                       </div>
                       <div className="col-md-6 mt-3">
@@ -298,7 +376,11 @@ export default function InvestorDetails() {
                         <input
                           type=""
                           class="form-control"
-                          value={investorDetails.gst_expiry_date}
+                          value={
+                            investorDetails.gst_expiry_date
+                              ? investorDetails.gst_expiry_date
+                              : "No Data"
+                          }
                         />
                       </div>
                     </div>

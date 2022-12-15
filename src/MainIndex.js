@@ -52,105 +52,105 @@ export default function MainIndex() {
   ];
   return (
     <div>
-      <UserGuide
+      {/* <UserGuide
         content="Would you like us to walk you through different features in AltInvest1 ?"
         buttonConfig={buttonConfig}
         guides={guides}
-      >
-        <Header />
-        <div className="main">
-          <div className="container">
-            <div className="row ">
-              <Typography variant="h4" sx={{ mt: 3 }}>
-                Dashboard{" "}
-              </Typography>
-              <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
-                <Card className="rounded" sx={{ p: 1 }}>
-                  <div className="d-flex justify-content-around">
-                    <div className="unique-classname">
-                      <Typography
-                        variant="h5"
-                        component="div"
-                        sx={{ width: "117px" }}
-                      >
-                        Network
-                      </Typography>
-                      <Typography variant="button" component="h2">
-                        {dashboard.total_network?.total}
-                      </Typography>
-                    </div>
-                    <div className="p-3 towericon rounded">
-                      <CellTower />
-                    </div>
+      > */}
+      <Header />
+      <div className="main">
+        <div className="container">
+          <div className="row ">
+            <Typography variant="h4" sx={{ mt: 3 }}>
+              Dashboard{" "}
+            </Typography>
+            <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
+              <Card className="rounded" sx={{ p: 1 }}>
+                <div className="d-flex justify-content-around">
+                  <div className="unique-classname">
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      sx={{ width: "117px" }}
+                    >
+                      Network
+                    </Typography>
+                    <Typography variant="button" component="h2">
+                      {dashboard.total_network?.total}
+                    </Typography>
                   </div>
-                </Card>
-              </div>
-              <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
-                <Card className="rounded" sx={{ p: 1 }}>
-                  <div className="d-flex justify-content-around">
-                    <div className="unique-classname1">
-                      <Typography
-                        variant="h5"
-                        component="div"
-                        sx={{ width: "117px" }}
-                      >
-                        Startup
-                      </Typography>
-                      <Typography variant="button" component="h2">
-                        {dashboard?.total_startup?.total}
-                      </Typography>
-                    </div>
-                    <div className="p-3 towericon rounded">
-                      <Rocket />
-                    </div>
+                  <div className="p-3 towericon rounded">
+                    <CellTower />
                   </div>
-                </Card>
-              </div>
-              <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
-                <Card className="rounded" sx={{ p: 1 }}>
-                  <div className="d-flex justify-content-around">
-                    <div className="unique-classname2">
-                      <Typography
-                        variant="h5"
-                        component="div"
-                        sx={{ width: "117px" }}
-                      >
-                        Investor
-                      </Typography>
-                      <Typography variant="button" component="h2">
-                        {dashboard?.total_investors?.total}
-                      </Typography>
-                    </div>
-                    <div className="p-3 towericon rounded">
-                      <Person />
-                    </div>
-                  </div>
-                </Card>
-              </div>
-              <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
-                <Card className="rounded" sx={{ p: 1 }}>
-                  <div className="d-flex justify-content-around">
-                    <div className="unique-classname3">
-                      <Typography
-                        variant="h5"
-                        component="div"
-                        sx={{ width: "117px" }}
-                      >
-                        Deals
-                      </Typography>
-                      <Typography variant="button" component="h2">
-                        {" "}
-                        {dashboard.deals_count?.total}
-                      </Typography>
-                    </div>
-                    <div className="p-3 towericon rounded">
-                      <MonetizationOn />
-                    </div>
-                  </div>
-                </Card>
-              </div>
+                </div>
+              </Card>
             </div>
-            {/* <div>
+            <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
+              <Card className="rounded" sx={{ p: 1 }}>
+                <div className="d-flex justify-content-around">
+                  <div className="unique-classname1">
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      sx={{ width: "117px" }}
+                    >
+                      Startup
+                    </Typography>
+                    <Typography variant="button" component="h2">
+                      {dashboard?.total_startup?.total}
+                    </Typography>
+                  </div>
+                  <div className="p-3 towericon rounded">
+                    <Rocket />
+                  </div>
+                </div>
+              </Card>
+            </div>
+            <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
+              <Card className="rounded" sx={{ p: 1 }}>
+                <div className="d-flex justify-content-around">
+                  <div className="unique-classname2">
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      sx={{ width: "117px" }}
+                    >
+                      Investor
+                    </Typography>
+                    <Typography variant="button" component="h2">
+                      {dashboard?.total_investors?.total}
+                    </Typography>
+                  </div>
+                  <div className="p-3 towericon rounded">
+                    <Person />
+                  </div>
+                </div>
+              </Card>
+            </div>
+            <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
+              <Card className="rounded" sx={{ p: 1 }}>
+                <div className="d-flex justify-content-around">
+                  <div className="unique-classname3">
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      sx={{ width: "117px" }}
+                    >
+                      Deals
+                    </Typography>
+                    <Typography variant="button" component="h2">
+                      {" "}
+                      {dashboard.deals_count?.total}
+                    </Typography>
+                  </div>
+                  <div className="p-3 towericon rounded">
+                    <MonetizationOn />
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+          {/* <div>
             <div className="mt-5">
               <LineChart
                 width={1000}
@@ -199,9 +199,9 @@ export default function MainIndex() {
               </LineChart>
             </div>
           </div> */}
-          </div>
         </div>
-      </UserGuide>
+      </div>
+      {/* </UserGuide> */}
     </div>
   );
 }
