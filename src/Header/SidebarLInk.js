@@ -9,12 +9,14 @@ import "../Header/SideHeader.css";
 
 function SidebarLink({ text, icon }) {
   return (
-    <List  >
+    <div >
+      <List  >
         <ListItem className="sideitem">
           <ListItemIcon >{icon} </ListItemIcon>
           <ListItemText primary={text} />
         </ListItem>
       </List>
+    </div>
   );
 }
 export default SidebarLink;
