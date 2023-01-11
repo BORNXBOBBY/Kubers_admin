@@ -9,10 +9,10 @@ import "../Header/SideHeader.css";
 
 function SidebarLink({ text, icon }) {
   return (
-    <div>
-      <List>
+    <div >
+      <List  >
         <ListItem className="sideitem">
-          <ListItemIcon style={{ color: "white" }}>{icon} </ListItemIcon>
+          <ListItemIcon >{icon} </ListItemIcon>
           <ListItemText primary={text} />
         </ListItem>
       </List>
