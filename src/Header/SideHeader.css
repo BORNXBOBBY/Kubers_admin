@@ -5,7 +5,8 @@
     position: absolute;
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
     height: 91vh;
-    background-color:#2d325c;
+    background-color:white;
+  
   }
 
 
@@ -15,8 +16,7 @@
     height: 91vh;
     position: absolute;
     left: 0px;
-    background-color:#2d325c;
-    
+    background-color:white;
   }
   @media (max-width:850px) { 
     .sidebar{
@@ -33,14 +33,14 @@
   }
   .sideitem{
     cursor: pointer; 
-    color: #fbfcfa;
+    color: #121312;
   }
    .sideitem:hover{
-    background-color:#e1bee7;
+    background-color: #ca5cdd;
     /* color: #50b7f5; */
-    color: #4d7dbd;
+    color: #fbfcfa;
     transition: color 100ms ease-out;
-  font-variant: normal;
+    font-variant: normal;
   }
 
   .linkstyle{
@@ -55,7 +55,6 @@
   margin-bottom: 1rem;
 }
 
-
 .userGuide--message h3 {
   font-size: 20px !important;
   color: #4d7dbd;
@@ -69,7 +68,9 @@
 
     background-color: rgba(0, 0, 0, 0.3) !important;
 
-    
+
 }
 
-  
+.sidebar_icon:hover{
+  color: white;
+}

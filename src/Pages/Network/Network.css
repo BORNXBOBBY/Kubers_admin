@@ -5,36 +5,41 @@ table td ,table th{
 .filter{
     float: right;
 }
-.tablebody{
-    
+ /* .tablebody{
     color: #fff;
-}
-.tablebody:hover{
+   
+} */
+/* .tablebody:hover{
     color: #fff !important;
-}
+}  */
 @media (max-width:850px){
     .mobile td{
         width: 50%;
     }
 }
 .tableHover{
-    background-color: #ffffff;
+    /* border: 5px solid rgb(220, 223, 234); */
+    border: 5px solid #f5f6fa;
+    border-right: none;
+    border-left: none;
+    border-radius: 5px;
 
 }
 .tableHover:hover{
-    background-color: #f1fafd;
+    background-color: #eeebf3;
 
 }
 .headHover{
-    background-color: #6f42c1;
-  
+    background-color: #eeebf3;
+    color: brown;
 }
-.headHover:hover{
+/* .headHover:hover{
     background-color: #7c55c4;
     
-}
+} */
 
 
 .dealsInner{
     text-align: left !important;
 }
+
