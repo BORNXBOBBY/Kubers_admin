@@ -51,7 +51,7 @@ export default function Header(props) {
       <AppBar
         position="fixed"
         sx={{ top: "0" }}
-        style={{ backgroundColor: "#2d325c" }}
+        style={{ backgroundColor: "#0e2238" }}
       >
         <Toolbar>
           <IconButton

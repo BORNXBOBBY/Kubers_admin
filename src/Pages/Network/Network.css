@@ -22,7 +22,7 @@ table td ,table th{
     border: 5px solid #f5f6fa;
     border-right: none;
     border-left: none;
-    border-radius: 5px;
+   
 
 }
 .tableHover:hover{
@@ -30,16 +30,28 @@ table td ,table th{
 
 }
 .headHover{
-    background-color: #eeebf3;
-    color: brown;
+    background-color: #0e2238;
+    color: #fbfcfa;
 }
 /* .headHover:hover{
     background-color: #7c55c4;
     
 } */
 
+.table>:not(caption)>*>* {
+    padding: 0.7rem 0.7rem;
+    background-color: var(--bs-table-bg);
+    border-bottom-width: 1px;
+    box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+
 
 .dealsInner{
     text-align: left !important;
+}
+.border {
+    border: 1px solid #dee2e6!important;
+    border-radius: 10px;
 }
 

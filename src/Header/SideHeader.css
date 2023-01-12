@@ -5,7 +5,7 @@
     position: absolute;
     box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
     height: 91vh;
-    background-color:white;
+    background-color:#0e2238;
   
   }
 
@@ -16,7 +16,7 @@
     height: 91vh;
     position: absolute;
     left: 0px;
-    background-color:white;
+    background-color:#0e2238;
   }
   @media (max-width:850px) { 
     .sidebar{
@@ -29,23 +29,42 @@
     background-color:#2d325c;
         
     }
-    
+
+    .form-select {
+     width: 70%;
+}
   }
   .sideitem{
     cursor: pointer; 
-    color: #121312;
+    color:  #fbfcfa;
+    
   }
-   .sideitem:hover{
-    background-color: #ca5cdd;
-    /* color: #50b7f5; */
-    color: #fbfcfa;
+  ._side_icon{
+    cursor: pointer; 
+    color:  #fbfcfa !important;
+  }
+
+  .sideitem:hover{
+    /* background-color: #ca5cdd;
+    color: #fbfcfa; */
     transition: color 100ms ease-out;
     font-variant: normal;
   }
 
-  .linkstyle{
+
+.linkstyle{
     text-decoration: none;
-    color: #333;
+    
+}
+.linkstyle:hover .sideitem {
+  background-color: rgb(11 51 70);
+  color: #fbfcfa;
+}
+
+.linkstyle:hover ._side_icon
+{
+  background-color: rgb(11 51 70);
+  color: #fbfcfa;
 }
 
 .userGuide--modal h1{
@@ -67,10 +86,7 @@
   .userGuide--mask {
 
     background-color: rgba(0, 0, 0, 0.3) !important;
-
-
 }
-
-.sidebar_icon:hover{
-  color: white;
+.form-select {
+  width: 70%;
 }

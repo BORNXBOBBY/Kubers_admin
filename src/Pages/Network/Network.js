@@ -80,7 +80,7 @@ export const Network = (props) => {
                     </Select>
                   </FormControl> */}
                   <select
-                    class="form-select form-select-lg mb-3"
+                    class="form-select form-select-sm mb-3"
                     aria-label=".form-select-lg example"
                     value={toggleSelect}
                     onChange={(e) => setToggleSelect(e.target.value)}

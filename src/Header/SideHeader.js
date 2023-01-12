@@ -20,7 +20,7 @@ export default function SideHeader({ toggle }) {
         role="presentation"
       >
         <Link className="linkstyle" to="/">
-          <SidebarLink icon={<Dashboard />} text="Dashboard" />
+          <SidebarLink  icon={<Dashboard />} text="Dashboard" />
         </Link>
 
         <div className="unique-classname4">
@@ -49,7 +49,7 @@ export default function SideHeader({ toggle }) {
         <Link to="/deal" className="linkstyle">
           <SidebarLink icon={<AutoAwesomeMotion />} text="Deal" />
         </Link>
-        <Link to="/focusarea">
+        <Link to="/focusarea" className="linkstyle">
           <SidebarLink icon={<MonetizationOnOutlined />} text="FocusArea" />
         </Link>
       </div>
