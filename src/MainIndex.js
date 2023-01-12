@@ -61,7 +61,7 @@ export default function MainIndex() {
         <div className="main">
           <div className="container">
             <div className="row ">
-              <Typography variant="h4" sx={{ mt: 3 }}>
+              <Typography  variant="h4" sx={{ mt: 3, fontWeight: "700", fontFamily: "Ubuntu" }}>
                 Dashboard{" "}
               </Typography>
               <div className="col-sm-6 mt-2  col-md-6 col-lg-3">
@@ -71,11 +71,11 @@ export default function MainIndex() {
                       <Typography
                         variant="h5"
                         component="div"
-                        sx={{ width: "117px" }}
+                        sx={{ width: "117px" , fontWeight: "700" , fontFamily: "Ubuntu"}}
                       >
                         Network
                       </Typography>
-                      <Typography variant="button" component="h2">
+                      <Typography sx={{fontWeight: "700" }} variant="button" component="h2">
                         {dashboard.total_network?.total}
                       </Typography>
                     </div>
@@ -92,11 +92,11 @@ export default function MainIndex() {
                       <Typography
                         variant="h5"
                         component="div"
-                        sx={{ width: "117px" }}
+                        sx={{ width: "117px" , fontWeight: "700" , fontFamily: "Ubuntu" }}
                       >
                         Startup
                       </Typography>
-                      <Typography variant="button" component="h2">
+                      <Typography sx={{fontWeight: "700"}} variant="button" component="h2">
                         {dashboard?.total_startup?.total}
                       </Typography>
                     </div>
@@ -113,11 +113,11 @@ export default function MainIndex() {
                       <Typography
                         variant="h5"
                         component="div"
-                        sx={{ width: "117px" }}
+                        sx={{ width: "117px" , fontWeight: "700" , fontFamily: "Ubuntu" }}
                       >
                         Investor
                       </Typography>
-                      <Typography variant="button" component="h2">
+                      <Typography sx={{fontWeight: "700"}} variant="button" component="h2">
                         {dashboard?.total_investors?.total}
                       </Typography>
                     </div>
@@ -134,11 +134,11 @@ export default function MainIndex() {
                       <Typography
                         variant="h5"
                         component="div"
-                        sx={{ width: "117px" }}
+                        sx={{ width: "117px" , fontWeight: "700" , fontFamily: "Ubuntu"}}
                       >
                         Deals
                       </Typography>
-                      <Typography variant="button" component="h2">
+                      <Typography sx={{fontWeight: "700"}} variant="button" component="h2">
                         {" "}
                         {dashboard.deals_count?.total}
                       </Typography>
