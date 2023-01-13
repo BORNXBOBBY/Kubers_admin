@@ -52,6 +52,9 @@ export default function SideHeader({ toggle }) {
         <Link to="/focusarea">
           <SidebarLink icon={<MonetizationOnOutlined />} text="FocusArea" />
         </Link>
+        <Link to="/news-article">
+          <SidebarLink icon={<MonetizationOnOutlined />} text="News Article" />
+        </Link>
       </div>
     </div>
   );
