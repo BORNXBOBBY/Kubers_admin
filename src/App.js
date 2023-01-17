@@ -33,6 +33,7 @@ import UserUpdate from "./Pages/Users/UserUpdate";
 import FocusArea from "./Pages/FocusArea/FocusArea";
 import ReactGa from "react-ga";
 import { useEffect } from "react";
+import NewsArticle from "./Pages/NewsArticle/NewsArticle";
 
 function App() {
   useEffect(() => {
@@ -142,7 +143,7 @@ function App() {
               component={UserUpdate}
             />
             <ProtectedRoute exact path="/focusarea" component={FocusArea} />
-
+            <ProtectedRoute exa path="/news-article" component={NewsArticle} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
