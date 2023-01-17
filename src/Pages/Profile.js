@@ -15,8 +15,8 @@ export default function Profile() {
             <div className="col-12 ">
               <div className="row p-5">
                 <div className="col-12 col-md-3">
-                  <img
-                    className="img-fluid rounded-circle"
+                  <img style={{ height: "210px"}}
+                    className="img-fluid rounded-circle "
                     src="https://i.ibb.co/Tm92ZWW/user.png"
                     alt=""
                   />
@@ -79,7 +79,7 @@ export default function Profile() {
                           LinkedIn
                         </TextField>
                       </div>
-                      <div className="col-12 mt-3 text-end">
+                      <div className="col-12gi mt-3 text-end">
                         <Link to="/setting" style={{ textDecoration: "none" }}>
                           <Button style={{backgroundColor: "#0e2238", color: "white"}}  variant="outlined" color="primary">
                             Edit Info

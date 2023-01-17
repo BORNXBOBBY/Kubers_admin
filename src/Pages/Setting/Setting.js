@@ -65,18 +65,18 @@ export default function Setting() {
                 </div>
                 <div className="col-sm-12 mt-4">
                   <form>
-                    <Card>
+                    
                       <CardContent>
                         <div className="row mx-sm-5">
                           <div className="col-sm-6">
                             <div className="row">
-                              <div className="col-6">
+                              <div className="col-4">
                                 <Avatar
                                   sx={{ width: "100px", height: "100px" }}
                                   src="https://i.ibb.co/Tm92ZWW/user.png"
                                 />
                               </div>
-                              <div className="col-6 mt-4">
+                              <div className="col-2 mt-4">
                                 {/* <Button
                                   variant="contained"
                                   startIcon={<Edit />}
@@ -88,8 +88,8 @@ export default function Setting() {
                                   placement="top"
                                   title="change Profile here"
                                 >
-                                  <IconButton>
-                                    <Edit color="secondary" />
+                                  <IconButton sx={{marginLeft: "-50px"}}>
+                                    <Edit sx={{Color: "#0e2238"}} />
                                   </IconButton>
                                 </Tooltip>
                               </div>
@@ -162,7 +162,7 @@ export default function Setting() {
                           </div>
                         </div>
                       </CardContent>
-                    </Card>
+                    
                     <div className="flex submitbtn mt-3 ">
                       <Button
                         className="mx-3"
