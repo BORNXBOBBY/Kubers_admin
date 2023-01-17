@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../Header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import "./NetworkDetails.css";
 import { Link, useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
 import { useState } from "react";
@@ -105,7 +105,7 @@ export default function NetworkDetails() {
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Network Details</h2>
+                <h2 className="text-center  Network_details_head ">Network Details</h2>
 
                 <hr />
                 <div className="row mt-4 align-items-center">
