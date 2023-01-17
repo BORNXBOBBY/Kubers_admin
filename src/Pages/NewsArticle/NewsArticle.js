@@ -5,7 +5,6 @@ import Header from '../../Header/Header'
 import './NewsArticle.css'
 export default function NewsArticle() {
     const [img, setImg] = useState()
-    const [imgName, setImgName] = useState()
     const [formData, setFormdData] = useState({
         title: '',
         desc: ''
@@ -15,19 +14,18 @@ export default function NewsArticle() {
 
     const handleImage = (e) => {
         console.log('target', e.target.files);
-        setImgName(e.target.files)
-        setImg(URL.createObjectURL(e.target.files[0]));
+        setImg(e.target.files[0]);
         // const reader = new FileReader();
         // reader.addEventListener("load", () => setImg(reader.result));
         // reader.readAsDataURL(e.target.files[0]);
     }
 
-    console.log('form', title, desc)
+    console.log('image-data', img)
 
     const handleUpload = (e) => {
         e.preventDefault()
         let formData = new FormData()
-        formData.append('image', img, imgName)
+        formData.append('image', img, img.name)
         formData.append('title', title)
         formData.append('desc', desc)
         fetch(`${api_url}/news_article/`, {
@@ -100,8 +98,8 @@ export default function NewsArticle() {
 
         <div className="formbold-file-list formbold-mb-5">
           <div className="formbold-file-item">
-            <span className="formbold-file-name"> {imgName?.[0]['name']} </span>
-            <button type='button' onClick={() => {setImg(''); setImgName('')}} >
+            <span className="formbold-file-name"> {img?.name} </span>
+            <button type='button' onClick={() => setImg('')} >
               <svg
                 width="10"
                 height="10"
