@@ -7,22 +7,22 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <div className="main">
-        <Typography variant="caption">Profile</Typography>
+      <div style={{fontFamily: 'Ubuntu'}} className="main">
+        <Typography sx={{fontWeight: "900", fontFamily:"Ubuntu"}} variant="caption">Profile</Typography>
         <div className="container">
-          <div className="row py-2">
-            <h3 className="text-center">Profile</h3>
-            <div className="col-12 rounded shadow">
-              <div className="row p-4">
+          <div className="row py-5">
+            <h3 style={{fontWeight: "900"}}  className="text-center">Profile</h3>
+            <div className="col-12 ">
+              <div className="row p-5">
                 <div className="col-12 col-md-3">
                   <img
                     className="img-fluid rounded-circle"
-                    src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                    src="https://i.ibb.co/Tm92ZWW/user.png"
                     alt=""
                   />
-                </div>
+                </div>  
                 <div className="col-12 col-md-9">
-                  <Box>
+                  <Box >
                     <div className="row">
                       <div className="col-6 mt-3">
                         <TextField
@@ -79,9 +79,9 @@ export default function Profile() {
                           LinkedIn
                         </TextField>
                       </div>
-                      <div className="col-6 mt-3 text-end">
+                      <div className="col-12 mt-3 text-end">
                         <Link to="/setting" style={{ textDecoration: "none" }}>
-                          <Button variant="outlined" color="primary">
+                          <Button style={{backgroundColor: "#0e2238", color: "white"}}  variant="outlined" color="primary">
                             Edit Info
                           </Button>
                         </Link>

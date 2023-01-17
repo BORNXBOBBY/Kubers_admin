@@ -55,7 +55,7 @@ export default function Setting() {
               <div className="row">
                 <div className="col-sm-12 ">
                   <div>
-                    <Typography sx={{ mb: 0 }} variant="h3">
+                    <Typography sx={{ mb: 0, fontFamily: "Ubuntu" }} variant="h3">
                       Personal Info
                     </Typography>
                     <small className="text-info">
@@ -73,7 +73,7 @@ export default function Setting() {
                               <div className="col-6">
                                 <Avatar
                                   sx={{ width: "100px", height: "100px" }}
-                                  src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
+                                  src="https://i.ibb.co/Tm92ZWW/user.png"
                                 />
                               </div>
                               <div className="col-6 mt-4">
@@ -95,8 +95,8 @@ export default function Setting() {
                               </div>
                             </div>
                           </div>
-                          <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 }}>User Name</InputLabel>
+                          <div className="col-sm-12">
+                            <InputLabel sx={{ mt: 3 , fontWeight: "900" }}>User Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -107,7 +107,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 }}>First Name</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>First Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -117,7 +117,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 }}>Last Name</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Last Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -128,7 +128,7 @@ export default function Setting() {
                           </div>
 
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 }}>Email</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Email</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -139,7 +139,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 }}>Gender</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Gender</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -150,7 +150,7 @@ export default function Setting() {
                           </div>
                           <div className="col-sm-6">
                             <div>
-                              <InputLabel sx={{ mt: 3 }}>Password</InputLabel>
+                              <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Password</InputLabel>
                               <Input
                                 fullWidth
                                 type="text"
@@ -172,7 +172,7 @@ export default function Setting() {
                       >
                         Cancel
                       </Button>
-                      <Button variant="contained" color="primary" size="small">
+                      <Button style={{backgroundColor: "#0e2238", color: "white"}} variant="contained"  size="small">
                         Submit
                       </Button>
                     </div>
