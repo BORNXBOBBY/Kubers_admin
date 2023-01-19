@@ -1,4 +1,30 @@
 .Network_details_head{
     font-weight: 600px;
+    color: #0e2238;
    
 }
+.Network_details_name{
+    color: #0e2238;
+    font-weight: 450;
+    font-size: 35px;
+}
+.Network_details_desc{
+    font-size: 15px;
+}
+.Network_details_basic{
+     font-weight: 600px;
+     font-size: 30px;
+     margin-left: 23px;
+}
+.Network_details_focus{
+    font-weight: 600px;
+     font-size: 30px;
+     margin-left: 23px;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+    opacity: 1;
+}
+/* .Network_details_form{
+    
+} */

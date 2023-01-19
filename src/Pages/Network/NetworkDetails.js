@@ -104,21 +104,22 @@ export default function NetworkDetails() {
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded shadow bg-light p-3">
+              <div className="rounded p-3">
                 <h2 className="text-center  Network_details_head ">Network Details</h2>
 
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
-                    style={{ aspectRatio: "1/1", objectFit: "cover" }}
+                    style={{ aspectRatio: "1/1", objectFit: "cover",textAlign: "center" }}
                     className="col-12 col-md-2 rounded-circle"
                   >
                     <img
-                      className="img-fluid rounded-circle shadow"
+                      className="img-fluid rounded-circle shadow mt-4"
                       style={{
-                        width: "100%",
-                        height: "90%",
-                        objectFit: "contain",
+                        width: "80%",
+                        height: "auto",
+                        aspectRatio:"1/1",
+                        objectFit: "cover"
                       }}
                       src={
                         networkDetails.image
@@ -129,12 +130,12 @@ export default function NetworkDetails() {
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{networkDetails.name}</h4>
+                    <h4 className="Network_details_name" >{networkDetails.name}</h4>
                     <span className="text-muted">{formattedDate}</span>
                     <p className="text-muted mb-0">
                       Founder : {networkDetails.compliance_officer}
                     </p>
-                    <p>{networkDetails.desc}</p>
+                    <p className="Network_details_desc">{networkDetails.desc}</p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
@@ -171,17 +172,17 @@ export default function NetworkDetails() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4  " style={{ color: "#6c757d",fontSize: "15px" }}>
                     About :-{" "}
                   </h5>
                 </div>
                 <div className="container mb-3">
-                  <h6 className="display-6">Basic Details : </h6>
+                  <h6 className="display-6 Network_details_basic">Basic Details : </h6>
                   <div className="row px-4 mt-3">
-                    <form>
+                    <form className="Network_details_form">
                       <fieldset disabled>
                         <div className="row">
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Network Type
@@ -194,7 +195,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Complaince Officer
@@ -207,7 +208,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Website
@@ -220,7 +221,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Email
@@ -233,7 +234,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 LinkedIn
@@ -246,7 +247,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Address 1
@@ -259,7 +260,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Address 2
@@ -272,7 +273,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-6">
+                          <div className="col-lg-6 col-md-6 col-sm-12">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Address 3
@@ -285,7 +286,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-3">
+                          <div className="col-lg-3 col-md-3 col-sm-6">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 City
@@ -298,7 +299,7 @@ export default function NetworkDetails() {
                               />
                             </div>
                           </div>
-                          <div className="col-3">
+                          <div className="col-lg-3 col-md-3 col-sm-6">
                             <div class="mb-3">
                               <label for="disabledTextInput" class="form-label">
                                 Pincode
@@ -317,14 +318,14 @@ export default function NetworkDetails() {
                   </div>
                 </div>
                 <div className="container">
-                  <h6 className="display-6">Focus Area : </h6>
+                  <h6 className="display-6 Network_details_focus">Focus Area : </h6>
                   <div className="row px-4">
                     <div className="col-12 col-md-6">
                       <h6>
                         Economy Sector :{" "}
-                        <ul className="text-muted">
+                        <ul className="text-muted ">
                           {networkDetails.economysector?.map((item, id) => (
-                            <li>{item}</li>
+                            <li className="mt-3">{item}</li>
                           ))}
                         </ul>
                       </h6>
@@ -334,7 +335,7 @@ export default function NetworkDetails() {
                         Emerging Sector :{" "}
                         <ul className="text-muted">
                           {networkDetails.emergingsector?.map((item, id) => (
-                            <li>{item}</li>
+                            <li className="mt-3">{item}</li>
                           ))}
                         </ul>
                       </h6>
@@ -345,7 +346,7 @@ export default function NetworkDetails() {
                         <ul className="text-muted">
                           {networkDetails.emergingtechnology?.map(
                             (item, id) => (
-                              <li>{item}</li>
+                              <li className="mt-3">{item}</li>
                             )
                           )}
                         </ul>
@@ -356,7 +357,7 @@ export default function NetworkDetails() {
                         Geography :{" "}
                         <ul className="text-muted">
                           {networkDetails.geography?.map((item, id) => (
-                            <li>{item}</li>
+                            <li className="mt-3">{item}</li>
                           ))}
                         </ul>
                       </h6>
@@ -366,7 +367,7 @@ export default function NetworkDetails() {
                         Product Status :{" "}
                         <ul className="text-muted">
                           {networkDetails.productstatus?.map((item, id) => (
-                            <li>{item}</li>
+                            <li className="mt-3">{item}</li>
                           ))}
                         </ul>
                       </h6>

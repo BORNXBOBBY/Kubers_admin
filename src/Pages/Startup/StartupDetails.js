@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../../Header/Header";
 import { Link, useParams } from "react-router-dom";
 import { getRequest, postRequest } from "../../Constant/apiCall";
+import "./StartupDetails.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -103,8 +104,8 @@ export default function NetworkDetails(props) {
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Startup Details</h2>
+              <div className="rounded p-3">
+                <h2 className="text-center Startup_details_head">Startup Details</h2>
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
@@ -127,14 +128,14 @@ export default function NetworkDetails(props) {
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{item.name} </h4>
+                    <h4 className="Startup_details_name">{item.name} </h4>
                     <span className="text-muted">
                       {item.startup_start_date}{" "}
                     </span>
                     <p className="text-muted mb-0">
                       Founder :{item.founder_name}
                     </p>
-                    <p>{item.desc} </p>
+                    <p className="Startup_details_desc">{item.desc} </p>
                   </div>
                   <div className="col-md-3 d-flex d-sm-block justify-content-around align-items-center">
                     <div className="text-center">
@@ -173,15 +174,15 @@ export default function NetworkDetails(props) {
                 <hr />
 
                 <div className="row">
-                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4" style={{ color: "#6c757d",fontSize: "15px" }}>
                     About :-{" "}
                   </h5>
                 </div>
                 <div className="container mb-3">
-                  <h6 className="display-6">Basic Details : </h6>
+                  <h6 className="display-6 Startup_details_basic">Basic Details : </h6>
                   <Box>
                     <div className="row px-4 mt-3">
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label"> startup Name</label>
                         <input
                           type=""
@@ -189,7 +190,7 @@ export default function NetworkDetails(props) {
                           value={item.name}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Founder Name</label>
                         <input
                           type=""
@@ -197,7 +198,8 @@ export default function NetworkDetails(props) {
                           value={item.founder_name}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Contact Person</label>
                         <input
                           type=""
@@ -205,7 +207,7 @@ export default function NetworkDetails(props) {
                           value={item.contact_person}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">DAte</label>
                         <input
                           type=""
@@ -213,7 +215,7 @@ export default function NetworkDetails(props) {
                           value={item.date}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Desc</label>
                         <input
                           type=""
@@ -222,7 +224,7 @@ export default function NetworkDetails(props) {
                         />
                       </div>
 
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Fund Raised Stage</label>
                         <input
                           type=""
@@ -230,7 +232,7 @@ export default function NetworkDetails(props) {
                           value={item.fund_raised_stage}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Fund Stage</label>
                         <input
                           type=""
@@ -238,7 +240,7 @@ export default function NetworkDetails(props) {
                           value={item.fund_stage}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-6 col-md-6 col-sm-12 mt-3">
                         <label className="form-label">Linkedin Page</label>
                         <input
                           type=""
@@ -246,7 +248,7 @@ export default function NetworkDetails(props) {
                           value={item.linkedin_page}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-3 col-md-3 col-sm-6 mt-3">
                         <label className="form-label">City</label>
                         <input
                           type=""
@@ -254,7 +256,7 @@ export default function NetworkDetails(props) {
                           value={item.city}
                         />
                       </div>
-                      <div className="col-md-6 mt-3">
+                      <div className="col-lg-3 col-md-3 col-sm-6 mt-3">
                         <label className="form-label">Pincode</label>
                         <input
                           type=""
@@ -338,7 +340,7 @@ export default function NetworkDetails(props) {
                   </Box>
                 </div>
                 <div className="container">
-                  <h6 className="display-6">Focus Area : </h6>
+                  <h6 className="display-6 Startup_details_focus">Focus Area : </h6>
                   <div className="row px-4">
                     <div className="col-12 col-md-6">
                       <h6>Economy Sector : </h6>
@@ -395,7 +397,11 @@ export default function NetworkDetails(props) {
                           "No Data"
                         )}
                       </ul>
-                      <div className="col-12 col-md-6">
+                      
+
+                    </div>
+                     
+                    <div className="col-12 col-md-6">
                         <h6>Geography : </h6>
                         <ul>
                           {item.geography?.length > 0 ? (
@@ -409,7 +415,7 @@ export default function NetworkDetails(props) {
                           )}
                         </ul>
                       </div>
-                    </div>
+                      
                   </div>
                 </div>
               </div>

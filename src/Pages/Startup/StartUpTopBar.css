@@ -1,0 +1,9 @@
+.StartUpTopBar_media{
+    display: flex;
+}
+@media (max-width:850px){
+.StartUpTopBar_media{
+    
+    overflow-x: scroll;
+}
+}

@@ -1,0 +1,23 @@
+.Startup_details_head{
+    font-weight: 600px;
+    color: #0e2238;
+   
+}
+.Startup_details_name{
+    color: #0e2238;
+    font-weight: 450;
+    font-size: 35px;
+}
+.Startup_details_desc{
+    font-size: 15px;
+}
+.Startup_details_basic{
+     font-weight: 600px;
+     font-size: 30px;
+     margin-left: 23px;
+}
+.Startup_details_focus{
+    font-weight: 600px;
+    font-size: 30px;
+    margin-left: 23px;
+}

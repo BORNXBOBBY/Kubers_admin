@@ -57,11 +57,11 @@ export default function Startup() {
             {/* <Typography variant="h4" className="mt-2">
               Startup
             </Typography> */}
-            <div className="container">
+            <div className="container mt-3">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
                   <select
-                    class="form-select form-select-lg mb-3"
+                    class="Startup_formSelect form-select form-select-sm mb-3"
                     aria-label=".form-select-lg example"
                     // onChange={(e) => setStartupToggle(e.target.value)}
                     onChange={(e) => setStartupToggle(e.target.value)}

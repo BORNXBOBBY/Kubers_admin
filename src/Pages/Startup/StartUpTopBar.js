@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-
+import "./StartUpTopBar.css";
 export default function StartUpTopBar() {
   const current = window.location.pathname;
   var { slug } = useParams();
   var { id } = useParams();
   return (
     <>
-      <div className="d-flex border-bottom">
+      <div className="border-bottom StartUpTopBar_media">
         <span>
           <Link
             className={`${
