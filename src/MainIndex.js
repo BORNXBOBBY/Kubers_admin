@@ -79,7 +79,7 @@ export default function MainIndex() {
                         {dashboard.total_network?.total}
                       </Typography>
                     </div>
-                    <div className="p-3 towericon rounded">
+                    <div style={{color:"white"}}  className="p-3 towericon rounded">
                       <CellTower />
                     </div>
                   </div>
@@ -100,7 +100,7 @@ export default function MainIndex() {
                         {dashboard?.total_startup?.total}
                       </Typography>
                     </div>
-                    <div className="p-3 towericon rounded">
+                    <div style={{color:"white"}}  className="p-3 towericon rounded">
                       <Rocket />
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export default function MainIndex() {
                         {dashboard?.total_investors?.total}
                       </Typography>
                     </div>
-                    <div className="p-3 towericon rounded">
+                    <div style={{color:"white"}}  className="p-3 towericon rounded">
                       <Person />
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export default function MainIndex() {
                         {dashboard.deals_count?.total}
                       </Typography>
                     </div>
-                    <div className="p-3 towericon rounded">
+                    <div style={{color:"white"}}  className="p-3 towericon rounded">
                       <MonetizationOn />
                     </div>
                   </div>

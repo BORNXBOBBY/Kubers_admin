@@ -15,7 +15,7 @@ export default function Profile() {
             <div className="col-12 ">
               <div className="row p-5">
                 <div className="col-12 col-md-3">
-                  <img style={{ height: "210px"}}
+                  <img 
                     className="img-fluid rounded-circle "
                     src="https://i.ibb.co/Tm92ZWW/user.png"
                     alt=""

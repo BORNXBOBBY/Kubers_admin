@@ -30,12 +30,12 @@ export default function Users(props) {
         <div className="p-4">
           <div className="container">
             <div className="row">
-              <div className="col-sm-9">
+              <div className="col-sm-8">
                 <Typography variant="h4" className="mt-2">
                   Users
                 </Typography>
               </div>
-              <div className=" col-sm-3">
+              <div className=" col-sm-4">
                 <select
                   className="form-select form-select-lg"
                   aria-label=".form-select-lg example"
