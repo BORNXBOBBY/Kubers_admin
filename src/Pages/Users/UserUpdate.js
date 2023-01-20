@@ -85,17 +85,17 @@ export default function UserUpdate(props) {
       <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded  bg-light p-3">
-                <h2 className="text-center">User Details</h2>
+              <div className="rounded   p-3">
+                <h2 className="text-center"  style={{fontWeight: 700 , color: "#0e2238"}}>User Details</h2>
                 <hr />
                 <div className="row">
-                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4" style={{ color: "#0e2238", fontWeight: "900" }}>
                     Verify / Unverify Email :-{" "}
                   </h5>
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">
-                        <label className="form-label"> Full Name</label>
+                        <label className="form-label" style={{fontWeight: 600}}> Full Name</label>
                         <input
                           type=""
                           className="form-control"
@@ -103,7 +103,7 @@ export default function UserUpdate(props) {
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label className="form-label">Email</label>
+                        <label className="form-label " style={{fontWeight: 600}}>Email</label>
                         <input
                           type=""
                           className="form-control"
@@ -111,7 +111,7 @@ export default function UserUpdate(props) {
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label className="form-label">Username</label>
+                        <label className="form-label"  style={{fontWeight: 600}}>Username</label>
                         <input
                           type=""
                           className="form-control"
@@ -119,7 +119,7 @@ export default function UserUpdate(props) {
                         />
                       </div>
                       <div className="col-md-6 mt-3">
-                        <label className="form-label">Mobile</label>
+                        <label className="form-label"  style={{fontWeight: 600}}>Mobile</label>
                         <input
                           type=""
                           className="form-control"
