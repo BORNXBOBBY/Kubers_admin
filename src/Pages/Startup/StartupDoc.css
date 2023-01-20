@@ -1,0 +1,16 @@
+.StartupDoc_Document_Name{
+    font-weight: 450;
+     font-size: 30px;
+     color: #0e2238;
+     text-align: center;
+}
+
+.StartupDoc_Table_head{
+    background-color:#0e2238;
+    color:white;
+}
+
+
+.StartupDoc_body tr {
+    border-bottom: 3px solid rgb(240, 238, 238) !important;
+}

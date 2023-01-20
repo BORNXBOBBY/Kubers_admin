@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
 import { addSubStr } from "../../Constant/Substring";
+import "./Document.css";
 import Header from "../../Header/Header";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 
@@ -63,11 +64,11 @@ export default function Documents() {
             <NetworksSkeleton />
           ) : (
             <>
-              <div className="px-sm-5 px-lg-5 px-md-0">
+              <div className="px-sm-5 px-lg-5 px-md-0 mt-5">
                 <div class="table-responsive">
                   <table class="table">
-                    <thead class="thead-dark">
-                      <tr align="center">
+                    <thead class="">
+                      <tr className="Document_Table_head" align="center">
                         <th scope="col">Document Type</th>
                         <th scope="col">Description</th>
                         <th scope="col">Date</th>
@@ -75,7 +76,7 @@ export default function Documents() {
                       </tr>
                     </thead>
                     {startupDoc.map((item, id) => (
-                      <tbody>
+                      <tbody className="Document_body">
                         <tr align="center">
                           <td>
                             {" "}

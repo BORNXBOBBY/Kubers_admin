@@ -8,7 +8,7 @@ import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
 import StartUpTopBar from "./StartUpTopBar";
 import { useParams } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
-
+import "./StartupDoc.css"
 export default function Startup() {
   const [startupDoc, setStartupDoc] = useState([]);
   const [networkDoc, setNetworkDoc] = useState(false);
@@ -47,7 +47,7 @@ export default function Startup() {
         <StartUpTopBar />
         <div className="container">
           <div className="row">
-            <Typography variant="h4" className="my-4">
+            <Typography variant="" className="my-4  StartupDoc_Document_Name ">
               Startup Document
             </Typography>
           </div>
@@ -61,8 +61,8 @@ export default function Startup() {
                     <div className="px-sm-5 px-lg-5 px-md-0">
                       <div class="table-responsive">
                         <table class="table">
-                          <thead class="thead-dark">
-                            <tr align="center">
+                          <thead class="">
+                            <tr className="StartupDoc_Table_head" align="center">
                               <th scope="col">Document Type</th>
                               <th scope="col">Description</th>
                               <th scope="col">Date</th>
@@ -70,7 +70,7 @@ export default function Startup() {
                             </tr>
                           </thead>
                           {startupDoc.map((item, id) => (
-                            <tbody>
+                            <tbody className="StartupDoc_body">
                               <tr align="center">
                                 <td> {addSubStr(item.document_type, 20)}</td>
                                 <td>{addSubStr(item.description, 30)}</td>
