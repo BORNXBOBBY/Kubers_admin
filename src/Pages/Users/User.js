@@ -31,17 +31,17 @@ export default function Users(props) {
           <div className="container">
             <div className="row">
               <div className="col-sm-8">
-                <Typography variant="h4" className="mt-2">
+                <Typography style={{fontWeight: "900", color: "#0e2238"}} variant="h4" className="mt-2 ">
                   Users
                 </Typography>
               </div>
               <div className=" col-sm-4">
-                <select
-                  className="form-select form-select-lg"
+                <select style={{marginLeft: "auto"}}
+                  className="form-select form-select-sm"
                   aria-label=".form-select-lg example"
                   onChange={(e) => setToggleUsers(e.target.value)}
                 >
-                  <option value="verified">Verified Email</option>
+                  <option sx={{fontWeight:"900"}} value="verified">Verified Email</option>
                   <option value="not-verified">Unverified Email</option>
                 </select>
               </div>

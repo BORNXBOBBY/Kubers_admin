@@ -77,8 +77,8 @@ export default function InvestorDetails() {
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Investor Details</h2>
+              <div className="rounded   p-3">
+                <h2 style={{fontWeight:"900" , color:"#0e2238"}} className="text-center">Investor Details</h2>
 
                 <hr />
                 <div className="row mt-4 align-items-center">
@@ -154,7 +154,7 @@ export default function InvestorDetails() {
                   </h5>
                 </div>
                 <div className="container mb-3">
-                  <h6 className="display-6">Basic Details : </h6>
+                  <h6 style={{color: "#0e2238"}} className="display-6">Basic Details : </h6>
                   <Box>
                     <div className="row px-4 mt-3">
                       <div className="col-md-6 mt-3">

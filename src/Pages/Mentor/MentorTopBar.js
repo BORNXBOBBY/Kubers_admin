@@ -7,14 +7,14 @@ export default function MentorTopBar() {
     <>
       <div className="d-flex border-bottom">
         <span>
-          <Link
+          <Link style={{color: "#0e2238"}}
             className={`${
               current === `/mentor` ? "topLink-active" : "topLink"
             }`}
             to={`/mentor`}
           >
             Mentor
-          </Link>
+          </Link> 
         </span>
         <span>
           <Link

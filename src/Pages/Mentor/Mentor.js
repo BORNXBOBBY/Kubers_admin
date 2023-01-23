@@ -26,7 +26,7 @@ export default function Mentor() {
         <MentorTopBar />
         <div className="container">
           <div className="row">
-            <Typography variant="h4" className="mt-2">
+            <Typography style={{fontWeight: "900" , color:"#0e2238"}} variant="h4" className="mt-2">
               Mentor
             </Typography>
             <div className="container">
