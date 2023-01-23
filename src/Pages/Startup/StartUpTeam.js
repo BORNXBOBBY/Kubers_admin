@@ -24,32 +24,36 @@ export default function StartUpTeam() {
       <Header />
       <div className="main">
         <StartUpTopBar />
-        <div className="container">
+        <div className="container my-2">
           <div className="row">
             <div className="col-sm-12 mt-sm-3">
-              <Typography variant="h6">Teams</Typography>
+              <Typography style={{
+               fontSize: "30px",
+               color: "#0e2238",
+               fontFamily:"font-family: 'Ubuntu', sans-serif " ,
+               textAlign: "center"}}>Teams</Typography>
             </div>
             {team.length > 0 ? (
               <>
                 <div className="px-md-2 px-lg-4 pt-4">
                   <div className="px-md-2 px-lg-4 table-responsive">
-                    <table className="table border">
+                    <table className="table ">
                       <thead className="text-center">
                         <tr className="tablebody headHover">
                           <th>
-                            <Typography variant="h6">Name</Typography>
+                            <Typography variant="">Name</Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">Designation</Typography>
+                            <Typography variant="">Designation</Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">Designation 2</Typography>
+                            <Typography variant="">Designation 2</Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">Joining Date</Typography>
+                            <Typography variant="">Joining Date</Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               Years of Experience
                             </Typography>
                           </th>

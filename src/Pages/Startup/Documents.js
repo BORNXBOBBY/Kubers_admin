@@ -35,7 +35,7 @@ export default function Documents() {
       <Header />
       <div className="main">
         <div className="container">
-          <div className="d-flex border-bottom">
+          <div className="d-flex border-bottom ">
             <span className="">
               {" "}
               <Link

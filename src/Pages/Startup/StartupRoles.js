@@ -24,26 +24,30 @@ export default function StartupRoles() {
       <Header />
       <div className="main">
         <StartUpTopBar />
-        <div className="container">
+        <div className="container my-4">
           <div className="row">
-            <Typography variant="h4" className="my-4">
+            <Typography className="my-1" style={{
+               fontSize: "30px",
+               color: "#0e2238",
+               fontFamily:"font-family: 'Ubuntu', sans-serif " ,
+               textAlign: "center"}} variant="h4" >
               Startup Roles
             </Typography>
           </div>
 
           {role.length > 0 ? <div className="px-md-2 px-lg-4 pt-4">
             <div className="px-md-2 px-lg-4 table-responsive">
-              <table className="table border">
+              <table className="table">
                 <thead className="text-center">
                   <tr className="tablebody headHover">
                     <th>
-                      <Typography variant="h6">Name</Typography>
+                      <Typography variant="">Name</Typography>
                     </th>
                     <th>
-                      <Typography variant="h6">Username</Typography>
+                      <Typography variant="">Username</Typography>
                     </th>
                     <th>
-                      <Typography variant="h6">Role</Typography>
+                      <Typography variant="">Role</Typography>
                     </th>
                   </tr>
                 </thead>

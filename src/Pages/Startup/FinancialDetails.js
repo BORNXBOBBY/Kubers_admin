@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { getRequest } from "../../Constant/apiCall";
 import { tableBody } from "./components/TableData";
@@ -103,7 +104,7 @@ export default function FinancialTableDetails({ role }) {
       <Header />
       <div className="main">
         <StartUpTopBar />
-        <div className="col-sm-12 px-0 px-sm-3">
+        <div className="col-sm-12 px-0 px-sm-3 mt-5">
           {tab === 0 && (
             <div>
               {stages?.length ? (
@@ -113,15 +114,17 @@ export default function FinancialTableDetails({ role }) {
                       {stages.map((item, id) => (
                         <div key={id} className="col-md-4 mb-4">
                           <div
-                            style={{ height: "180px" }}
+                            style={{ height: "80px",margin:"auto" }}
                             onClick={() => toggleStage(item)}
                             className="card service-card card-inverse"
                           >
-                            <div className="card-block p-3 my-auto">
+                            <div style={{margin:"auto",padding:"20px" }} className="card-block p-3 my-auto d-flex">
+                              <span ><AcUnitIcon/></span>
                               <span
                                 style={{ color: "white" }}
-                                className="fa fa-question-circle fa-3x"
+                                className="fa fa-question-circle fa-3x mx-1"
                               />
+                              
                               <h4
                                 style={{ textTransform: "capitalize" }}
                                 className="card-title"
@@ -169,7 +172,7 @@ export default function FinancialTableDetails({ role }) {
                   style={{ marginTop: "2px" }}
                   className="mr-1"
                 />{" "}
-                Back
+                Back 
               </Button>
               <h4
                 style={{
@@ -186,8 +189,8 @@ export default function FinancialTableDetails({ role }) {
                   aria-label="sticky table"
                   sx={{ minWidth: 700 }}
                 >
-                  <TableHead className="financial_edit_section">
-                    <TableRow>
+                  <TableHead  className="financial_edit_section">
+                    <TableRow >
                       {rowsData.map((item, index) => (
                         <>
                           {index === 0 ? (

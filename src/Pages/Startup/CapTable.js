@@ -51,51 +51,55 @@ export default function CapTable() {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 mt-sm-3">
-              <Typography>Cap Table</Typography>
+              <Typography className="my-2 " style={{
+               fontSize: "30px",
+               fontFamily:"font-family: 'Ubuntu', sans-serif " ,
+               color: "#0e2238",
+               textAlign: "center"}} >Cap Table</Typography>
             </div>
 
             {capSkeleton ? (
               <CaptTabaleSkeleton />
             ) : (
-              <div className="px-sm-0 px-md-2 px-lg-1 pt-4">
+              <div className="px-sm-0 px-md-2 px-lg-1 pt-3">
                 {capTable.length > 0 ? (
                   <div className="px-sm-0 px-md-2 px-lg-5 table-responsive">
-                    <table className="table border">
-                      <thead className="text-center">
+                    <table className="table ">
+                      <thead  className="text-center">
                         <tr className="tablebody headHover">
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               Network <br /> Name
                             </Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               Startup <br /> Name
                             </Typography>
                           </th>
                           <th className="pb-4">
-                            <Typography variant="h6">Stage</Typography>
+                            <Typography variant="">Stage</Typography>
                           </th>
                           <th className="pb-4">
-                            <Typography variant="h6">Name</Typography>
+                            <Typography variant="">Name</Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               Date of <br /> Allotment
                             </Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               No. of <br /> Shares
                             </Typography>
                           </th>
                           <th>
-                            <Typography variant="h6">
+                            <Typography variant="">
                               % of <br /> Holding
                             </Typography>
                           </th>
                           <th className="pb-4">
-                            <Typography variant="h6">Amount</Typography>
+                            <Typography variant="">Amount</Typography>
                           </th>
                         </tr>
                       </thead>
