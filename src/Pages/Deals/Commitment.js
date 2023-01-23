@@ -37,7 +37,7 @@ export default function Commitment() {
           <div className="d-flex border-bottom">
             <span className="">
               {" "}
-              <Link
+              <Link  style={{fontWeight: "900", color: "0e2238"}}
                 className={`${
                   current === "/deal" ? "topLink-active" : "topLink"
                 }`}
@@ -47,7 +47,7 @@ export default function Commitment() {
               </Link>
             </span>
             <span className="">
-              <Link
+              <Link  style={{fontWeight: "900", color: "0e2238"}}
                 className={`${
                   current === "/deal/commitment" ? "topLink-active" : "topLink"
                 }`}
@@ -58,7 +58,7 @@ export default function Commitment() {
             </span>
           </div>
           <div className="row">
-            <Typography variant="h4" className="my-4">
+            <Typography  style={{fontWeight: "900", color: "0e2238"}} variant="h4" className="my-4">
               Deals Commitment
             </Typography>
           </div>
@@ -70,9 +70,9 @@ export default function Commitment() {
                 <>
                   <div className="container">
                     <div className="table-responsive">
-                      <table className="table">
-                        <thead className="thead-dark">
-                          <tr align="center">
+                      <table className="table ">
+                        <thead style={{fontWeight: "800"}} className="thead-dark">
+                          <tr  align="center  ">
                             <th scope="col">Network Name</th>
                             <th scope="col">Startup Name </th>
                             <th scope="col">Investor Name</th>
@@ -80,10 +80,10 @@ export default function Commitment() {
                             <th scope="col">Amount</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="text-center " >
                           {commitData.map((item, id) => (
-                            <tr key={id} align="center">
-                              <td>{item.network_name}</td>
+                            <tr className="tableHover "  key={id} align="center">
+                              <td >{item.network_name}</td>
                               <td>{item.startup_name}</td>
                               <td>{item.name ? item.name : 'No Data'}</td>
                               <td>
