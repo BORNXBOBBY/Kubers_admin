@@ -71,7 +71,8 @@ export default function Commitment() {
                   <div className="container">
                     <div className="table-responsive">
                       <table className="table ">
-                        <thead style={{fontWeight: "500"}} className="thead-dark">
+                        <thead style={{fontWeight: "800",backgroundColor: "#0e2238",
+                           color: "#fbfcfa"}} className="thead-dark">
                           <tr  align="center  ">
                             <th scope="col">Network Name</th>
                             <th scope="col">Startup Name </th>

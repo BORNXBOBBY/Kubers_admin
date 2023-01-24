@@ -25,17 +25,17 @@ export default function Investor(props) {
     <>
       <Header />
       <div className="main">
-        <div className="container">
-          <div className="row">
-            <Typography style={{fontWeight: "500", color: "#0e2238"}}   variant="h4" className="mt-2">
+        <div className="container ">
+          <div className="row ">
+            <Typography style={{fontWeight: "500", color: "#0e2238"}}   variant="h4" className="mt-4">
               Investor
             </Typography>
           </div>
           <div className="container">
             <div className="row">
-              <div className="offset-sm-9 col-sm-3">
+              <div className="offset-sm-9 col-sm-3  ">
                 <select style={{marginLeft: "auto"}}
-                  class="form-select form-select-sm mb-3"
+                  class="form-select form-select-sm "
                   aria-label=".form-select-lg example"
                   value={investorToggle}
                   onChange={(e) => setInvestorToggle(e.target.value)}

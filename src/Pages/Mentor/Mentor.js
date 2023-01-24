@@ -33,7 +33,7 @@ export default function Mentor() {
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
                   <select
-                    class="form-select form-select-sm mx-auto mb-3"
+                    class="form-select form-select-sm mb-3"
                     aria-label=".form-select-lg example"
                     onChange={(e) => setMentorToggle(e.target.value)}
                   >
