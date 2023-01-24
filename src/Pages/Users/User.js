@@ -30,18 +30,18 @@ export default function Users(props) {
         <div className="p-4">
           <div className="container">
             <div className="row">
-              <div className="col-sm-8">
-                <Typography style={{fontWeight: "900", color: "#0e2238"}} variant="h4" className="mt-2 ">
+              <div className="col-sm-8 mt-2 ">
+                <Typography style={{fontWeight: "500", color: "#0e2238"}} variant="h4" className="">
                   Users
                 </Typography>
               </div>
-              <div className=" col-sm-4">
-                <select style={{marginLeft: "auto"}}
+              <div className=" col-sm-4 mt-3">
+                <select style={{marginLeft:"auto"}}
                   className="form-select form-select-sm"
                   aria-label=".form-select-lg example"
                   onChange={(e) => setToggleUsers(e.target.value)}
                 >
-                  <option sx={{fontWeight:"900"}} value="verified">Verified Email</option>
+                  <option sx={{fontWeight:"500"}} value="verified">Verified Email</option>
                   <option value="not-verified">Unverified Email</option>
                 </select>
               </div>

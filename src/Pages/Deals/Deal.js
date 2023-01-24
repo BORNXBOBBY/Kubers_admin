@@ -72,7 +72,7 @@ export default function Deal(props) {
           <div className="d-flex border-bottom">
             <span className="">
               {" "}
-              <Link style={{fontWeight: "900"}}
+              <Link style={{fontWeight: "500"}}
                 className={`${
                   current === "/deal" ? "topLink-active" : "topLink"
                 }`}
@@ -82,7 +82,7 @@ export default function Deal(props) {
               </Link>
             </span>
             <span className="">
-              <Link style={{fontWeight: "900"}}
+              <Link style={{fontWeight: "500"}}
                 className={`${
                   current === "/deal/commitment" ? "topLink-active" : "topLink"
                 }`}
@@ -94,7 +94,7 @@ export default function Deal(props) {
           </div>
           <div className="row">
             <div className="col-sm-12 mt-sm-3 ">
-              <Typography  style={{fontWeight: "900", color: "0e2238"}} variant="h4">Deals</Typography>
+              <Typography  style={{fontWeight: "500", color: "0e2238"}} variant="h4">Deals</Typography>
             </div>
             {dealSkeleton ? (
               <NetworksSkeleton />
@@ -104,7 +104,7 @@ export default function Deal(props) {
                   <>
                     <div className="px-sm-0 px-md-2 px-lg-0 pt-4">
                       <div className="px-sm-0 px-md-2 px-lg-0 table-responsive">
-                        <table className="table border">
+                        <table className="table">
                           <thead className="text-center">
                             <tr className="tablebody headHover">
                               <th>
