@@ -96,7 +96,7 @@ export default function Setting() {
                             </div>
                           </div>
                           <div className="col-sm-12">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "900" }}>User Name</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "500" }}>User Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -107,7 +107,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>First Name</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>First Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -117,7 +117,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Last Name</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Last Name</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -128,7 +128,7 @@ export default function Setting() {
                           </div>
 
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Email</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Email</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -139,7 +139,7 @@ export default function Setting() {
                             />
                           </div>
                           <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Gender</InputLabel>
+                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Gender</InputLabel>
                             <Input
                               fullWidth
                               type="text"
@@ -150,7 +150,7 @@ export default function Setting() {
                           </div>
                           <div className="col-sm-6">
                             <div>
-                              <InputLabel sx={{ mt: 3 , fontWeight: "900"  }}>Password</InputLabel>
+                              <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Password</InputLabel>
                               <Input
                                 fullWidth
                                 type="text"

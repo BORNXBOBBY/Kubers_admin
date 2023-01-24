@@ -45,7 +45,7 @@ export default function MentorCorporateProfile() {
       <div className="main">
         <div className="d-flex border-bottom">
           <span>
-            <Link
+            <Link style={{fontWeight: "900", color: "0e2238"}}
               className={`${
                 current === `/mentor/${id}/${slug}`
                   ? "topLink-active"
@@ -57,7 +57,7 @@ export default function MentorCorporateProfile() {
             </Link>
           </span>
           <span>
-            <Link
+            <Link style={{fontWeight: "900", color: "0e2238"}}
               className={`${
                 current === `/mentor/${id}/${slug}/corporate-profile`
                   ? "topLink-active"
@@ -72,8 +72,8 @@ export default function MentorCorporateProfile() {
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Mentor's Corporate Profile</h2>
+              <div className="rounded  p-3">
+                <h2 style={{fontWeight: "900" , color:"#0e2238"}}  className="text-center">Mentor's Corporate Profile</h2>
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
@@ -92,7 +92,7 @@ export default function MentorCorporateProfile() {
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{item.full_name} </h4>
+                    <h4 style={{ color: "#0e2238" , fontWeight: "700" }}>{item.full_name} </h4>
                     <p className="text-muted mb-0">{item.designation}</p>
                     <span className="text-muted">{item.name_of_the_firm} </span>
                     <p>{item.description} </p>
@@ -100,7 +100,7 @@ export default function MentorCorporateProfile() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4"  style={{color: "rgb(108, 117, 125)" }}>
                     Corporate Profile :-
                   </h5>
                 </div>

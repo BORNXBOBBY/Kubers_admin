@@ -35,7 +35,7 @@ export default function CorporateProfile() {
         <MentorTopBar />
         <div className="container">
           <div className="row">
-            <Typography sx={{fontWeight: "900" , color: "#0e2238"}} variant="h4" className="mt-2">
+            <Typography sx={{fontWeight: "500" , color: "#0e2238"}} variant="h4" className="mt-2">
               Corporate Profile
             </Typography>
 

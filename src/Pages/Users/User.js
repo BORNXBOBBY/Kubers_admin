@@ -31,7 +31,7 @@ export default function Users(props) {
           <div className="container">
             <div className="row">
               <div className="col-sm-8">
-                <Typography style={{fontWeight: "900", color: "#0e2238"}} variant="h4" className="mt-2 ">
+                <Typography style={{fontWeight: "500", color: "#0e2238"}} variant="h4" className="mt-2 ">
                   Users
                 </Typography>
               </div>

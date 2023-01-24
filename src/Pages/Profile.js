@@ -8,10 +8,10 @@ export default function Profile() {
     <>
       <Header />
       <div style={{fontFamily: 'Ubuntu'}} className="main">
-        <Typography sx={{fontWeight: "900", fontFamily:"Ubuntu"}} variant="caption">Profile</Typography>
+        <Typography sx={{fontWeight: "500", fontFamily:"Ubuntu"}} variant="caption">Profile</Typography>
         <div className="container">
           <div className="row py-5">
-            <h3 style={{fontWeight: "900"}}  className="text-center">Profile</h3>
+            <h3 style={{fontWeight: "500"}}  className="text-center">Profile</h3>
             <div className="col-12 ">
               <div className="row p-5">
                 <div className="col-12 col-md-3">

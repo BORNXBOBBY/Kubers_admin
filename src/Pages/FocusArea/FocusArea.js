@@ -108,9 +108,9 @@ export default function FocusArea() {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <Typography variant="h3"> FocusArea</Typography>
+              <Typography sx={{fontWeight: 500, color: "#0e2238"}} variant="h3"> FocusArea</Typography>
             </div>
-            <div className="offset-sm-9 col-sm-3">
+            <div className="offset-sm-9 col-sm-3 ">
               <select
                 class="form-select"
                 aria-label="Default select example"

@@ -90,7 +90,7 @@ export default function MentorDetails() {
       <div className="main">
         <div className="d-flex border-bottom">
           <span>
-            <Link
+            <Link style={{fontWeight: "500", color: "0e2238"}}
               className={`${
                 current === `/mentor/${id}/${slug}`
                   ? "topLink-active"
@@ -102,7 +102,7 @@ export default function MentorDetails() {
             </Link>
           </span>
           <span>
-            <Link
+            <Link style={{fontWeight: "500", color: "0e2238"}}
               className={`${
                 current === `/mentor/${id}/${slug}/corporate-profile`
                   ? "topLink-active"
@@ -117,8 +117,8 @@ export default function MentorDetails() {
         <div className="container">
           <div className="row">
             <div className="col-12 py-4">
-              <div className="rounded shadow bg-light p-3">
-                <h2 className="text-center">Mentor Details</h2>
+              <div className="rounded   p-3">
+                <h2 style={{fontWeight: "500", color: "0e2238"}} className="text-center">Mentor Details</h2>
                 <hr />
                 <div className="row mt-4 align-items-center">
                   <div
@@ -137,7 +137,7 @@ export default function MentorDetails() {
                     />
                   </div>
                   <div className="col-12 col-md-7">
-                    <h4 style={{ color: "#1976d2" }}>{item.full_name} </h4>
+                    <h4 style={{ color: "#0e2238", fontWeight:"500" }}>{item.full_name} </h4>
                     <p className="text-muted mb-0">{item.designation}</p>
                     <span className="text-muted">{item.name_of_the_firm} </span>
                     <p>{item.description} </p>
@@ -178,7 +178,7 @@ export default function MentorDetails() {
                 </div>
                 <hr />
                 <div className="row">
-                  <h5 className="ps-1 ps-md-4" style={{ color: "#1976d2" }}>
+                  <h5 className="ps-1 ps-md-4" style={{color: "rgb(108, 117, 125)" }}>
                     About :-
                   </h5>
                 </div>

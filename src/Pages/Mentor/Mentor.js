@@ -26,14 +26,14 @@ export default function Mentor() {
         <MentorTopBar />
         <div className="container">
           <div className="row">
-            <Typography style={{fontWeight: "900" , color:"#0e2238"}} variant="h4" className="mt-2">
+            <Typography style={{fontWeight: "500" , color:"#0e2238"}} variant="h4" className="mt-2 ">
               Mentor
             </Typography>
             <div className="container">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
                   <select
-                    class="form-select form-select-lg mb-3"
+                    class="form-select form-select-sm mx-auto mb-3"
                     aria-label=".form-select-lg example"
                     onChange={(e) => setMentorToggle(e.target.value)}
                   >

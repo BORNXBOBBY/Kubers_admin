@@ -8,7 +8,7 @@ export default function MentorTopBar() {
       <div className="d-flex border-bottom">
         <span>
           <Link 
-          style={{fontWeight: "900", color: "0e2238"}}
+          style={{fontWeight: "500", color: "0e2238"}}
             className={`${
               current === `/mentor` ? "topLink-active" : "topLink"
             }`}
@@ -18,7 +18,7 @@ export default function MentorTopBar() {
           </Link> 
         </span>
         <span>
-          <Link  style={{fontWeight: "900", color: "0e2238"}}
+          <Link  style={{fontWeight: "500", color: "0e2238"}}
             className={`${
               current === `/mentor/corporate-profile`
                 ? "topLink-active"

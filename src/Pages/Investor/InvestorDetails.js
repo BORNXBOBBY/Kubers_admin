@@ -78,7 +78,7 @@ export default function InvestorDetails() {
           <div className="row">
             <div className="col-12 py-4">
               <div className="rounded   p-3">
-                <h2 style={{fontWeight:"900" , color:"#0e2238"}} className="text-center">Investor Details</h2>
+                <h2 style={{fontWeight:"500" , color:"#0e2238"}} className="text-center">Investor Details</h2>
 
                 <hr />
                 <div className="row mt-4 align-items-center">
