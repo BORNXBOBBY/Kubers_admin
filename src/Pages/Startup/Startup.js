@@ -52,6 +52,18 @@ export default function Startup() {
                 Documents
               </Link>
             </span>
+            <span className="">
+              <Link
+                className={`${
+                  current === "/startup/vc/form"
+                    ? "topLink-active"
+                    : "topLink"
+                }`}
+                to="/startup/vc/form"
+              >
+                Starup Vc Forms
+              </Link>
+            </span>
           </div>
           <div className="row">
             {/* <Typography variant="h4" className="mt-2">

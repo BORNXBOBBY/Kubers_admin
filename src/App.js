@@ -34,6 +34,7 @@ import FocusArea from "./Pages/FocusArea/FocusArea";
 import ReactGa from "react-ga";
 import { useEffect } from "react";
 import NewsArticle from "./Pages/NewsArticle/NewsArticle";
+import StartupVcForm from "./Pages/Startup/StartupVcFrom";
 
 function App() {
   useEffect(() => {
@@ -76,6 +77,11 @@ function App() {
               exact
               path="/startup/documents"
               component={Documents}
+            />
+            <ProtectedRoute
+              exact
+              path="/startup/vc/form"
+              component={StartupVcForm}
             />
             <ProtectedRoute
               exact
