@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getRequest } from "../../Constant/apiCall";
@@ -6,19 +6,19 @@ import { addSubStr } from "../../Constant/Substring";
 import "./Document.css";
 import Header from "../../Header/Header";
 import NetworksSkeleton from "../Skeleton/NetworksSkeleton";
+import NetworkEmpty from "../Empty/NetworkEmpty";
 
-export default function Documents() {
-  const [startupDoc, setStartupDoc] = useState([]);
+export default function StartupVcForm() {
+  const [startup, setStartup] = useState([]);
   const [docSkeleton, setDocSkeleton] = useState(true);
 
   const getDocument = async () => {
     try {
-      //   setNetworkDoc(true);
-      var res = await getRequest(`/dashboard/startup_documents/`, true);
+      var res = await getRequest(`/startup/vc/form`, true);
       console.log("res", res);
       var responseData = await res.json();
-      console.log("responseData", responseData);
-      setStartupDoc(responseData);
+    //   console.log("responseData", responseData);
+      setStartup(responseData);
       setDocSkeleton(false);
     } catch (e) {
       console.log(e);
@@ -77,53 +77,44 @@ export default function Documents() {
           ) : (
             <>
               <div className="px-sm-5 px-lg-5 px-md-0 mt-5">
-                <div class="table-responsive">
+                {startup?.length > 0 ? <div class="table-responsive">
                   <table class="table">
                     <thead class="">
                       <tr className="Document_Table_head" align="center">
-                        <th scope="col">Document Type</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Documents</th>
+                        <th> Startup Id </th>
+                        <th scope="col">Startup Name</th>
+                        <th scope="col">Applied Time</th>
+                        <th scope="col" > View</th>
                       </tr>
                     </thead>
-                    {startupDoc.map((item, id) => (
-                      <tbody className="Document_body">
+                    {startup.map((item, id) => (
+                      <tbody key={id} className="Document_body">
                         <tr align="center">
                           <td>
-                            {" "}
-                            {item.document_type === "pitch_desk"
-                              ? "Pitch Desk"
-                              : item.document_type === "startupdocuments"
-                              ? "Startup Documents"
-                              : item.document_type}
+                            {item.startup}
                           </td>
-                          <td>{addSubStr(item.description, 30)}</td>
+                          <td>{item.startup_name} </td>
                           <td>
                             {new Date(
-                              item.uploaded_date_time
-                            ).toLocaleDateString()}
+                              item.created_time
+                            ).toLocaleString()}
                           </td>
                           <td>
-                            <>
-                              <Button
-                                className="link"
-                                target="_blank"
-                                href={item.documents}
-                                rel="noreferrer"
-                                variant="outlined"
-                                size="small"
-                                hre
-                              >
-                                View
-                              </Button>
-                            </>
-                          </td>
+                              <Link to={`/startup/${item.startup}/${item.startup_slug}`}>
+                                <Button
+                                  variant="outlined"
+                                  size="small"
+                                  color="default"
+                                >
+                                  View
+                                </Button>
+                              </Link>
+                            </td>
                         </tr>
                       </tbody>
                     ))}
                   </table>
-                </div>
+                </div> : <NetworkEmpty />}
               </div>
             </>
           )}
