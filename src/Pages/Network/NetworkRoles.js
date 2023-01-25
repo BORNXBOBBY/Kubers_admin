@@ -26,15 +26,17 @@ export default function NetworkRoles() {
         <NetworkTopbar />
         <div className="container">
           <div className="row">
-            <Typography variant="h4" className="my-4">
+            <Typography style={{fontWeight: "600px",
+          color: "#0e2238"}}  variant="h4" className="my-4 mx-5">
               Network Roles
             </Typography>
           </div>
 
-          {role.length > 0 ? <div className="px-md-2 px-lg-4 pt-4">
+          {role.length > 0 ? <div className="px-md-2 px-lg-4 pt-2">
             <div className="px-md-2 px-lg-4 table-responsive">
-              <table className="table border">
-                <thead className="text-center">
+              <table className="table ">
+                <thead  style={{backgroundColor: "#0e2238",
+                color: "#fbfcfa"}} className="text-center">
                   <tr className="tablebody headHover">
                     <th>
                       <Typography variant="h6">Name</Typography>
