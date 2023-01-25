@@ -42,7 +42,7 @@ export default function CorporateProfile() {
             {corporateSkeleton ? (
               <NetworksSkeleton />
             ) : (
-              <div className="px-sm-5 py-3">
+              <div className="px-sm-0 py-5">
                 {corporateProfile?.length > 0 ? (
                   <div className="table-responsive">
                     <table className="table">
