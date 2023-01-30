@@ -35,7 +35,7 @@ export const Network = (props) => {
           <div className="d-flex border-bottom">
             <span className="">
               {" "}
-              <Link
+              <Link 
                 className={`${
                   current === "/networks" ? "topLink-active" : "topLink"
                 }`}
