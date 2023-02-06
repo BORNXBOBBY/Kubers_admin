@@ -6,6 +6,7 @@ import {
   MonetizationOnOutlined,
   AutoAwesomeMotion,
 } from "@mui/icons-material";
+import ArticleIcon from '@mui/icons-material/Article';
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Header/SideHeader.css";
@@ -53,7 +54,7 @@ export default function SideHeader({ toggle }) {
           <SidebarLink icon={<MonetizationOnOutlined />} text="FocusArea" />
         </Link>
         <Link to="/news-article">
-          <SidebarLink icon={<MonetizationOnOutlined />} text="News Article" />
+          <SidebarLink icon={<ArticleIcon />} text="News Article" />
         </Link>
       </div>
     </div>

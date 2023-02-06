@@ -3,14 +3,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { api_url } from "../../Constant/ConstantApi";
-import Header from "../../Header/Header";
+import Modal from '@mui/material/Modal';
+import { Box } from "@mui/material";
 import "./NewsArticle.css";
-import { Link } from 'react-router-dom'
-import NewsArticleTopNav from "./NewsArticleTopNav";
 
-
-export default function NewsArticle() {
-
+export default function EditForm({ open, setOpen }) {
   const [img, setImg] = useState();
   const [title, setTitle] = useState("");
   const [LinkUrl, setLinkUrl] = useState("");
@@ -31,17 +28,16 @@ export default function NewsArticle() {
     var titleLen = title.trim().length;
     var desclen = desc.trim().length;
     if (titleLen < 1) {
-      toast("Please Add Title");
+      toast.error("Please Add Title");
     }
     if (desclen < 1) {
-      toast("Please Add Description");
+      toast.error("Please Add Description");
     }
     if (!img) {
-      toast("Please Add img");
-
+      toast.error("Please Add img");
     }
     if (titleLen > 1 && desclen > 1 && img) {
-    setLoading(true);
+      setLoading(true);
       console.log(
         "titleLen=",
         titleLen,
@@ -72,15 +68,13 @@ export default function NewsArticle() {
           setDesc("");
           setImg("");
           setLoading(false);
-
         } else {
           setLoading(false);
-          console.log("res", res.status)
-          toast.error('Url is not valid')
-          
+          console.log("res", res.status);
+          toast.error("Url is not valid");
         }
       });
-    } 
+    }
     // console.log(img);
   };
   useEffect(() => {
@@ -88,19 +82,35 @@ export default function NewsArticle() {
     const file = new Blob([img], { type: "image/jpg" });
     const objectUrl = window.URL.createObjectURL(file);
     setPreview(objectUrl);
-
     // free memory when ever this component is unmounted
     return () => window.URL.revokeObjectURL(objectUrl);
   }, [img]);
-  const current = window.location.pathname;
 
+  const handleClose = () => { 
+    setOpen(false)
+  }
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    maxHeight:600,
+    overFlow:'auto',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
   return (
     <>
-      <ToastContainer />
-      <Header />
-      <div className="main">
-      <NewsArticleTopNav />
-        <div className="formbold-main-wrapper">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div  className="formbold-main-wrapper">
           <div className="formbold-form-wrapper">
             <form onSubmit={handleUpload}>
               <div className="formbold-mb-5">
@@ -138,7 +148,6 @@ export default function NewsArticle() {
                   className="formbold-form-input"
                 />
               </div>
-
 
               <div className="formbold-mb-5">
                 <label className="formbold-form-label">Description:</label>
@@ -186,7 +195,6 @@ export default function NewsArticle() {
                           {img?.name}{" "}
                         </span>
                         <button type="button" onClick={() => setImg("")}>
-                        
                           <svg
                             width="10"
                             height="10"
@@ -214,12 +222,14 @@ export default function NewsArticle() {
               </div>
 
               <div>
-                <button disabled={loading} className="formbold-btn w-full">{loading ? "loading..." : "Send File"}</button>
+                <button disabled={loading} className="formbold-btn w-full">
+                  {loading ? "loading..." : "Send File"}
+                </button>
               </div>
             </form>
           </div>
         </div>
-      </div>
+      </Modal>
     </>
   );
 }
