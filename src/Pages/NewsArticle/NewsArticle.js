@@ -9,8 +9,11 @@ export default function NewsArticle() {
   const [img, setImg] = useState();
 
   const [title, setTitle] = useState("");
+  const [LinkUrl, setLinkUrl] = useState("");
+  const [LinkText, setLinkText] = useState("");
   const [desc, setDesc] = useState("");
   const [preview, setPreview] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleImage = (e) => {
     console.log("target", e.target.files);
@@ -34,8 +37,10 @@ export default function NewsArticle() {
     }
     if (!img) {
       toast("Please Add img");
+
     }
     if (titleLen > 1 && desclen > 1 && img) {
+    setLoading(true);
       console.log(
         "titleLen=",
         titleLen,
@@ -49,20 +54,32 @@ export default function NewsArticle() {
       let formData = new FormData();
       formData.append("image", img, img.name);
       formData.append("title", title);
+      formData.append("link_url", LinkUrl);
+      formData.append("link_text", LinkText);
       formData.append("desc", desc);
       fetch(`${api_url}/news_article/`, {
         method: "POST",
         headers: {},
         body: formData,
       }).then((res) => {
-        if (res.status === 201) {
+        if (res.status === 200 || res.status === 201) {
           console.log("res", res.status);
-          console.log("res", res.json);
+          toast("Data Uploaded");
+          setTitle("");
+          setLinkUrl("");
+          setLinkText("");
+          setDesc("");
+          setImg("");
+          setLoading(false);
+
+        } else {
+          setLoading(false);
+          console.log("res", res.status)
+          toast.error('Url is not valid')
+          
         }
       });
-      toast("Data Uploaded");
-    }
-
+    } 
     // console.log(img);
   };
   useEffect(() => {
@@ -88,10 +105,36 @@ export default function NewsArticle() {
                   type="text"
                   onChange={(e) => setTitle(e.target.value)}
                   name="title"
+                  value={title}
                   placeholder="Enter Title"
                   className="formbold-form-input"
                 />
               </div>
+
+              <div className="formbold-mb-5">
+                <label className="formbold-form-label">Link Text:</label>
+                <input
+                  type="text"
+                  onChange={(e) => setLinkText(e.target.value)}
+                  name="LinkText"
+                  value={LinkText}
+                  placeholder="Enter Link Text"
+                  className="formbold-form-input"
+                />
+              </div>
+
+              <div className="formbold-mb-5">
+                <label className="formbold-form-label">Link Url:</label>
+                <input
+                  type="text"
+                  onChange={(e) => setLinkUrl(e.target.value)}
+                  name="LinkUrl"
+                  value={LinkUrl}
+                  placeholder="Enter Link Url"
+                  className="formbold-form-input"
+                />
+              </div>
+
 
               <div className="formbold-mb-5">
                 <label className="formbold-form-label">Description:</label>
@@ -99,6 +142,7 @@ export default function NewsArticle() {
                   cols="30"
                   onChange={(e) => setDesc(e.target.value)}
                   rows="5"
+                  value={desc}
                   placeholder="Enter Description"
                   className="formbold-form-input"
                 ></textarea>
@@ -115,6 +159,7 @@ export default function NewsArticle() {
                     type="file"
                     name="file"
                     id="file"
+                    // value={img}
                   />
                   <label htmlFor="file" style={{ cursor: "copy" }}>
                     <div>
@@ -137,6 +182,7 @@ export default function NewsArticle() {
                           {img?.name}{" "}
                         </span>
                         <button type="button" onClick={() => setImg("")}>
+                        
                           <svg
                             width="10"
                             height="10"
@@ -164,7 +210,7 @@ export default function NewsArticle() {
               </div>
 
               <div>
-                <button className="formbold-btn w-full">Send File</button>
+                <button disabled={loading} className="formbold-btn w-full">{loading ? "loading..." : "Send File"}</button>
               </div>
             </form>
           </div>
