@@ -72,6 +72,7 @@ export default function Startup() {
             <div className="container mt-3">
               <div className="row">
                 <div className="offset-sm-9 col-sm-3">
+                  
                   <select
                     class="Startup_formSelect form-select form-select-sm mb-3"
                     aria-label=".form-select-lg example"

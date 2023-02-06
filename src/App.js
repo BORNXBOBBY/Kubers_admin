@@ -34,7 +34,9 @@ import FocusArea from "./Pages/FocusArea/FocusArea";
 import ReactGa from "react-ga";
 import { useEffect } from "react";
 import NewsArticle from "./Pages/NewsArticle/NewsArticle";
+import EditNewsArticle from "./Pages/NewsArticle/EditNewsArticle"
 import StartupVcForm from "./Pages/Startup/StartupVcFrom";
+
 
 function App() {
   useEffect(() => {
@@ -150,6 +152,7 @@ function App() {
             />
             <ProtectedRoute exact path="/focusarea" component={FocusArea} />
             <ProtectedRoute exa path="/news-article" component={NewsArticle} />
+            <ProtectedRoute exa path="/edit-article" component={EditNewsArticle} />
             <Route exact path="signup" component={Signup} />
             <Route exact path="/" component={Login} />
           </Switch>
