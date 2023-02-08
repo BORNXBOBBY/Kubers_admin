@@ -20,6 +20,7 @@ export default function EditNewsArticle() {
   const [item, setItem] = useState();
   const [loading, setLoading] = useState(false)
   const [openEditModal, setOpenEditModal] = useState(false)
+  const [editData,setEditData]=useState([])
 
   const getNewsFeed = async () => {
     setLoading(true)
@@ -63,6 +64,7 @@ export default function EditNewsArticle() {
 
   const handleEdit = (item) => {
     console.log("item", item);
+    setEditData(item)
     setOpenEditModal(true)
   };
 
@@ -91,7 +93,7 @@ export default function EditNewsArticle() {
         setOpen={setOpen}
         handleAgree={handleDelete}
       />
-      <EditForm open={openEditModal} setOpen={setOpenEditModal}  />
+      <EditForm editData={editData} open={openEditModal} setOpen={setOpenEditModal} getNewsFeed={getNewsFeed} setEditData={setEditData}  />
       <div className="main">
         <NewsArticleTopNav />
 
