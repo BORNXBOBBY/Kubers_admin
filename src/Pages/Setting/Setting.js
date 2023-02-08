@@ -67,7 +67,7 @@ export default function Setting() {
                   <form>
                     
                       <CardContent>
-                        <div className="row mx-sm-5">
+                        <div className="row mx-sm-5 mx-auto">
                           <div className="col-sm-6">
                             <div className="row">
                               <div className="col-4">
@@ -88,7 +88,7 @@ export default function Setting() {
                                   placement="top"
                                   title="change Profile here"
                                 >
-                                  <IconButton sx={{marginLeft: "-50px"}}>
+                                  <IconButton >
                                     <Edit sx={{Color: "#0e2238"}} />
                                   </IconButton>
                                 </Tooltip>

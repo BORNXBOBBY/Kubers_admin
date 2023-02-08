@@ -54,7 +54,7 @@ export default function Header(props) {
         style={{ backgroundColor: "#0e2238" }}
       >
         <Toolbar>
-          <IconButton
+          <IconButton style={{color:"white"}}
             edge="start"
             className="d-block d-lg-none"
             aria-label="menu"

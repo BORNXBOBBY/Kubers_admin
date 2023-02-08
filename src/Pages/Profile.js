@@ -7,8 +7,8 @@ export default function Profile() {
   return (
     <>
       <Header />
-      <div style={{fontFamily: 'Ubuntu'}} className="main">
-        <Typography sx={{fontWeight: "500", fontFamily:"Ubuntu"}} variant="caption">Profile</Typography>
+      <div className="main">
+        <Typography sx={{fontWeight: "500"}} variant="caption">Profile</Typography>
         <div className="container">
           <div className="row py-5">
             <h3 style={{fontWeight: "500"}}  className="text-center">Profile</h3>
@@ -24,7 +24,7 @@ export default function Profile() {
                 <div className="col-12 col-md-9">
                   <Box >
                     <div className="row">
-                      <div className="col-6 mt-3">
+                      <div className="col-12 col-lg-6 mt-3">
                         <TextField
                           className="w-100"
                           id="outlined-disabled"
@@ -35,7 +35,7 @@ export default function Profile() {
                           Name
                         </TextField>
                       </div>
-                      <div className="col-6 mt-3">
+                      <div className="col-12 col-lg-6 mt-3">
                         <TextField
                           className="w-100"
                           id="outlined-disabled"
@@ -46,7 +46,7 @@ export default function Profile() {
                           Email
                         </TextField>
                       </div>
-                      <div className="col-6 mt-3">
+                      <div className="col-12 col-lg-6 mt-3">
                         <TextField
                           className="w-100"
                           id="outlined-disabled"
@@ -57,7 +57,7 @@ export default function Profile() {
                           Mobile
                         </TextField>
                       </div>
-                      <div className="col-6 mt-3">
+                      <div className="col-12 col-lg-6 mt-3">
                         <TextField
                           className="w-100"
                           id="outlined-disabled"
@@ -68,7 +68,7 @@ export default function Profile() {
                           Male
                         </TextField>
                       </div>
-                      <div className="col-6 mt-3">
+                      <div className="col-12 col-lg-6  mt-3">
                         <TextField
                           className="w-100"
                           id="outlined-disabled"
