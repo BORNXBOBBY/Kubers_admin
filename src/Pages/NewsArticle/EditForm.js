@@ -4,39 +4,36 @@ import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { api_url } from "../../Constant/ConstantApi";
 import Modal from '@mui/material/Modal';
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import "./NewsArticle.css";
 
-export default function EditForm({ open, setOpen }) {
+export default function EditForm({editData,setEditData, getNewsFeed, open, setOpen }) {
   const [img, setImg] = useState();
-  const [title, setTitle] = useState("");
-  const [LinkUrl, setLinkUrl] = useState("");
-  const [LinkText, setLinkText] = useState("");
-  const [desc, setDesc] = useState("");
   const [preview, setPreview] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleImage = (e) => {
     console.log("target", e.target.files);
     setImg(e.target.files[0]);
+    setEditData({...editData, image:img})
+    console.log(editData)
   };
-
+// console.log("title",title)
+// console.log("editData",editData)
   // console.log("image-data", img);
 
   const handleUpload = (e) => {
     e.preventDefault();
-    var titleLen = title.trim().length;
-    var desclen = desc.trim().length;
+    var titleLen = editData.title.trim().length;
+    var desclen = editData.desc.trim().length;
     if (titleLen < 1) {
       toast.error("Please Add Title");
     }
     if (desclen < 1) {
       toast.error("Please Add Description");
     }
-    if (!img) {
-      toast.error("Please Add img");
-    }
-    if (titleLen > 1 && desclen > 1 && img) {
+    
+    if (titleLen > 1 && desclen > 1) {
       setLoading(true);
       console.log(
         "titleLen=",
@@ -50,24 +47,22 @@ export default function EditForm({ open, setOpen }) {
       );
       let formData = new FormData();
       formData.append("image", img, img.name);
-      formData.append("title", title);
-      formData.append("link_url", LinkUrl);
-      formData.append("link_text", LinkText);
-      formData.append("desc", desc);
-      fetch(`${api_url}/news_article/`, {
-        method: "POST",
+      formData.append("title", editData.title);
+      formData.append("link_url", editData.link_url);
+      formData.append("link_text", editData.link_text);
+      formData.append("desc", editData.desc);
+      fetch(`${api_url}/news_article/${editData.id}`, {
+        method: "PUT",
         headers: {},
         body: formData,
       }).then((res) => {
         if (res.status === 200 || res.status === 201) {
           console.log("res", res.status);
           toast("Data Uploaded");
-          setTitle("");
-          setLinkUrl("");
-          setLinkText("");
-          setDesc("");
-          setImg("");
+         
           setLoading(false);
+          setOpen(false)
+          getNewsFeed()
         } else {
           setLoading(false);
           console.log("res", res.status);
@@ -85,7 +80,6 @@ export default function EditForm({ open, setOpen }) {
     // free memory when ever this component is unmounted
     return () => window.URL.revokeObjectURL(objectUrl);
   }, [img]);
-
   const handleClose = () => { 
     setOpen(false)
   }
@@ -110,16 +104,17 @@ export default function EditForm({ open, setOpen }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div  className="formbold-main-wrapper">
-          <div className="formbold-form-wrapper">
-            <form onSubmit={handleUpload}>
+        <div className="formbold-main-wrapper mt-5">
+          <div  className="formbold-form-wrapper modal-form-ggg">
+            <form style={{position:"relative",width:"100%"}} onSubmit={handleUpload}>
+           <IconButton style={{position:"absolute",right:"-10px",top:"-37px"}} onClick={handleClose} >X</IconButton>
               <div className="formbold-mb-5">
                 <label className="formbold-form-label">Title:</label>
                 <input
                   type="text"
-                  onChange={(e) => setTitle(e.target.value)}
+                  onChange={(e) => setEditData({...editData, title:e.target.value})}
                   name="title"
-                  value={title}
+                  value={editData.title}
                   placeholder="Enter Title"
                   className="formbold-form-input"
                 />
@@ -129,9 +124,9 @@ export default function EditForm({ open, setOpen }) {
                 <label className="formbold-form-label">Link Text:</label>
                 <input
                   type="text"
-                  onChange={(e) => setLinkText(e.target.value)}
+                  onChange={(e) => setEditData({...editData,link_text:e.target.value})}
                   name="LinkText"
-                  value={LinkText}
+                  value={editData.link_text}
                   placeholder="Enter Link Text"
                   className="formbold-form-input"
                 />
@@ -141,9 +136,9 @@ export default function EditForm({ open, setOpen }) {
                 <label className="formbold-form-label">Link Url:</label>
                 <input
                   type="text"
-                  onChange={(e) => setLinkUrl(e.target.value)}
+                  onChange={(e) => setEditData({...editData, link_url:e.target.value})}
                   name="LinkUrl"
-                  value={LinkUrl}
+                  value={editData.link_url}
                   placeholder="Enter Link Url"
                   className="formbold-form-input"
                 />
@@ -153,9 +148,9 @@ export default function EditForm({ open, setOpen }) {
                 <label className="formbold-form-label">Description:</label>
                 <textarea
                   cols="30"
-                  onChange={(e) => setDesc(e.target.value)}
+                  onChange={(e) => setEditData({...editData,desc:e.target.value})}
                   rows="5"
-                  value={desc}
+                  value={editData.desc}
                   placeholder="Enter Description"
                   className="formbold-form-input"
                 ></textarea>
@@ -169,6 +164,7 @@ export default function EditForm({ open, setOpen }) {
                 <div className="formbold-mb-5 formbold-file-input">
                   <input
                     onChange={handleImage}
+                    
                     type="file"
                     name="file"
                     id="file"
@@ -222,7 +218,7 @@ export default function EditForm({ open, setOpen }) {
               </div>
 
               <div>
-                <button disabled={loading} className="formbold-btn w-full">
+                <button type="submit" disabled={loading} className="formbold-btn w-full">
                   {loading ? "loading..." : "Send File"}
                 </button>
               </div>
