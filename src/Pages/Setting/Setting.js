@@ -54,7 +54,7 @@ export default function Setting() {
             <div className="col-sm-11 mt-3">
               <div className="row">
                 <div className="col-sm-12 ">
-                  <div>
+                  <div> 
                     <Typography
                       sx={{ mb: 0, fontFamily: "Ubuntu" }}
                       variant="h3"
