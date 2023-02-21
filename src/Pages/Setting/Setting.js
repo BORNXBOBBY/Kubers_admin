@@ -55,7 +55,10 @@ export default function Setting() {
               <div className="row">
                 <div className="col-sm-12 ">
                   <div>
-                    <Typography sx={{ mb: 0, fontFamily: "Ubuntu" }} variant="h3">
+                    <Typography
+                      sx={{ mb: 0, fontFamily: "Ubuntu" }}
+                      variant="h3"
+                    >
                       Personal Info
                     </Typography>
                     <small className="text-info">
@@ -65,104 +68,115 @@ export default function Setting() {
                 </div>
                 <div className="col-sm-12 mt-4">
                   <form>
-                    
-                      <CardContent>
-                        <div className="row mx-sm-5 mx-auto">
-                          <div className="col-sm-6">
-                            <div className="row">
-                              <div className="col-4">
-                                <Avatar
-                                  sx={{ width: "100px", height: "100px" }}
-                                  src="https://i.ibb.co/Tm92ZWW/user.png"
-                                />
-                              </div>
-                              <div className="col-2 mt-4">
-                                {/* <Button
+                    <CardContent>
+                      <div className="row mx-sm-5 mx-auto">
+                        <div className="col-sm-6">
+                          <div className="row">
+                            <div className="col-4">
+                              <Avatar
+                                sx={{ width: "100px", height: "100px" }}
+                                src="https://i.ibb.co/Tm92ZWW/user.png"
+                              />
+                            </div>
+                            <div className="col-2 mt-4">
+                              {/* <Button
                                   variant="contained"
                                   startIcon={<Edit />}
                                   color="secondary"
                                 >
                                   Edit 
                                 </Button> */}
-                                <Tooltip
-                                  placement="top"
-                                  title="change Profile here"
-                                >
-                                  <IconButton >
-                                    <Edit sx={{Color: "#0e2238"}} />
-                                  </IconButton>
-                                </Tooltip>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-sm-12">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "500" }}>User Name</InputLabel>
-                            <Input
-                              fullWidth
-                              type="text"
-                              placeholder="user name"
-                              autoFocus
-                              variant="contained"
-                              readOnly
-                            />
-                          </div>
-                          <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>First Name</InputLabel>
-                            <Input
-                              fullWidth
-                              type="text"
-                              placeholder="first name"
-                              autoFocus
-                              variant="contained"
-                            />
-                          </div>
-                          <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Last Name</InputLabel>
-                            <Input
-                              fullWidth
-                              type="text"
-                              placeholder="last name"
-                              autoFocus
-                              variant="contained"
-                            />
-                          </div>
-
-                          <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Email</InputLabel>
-                            <Input
-                              fullWidth
-                              type="text"
-                              placeholder="email"
-                              autoFocus
-                              variant="contained"
-                              readOnly
-                            />
-                          </div>
-                          <div className="col-sm-6">
-                            <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Gender</InputLabel>
-                            <Input
-                              fullWidth
-                              type="text"
-                              placeholder="gender"
-                              autoFocus
-                              variant="contained"
-                            />
-                          </div>
-                          <div className="col-sm-6">
-                            <div>
-                              <InputLabel sx={{ mt: 3 , fontWeight: "500"  }}>Password</InputLabel>
-                              <Input
-                                fullWidth
-                                type="text"
-                                placeholder="password"
-                                autoFocus
-                                variant="contained"
-                              />
+                              <Tooltip
+                                placement="top"
+                                title="change Profile here"
+                              >
+                                <IconButton>
+                                  <Edit sx={{ Color: "#0e2238" }} />
+                                </IconButton>
+                              </Tooltip>
                             </div>
                           </div>
                         </div>
-                      </CardContent>
-                    
+                        <div className="col-sm-12">
+                          <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                            User Name
+                          </InputLabel>
+                          <Input
+                            fullWidth
+                            type="text"
+                            placeholder="user name"
+                            autoFocus
+                            variant="contained"
+                            readOnly
+                          />
+                        </div>
+                        <div className="col-sm-6">
+                          <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                            First Name
+                          </InputLabel>
+                          <Input
+                            fullWidth
+                            type="text"
+                            placeholder="first name"
+                            autoFocus
+                            variant="contained"
+                          />
+                        </div>
+                        <div className="col-sm-6">
+                          <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                            Last Name
+                          </InputLabel>
+                          <Input
+                            fullWidth
+                            type="text"
+                            placeholder="last name"
+                            autoFocus
+                            variant="contained"
+                          />
+                        </div>
+
+                        <div className="col-sm-6">
+                          <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                            Email
+                          </InputLabel>
+                          <Input
+                            fullWidth
+                            type="text"
+                            placeholder="email"
+                            autoFocus
+                            variant="contained"
+                            readOnly
+                          />
+                        </div>
+                        <div className="col-sm-6">
+                          <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                            Gender
+                          </InputLabel>
+                          <Input
+                            fullWidth
+                            type="text"
+                            placeholder="gender"
+                            autoFocus
+                            variant="contained"
+                          />
+                        </div>
+                        <div className="col-sm-6">
+                          <div>
+                            <InputLabel sx={{ mt: 3, fontWeight: "500" }}>
+                              Password
+                            </InputLabel>
+                            <Input
+                              fullWidth
+                              type="text"
+                              placeholder="password"
+                              autoFocus
+                              variant="contained"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+
                     <div className="flex submitbtn mt-3 ">
                       <Button
                         className="mx-3"
@@ -172,7 +186,11 @@ export default function Setting() {
                       >
                         Cancel
                       </Button>
-                      <Button style={{backgroundColor: "#0e2238", color: "white"}} variant="contained"  size="small">
+                      <Button
+                        style={{ backgroundColor: "#0e2238", color: "white" }}
+                        variant="contained"
+                        size="small"
+                      >
                         Submit
                       </Button>
                     </div>

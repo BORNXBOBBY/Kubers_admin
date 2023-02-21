@@ -8,21 +8,25 @@ export default function Profile() {
     <>
       <Header />
       <div className="main">
-        <Typography sx={{fontWeight: "500"}} variant="caption">Profile</Typography>
+        <Typography sx={{ fontWeight: "500" }} variant="caption">
+          Profile
+        </Typography>
         <div className="container">
           <div className="row py-5">
-            <h3 style={{fontWeight: "500"}}  className="text-center">Profile</h3>
+            <h3 style={{ fontWeight: "500" }} className="text-center">
+              Profile
+            </h3>
             <div className="col-12 ">
               <div className="row p-5">
                 <div className="col-12 col-md-3">
-                  <img 
+                  <img
                     className="img-fluid rounded-circle "
                     src="https://i.ibb.co/Tm92ZWW/user.png"
                     alt=""
                   />
-                </div>  
+                </div>
                 <div className="col-12 col-md-9">
-                  <Box >
+                  <Box>
                     <div className="row">
                       <div className="col-12 col-lg-6 mt-3">
                         <TextField
@@ -81,7 +85,14 @@ export default function Profile() {
                       </div>
                       <div className="col-12gi mt-3 text-end">
                         <Link to="/setting" style={{ textDecoration: "none" }}>
-                          <Button style={{backgroundColor: "#0e2238", color: "white"}}  variant="outlined" color="primary">
+                          <Button
+                            style={{
+                              backgroundColor: "#0e2238",
+                              color: "white",
+                            }}
+                            variant="outlined"
+                            color="primary"
+                          >
                             Edit Info
                           </Button>
                         </Link>
